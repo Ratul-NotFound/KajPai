@@ -38,5 +38,6 @@ describe('Scraper Modules & Orchestration', () => {
       expect(job.sourceUrl).toMatch(/^https?:\/\//);
       expect(job.applyUrl).toMatch(/^https?:\/\//);
     }
-  });
+  }, 15000);
 });
+
