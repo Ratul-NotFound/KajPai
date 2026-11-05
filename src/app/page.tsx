@@ -181,14 +181,14 @@ export default function DashboardPage() {
       <main className="max-w-6xl mx-auto px-4 sm:px-6 pb-20">
         {/* Live Notification Banner */}
         {scrapeNotification && (
-          <div className="mt-4 p-3 rounded-md bg-blue-50 border border-blue-200 text-blue-900 text-xs font-medium flex items-center justify-between animate-fade-in shadow-2xs">
+          <div className="mt-4 p-3 rounded-md bg-zinc-900 text-zinc-100 border border-zinc-800 text-xs font-medium flex items-center justify-between animate-fade-in shadow-xs">
             <div className="flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0" />
+              <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
               <span>{scrapeNotification}</span>
             </div>
             <button
               onClick={() => setScrapeNotification(null)}
-              className="text-blue-500 hover:text-blue-800 font-bold ml-2"
+              className="text-zinc-400 hover:text-white font-bold ml-2 transition-colors"
             >
               ✕
             </button>
@@ -212,14 +212,14 @@ export default function DashboardPage() {
         />
 
         {/* Results Metadata Bar */}
-        <div className="py-4 flex items-center justify-between text-xs text-slate-500">
+        <div className="py-4 flex items-center justify-between text-xs text-zinc-500">
           <div>
-            Showing <span className="font-semibold text-slate-900">{filteredJobs.length}</span>{' '}
+            Showing <span className="font-semibold text-zinc-900">{filteredJobs.length}</span>{' '}
             {showSavedOnly ? 'saved' : ''} jobs
             {selectedCategory !== 'ALL' && (
               <span>
                 {' '}
-                in <strong className="text-slate-800">{selectedCategory}</strong>
+                in <strong className="text-zinc-800">{selectedCategory}</strong>
               </span>
             )}
             {fresherOnly && <span> • Freshers Only</span>}
@@ -227,7 +227,7 @@ export default function DashboardPage() {
           {(searchQuery || selectedCategory !== 'ALL' || fresherOnly || showSavedOnly) && (
             <button
               onClick={handleResetFilters}
-              className="text-blue-600 hover:text-blue-800 hover:underline font-medium"
+              className="text-zinc-900 hover:text-zinc-600 underline font-medium transition-colors"
             >
               Clear filters
             </button>
@@ -240,7 +240,7 @@ export default function DashboardPage() {
             {[1, 2, 3, 4].map((i) => (
               <div
                 key={i}
-                className="h-44 rounded-md border border-slate-200 bg-slate-50/70 animate-pulse p-5"
+                className="h-44 rounded-md border border-zinc-200 bg-zinc-50/70 animate-pulse p-5"
               />
             ))}
           </div>
