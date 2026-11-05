@@ -141,26 +141,26 @@ export const JobCard: React.FC<JobCardProps> = ({ job, isSaved, onToggleSave }) 
   };
 
   return (
-    <article className="group relative flex flex-col justify-between h-full bg-white rounded-2xl border border-slate-200/90 hover:border-slate-300 p-5 sm:p-5.5 shadow-[0_1px_3px_rgba(0,0,0,0.02),0_2px_4px_rgba(0,0,0,0.02)] hover:shadow-[0_12px_24px_-6px_rgba(0,0,0,0.06),0_4px_8px_-2px_rgba(0,0,0,0.03)] hover:-translate-y-0.5 transition-all duration-200 ease-out">
+    <article className="group relative flex flex-col justify-between h-full bg-white rounded-md border border-slate-200 hover:border-slate-300 p-5 shadow-2xs hover:shadow-xs transition-all duration-150">
       {/* Top Body Section */}
       <div className="flex-1">
-        {/* Header Row: Square-Rounded Avatar + Titles + Action Icons */}
+        {/* Header Row: Square Avatar + Titles + Action Icons */}
         <div className="flex items-start justify-between gap-3">
-          <div className="flex items-start gap-3.5 min-w-0 flex-1">
-            {/* Square Rounded Company Monogram Avatar */}
+          <div className="flex items-start gap-3 min-w-0 flex-1">
+            {/* Square Company Monogram Avatar */}
             <div
-              className={`w-11 h-11 rounded-xl shrink-0 flex items-center justify-center font-bold text-xs tracking-wider border shadow-2xs ${categoryStyle.avatarBg} ${categoryStyle.avatarText} ${categoryStyle.avatarBorder}`}
+              className={`w-10 h-10 rounded-md shrink-0 flex items-center justify-center font-bold text-xs tracking-wider border shadow-2xs ${categoryStyle.avatarBg} ${categoryStyle.avatarText} ${categoryStyle.avatarBorder}`}
             >
               {monogram}
             </div>
 
             <div className="min-w-0 flex-1">
-              {/* Company Name & Source Pill */}
+              {/* Company Name & Source Tag */}
               <div className="flex items-center gap-2 flex-wrap mb-1">
                 <span className="text-xs font-semibold text-slate-800 truncate max-w-[200px] sm:max-w-[260px]">
                   {job.company}
                 </span>
-                <span className="text-[10px] uppercase font-bold tracking-wider px-1.5 py-0.5 rounded-md bg-slate-100 text-slate-600 border border-slate-200/70">
+                <span className="text-[10px] uppercase font-bold tracking-wider px-1.5 py-0.5 rounded bg-slate-100 text-slate-600 border border-slate-200/70">
                   {job.source}
                 </span>
               </div>
@@ -179,12 +179,12 @@ export const JobCard: React.FC<JobCardProps> = ({ job, isSaved, onToggleSave }) 
             </div>
           </div>
 
-          {/* Quick Action Buttons (Square Rounded) */}
+          {/* Quick Action Buttons (Square) */}
           <div className="flex items-center gap-1 shrink-0">
             <button
               onClick={handleCopyLink}
               title={copied ? 'Link copied!' : 'Copy application link'}
-              className="w-8 h-8 rounded-lg flex items-center justify-center text-slate-400 hover:text-slate-700 hover:bg-slate-100 border border-transparent hover:border-slate-200 transition-all"
+              className="w-7 h-7 rounded-md flex items-center justify-center text-slate-400 hover:text-slate-700 hover:bg-slate-100 border border-transparent hover:border-slate-200 transition-all"
             >
               {copied ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Share2 className="w-3.5 h-3.5" />}
             </button>
@@ -195,7 +195,7 @@ export const JobCard: React.FC<JobCardProps> = ({ job, isSaved, onToggleSave }) 
                 onToggleSave(job.id);
               }}
               title={isSaved ? 'Remove from saved' : 'Save job'}
-              className={`w-8 h-8 rounded-lg flex items-center justify-center border transition-all ${
+              className={`w-7 h-7 rounded-md flex items-center justify-center border transition-all ${
                 isSaved
                   ? 'bg-amber-50 text-amber-600 border-amber-300 shadow-2xs'
                   : 'border-slate-200 text-slate-400 hover:text-slate-700 hover:bg-slate-50'
@@ -206,11 +206,11 @@ export const JobCard: React.FC<JobCardProps> = ({ job, isSaved, onToggleSave }) 
           </div>
         </div>
 
-        {/* Category & Status Badges */}
-        <div className="mt-3.5 flex flex-wrap items-center gap-1.5">
-          {/* Category Pill with colored indicator dot */}
+        {/* Category & Status Tags (Square badges) */}
+        <div className="mt-3 flex flex-wrap items-center gap-1.5">
+          {/* Category Tag with indicator dot */}
           <span
-            className={`inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-lg text-[11px] font-semibold border ${categoryStyle.bg} ${categoryStyle.text} ${categoryStyle.border}`}
+            className={`inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[11px] font-semibold border ${categoryStyle.bg} ${categoryStyle.text} ${categoryStyle.border}`}
           >
             <span className={`w-1.5 h-1.5 rounded-full ${categoryStyle.dot}`} />
             {categoryStyle.label}
@@ -218,23 +218,23 @@ export const JobCard: React.FC<JobCardProps> = ({ job, isSaved, onToggleSave }) 
 
           {/* Fresher Friendly Badge */}
           {job.isFresherFriendly && (
-            <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-lg text-[11px] font-semibold bg-blue-50 text-blue-700 border border-blue-200/80">
+            <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[11px] font-semibold bg-blue-50 text-blue-700 border border-blue-200/80">
               <Sparkles className="w-3 h-3 text-blue-500" />
               Fresher Friendly
             </span>
           )}
 
           {/* Employment Type */}
-          <span className="inline-flex items-center px-2 py-0.5 rounded-lg text-[11px] font-medium bg-slate-100 text-slate-700 border border-slate-200/60">
+          <span className="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-medium bg-slate-100 text-slate-700 border border-slate-200/60">
             {job.employmentType.replace('_', ' ')}
           </span>
         </div>
 
-        {/* Structured 3-Column Specifications Box */}
-        <div className="mt-3.5 grid grid-cols-2 sm:grid-cols-3 gap-2 p-2.5 rounded-xl bg-slate-50/70 border border-slate-100 text-xs">
+        {/* Structured 3-Column Specifications Box (Square-cornered) */}
+        <div className="mt-3 grid grid-cols-2 sm:grid-cols-3 gap-2 p-2.5 rounded-md bg-slate-50/80 border border-slate-100 text-xs">
           {/* Location */}
           <div className="flex items-center gap-2 min-w-0">
-            <div className="w-6 h-6 rounded-md bg-white border border-slate-200/70 flex items-center justify-center text-slate-400 shrink-0">
+            <div className="w-6 h-6 rounded bg-white border border-slate-200/70 flex items-center justify-center text-slate-400 shrink-0">
               <MapPin className="w-3.5 h-3.5" />
             </div>
             <div className="min-w-0">
@@ -245,7 +245,7 @@ export const JobCard: React.FC<JobCardProps> = ({ job, isSaved, onToggleSave }) 
 
           {/* Experience */}
           <div className="flex items-center gap-2 min-w-0">
-            <div className="w-6 h-6 rounded-md bg-white border border-slate-200/70 flex items-center justify-center text-slate-400 shrink-0">
+            <div className="w-6 h-6 rounded bg-white border border-slate-200/70 flex items-center justify-center text-slate-400 shrink-0">
               <Briefcase className="w-3.5 h-3.5" />
             </div>
             <div className="min-w-0">
@@ -256,7 +256,7 @@ export const JobCard: React.FC<JobCardProps> = ({ job, isSaved, onToggleSave }) 
 
           {/* Salary */}
           <div className="flex items-center gap-2 min-w-0 col-span-2 sm:col-span-1">
-            <div className="w-6 h-6 rounded-md bg-white border border-slate-200/70 flex items-center justify-center text-slate-400 shrink-0">
+            <div className="w-6 h-6 rounded bg-white border border-slate-200/70 flex items-center justify-center text-slate-400 shrink-0">
               <DollarSign className="w-3.5 h-3.5" />
             </div>
             <div className="min-w-0">
@@ -272,7 +272,7 @@ export const JobCard: React.FC<JobCardProps> = ({ job, isSaved, onToggleSave }) 
             {job.skills.slice(0, 4).map((skill, idx) => (
               <span
                 key={idx}
-                className="text-[11px] px-2 py-0.5 rounded-md bg-white text-slate-600 border border-slate-200 font-mono shadow-2xs"
+                className="text-[11px] px-2 py-0.5 rounded bg-white text-slate-600 border border-slate-200 font-mono shadow-2xs"
               >
                 {skill}
               </span>
@@ -287,7 +287,7 @@ export const JobCard: React.FC<JobCardProps> = ({ job, isSaved, onToggleSave }) 
 
         {/* Inline Expandable Details */}
         {isExpanded && job.description && (
-          <div className="mt-3 p-3.5 rounded-xl bg-slate-50 border border-slate-200/70 text-xs text-slate-600 leading-relaxed animate-fade-in">
+          <div className="mt-3 p-3 rounded-md bg-slate-50 border border-slate-200/70 text-xs text-slate-600 leading-relaxed animate-fade-in">
             <p className="font-semibold text-slate-900 mb-1">Role & Qualifications Summary:</p>
             <p className="whitespace-pre-line line-clamp-6">{job.description}</p>
           </div>
@@ -295,10 +295,10 @@ export const JobCard: React.FC<JobCardProps> = ({ job, isSaved, onToggleSave }) 
       </div>
 
       {/* Card Footer: Deadline Status + Actions */}
-      <div className="mt-4 pt-3.5 border-t border-slate-100 flex items-center justify-between gap-2">
-        {/* Deadline Badge */}
+      <div className="mt-3.5 pt-3 border-t border-slate-100 flex items-center justify-between gap-2">
+        {/* Deadline Badge (Square-cornered) */}
         <div
-          className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-xs font-medium border ${
+          className={`inline-flex items-center gap-1.5 px-2 py-1 rounded-md text-xs font-medium border ${
             deadlineInfo.status === 'red'
               ? 'bg-rose-50 text-rose-700 border-rose-200'
               : deadlineInfo.status === 'amber'
@@ -317,7 +317,7 @@ export const JobCard: React.FC<JobCardProps> = ({ job, isSaved, onToggleSave }) 
           {job.description && (
             <button
               onClick={() => setIsExpanded(!isExpanded)}
-              className="inline-flex items-center gap-1 text-xs font-medium text-slate-500 hover:text-slate-900 px-2.5 py-1.5 rounded-lg hover:bg-slate-100 transition-colors"
+              className="inline-flex items-center gap-1 text-xs font-medium text-slate-500 hover:text-slate-900 px-2 py-1 rounded-md hover:bg-slate-100 transition-colors"
             >
               <span>{isExpanded ? 'Less' : 'Details'}</span>
               {isExpanded ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
@@ -328,7 +328,7 @@ export const JobCard: React.FC<JobCardProps> = ({ job, isSaved, onToggleSave }) 
             href={job.applyUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-xs font-semibold text-white bg-slate-900 hover:bg-blue-600 px-3.5 py-1.5 rounded-xl shadow-2xs hover:shadow-xs transition-all duration-150 group/btn"
+            className="inline-flex items-center gap-1.5 text-xs font-semibold text-white bg-slate-900 hover:bg-blue-600 px-3 py-1.5 rounded-md shadow-2xs hover:shadow-xs transition-colors group/btn"
           >
             <span>Apply Now</span>
             <ExternalLink className="w-3 h-3 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />

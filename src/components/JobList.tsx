@@ -20,8 +20,8 @@ export const JobList: React.FC<JobListProps> = ({
 }) => {
   if (jobs.length === 0) {
     return (
-      <div className="py-20 text-center rounded-2xl border border-dashed border-slate-200 bg-slate-50/50">
-        <div className="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center mx-auto text-slate-400 mb-3">
+      <div className="py-20 text-center rounded-md border border-dashed border-slate-200 bg-slate-50/50">
+        <div className="w-12 h-12 rounded-md bg-slate-100 flex items-center justify-center mx-auto text-slate-400 mb-3">
           <Inbox className="w-6 h-6" />
         </div>
         <h3 className="text-sm font-semibold text-slate-900 mb-1">No jobs match your filters</h3>
@@ -30,7 +30,7 @@ export const JobList: React.FC<JobListProps> = ({
         </p>
         <button
           onClick={onResetFilters}
-          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 shadow-2xs transition-colors"
+          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 shadow-2xs transition-colors"
         >
           <RotateCcw className="w-3.5 h-3.5" />
           <span>Reset All Filters</span>

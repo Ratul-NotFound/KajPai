@@ -181,7 +181,7 @@ export default function DashboardPage() {
       <main className="max-w-6xl mx-auto px-4 sm:px-6 pb-20">
         {/* Live Notification Banner */}
         {scrapeNotification && (
-          <div className="mt-4 p-3 rounded-xl bg-blue-50 border border-blue-200 text-blue-900 text-xs font-medium flex items-center justify-between animate-fade-in shadow-xs">
+          <div className="mt-4 p-3 rounded-md bg-blue-50 border border-blue-200 text-blue-900 text-xs font-medium flex items-center justify-between animate-fade-in shadow-2xs">
             <div className="flex items-center gap-2">
               <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0" />
               <span>{scrapeNotification}</span>
@@ -236,11 +236,11 @@ export default function DashboardPage() {
 
         {/* Job Listings Feed */}
         {loading ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4.5 sm:gap-5">
             {[1, 2, 3, 4].map((i) => (
               <div
                 key={i}
-                className="h-44 rounded-xl border border-slate-100 bg-slate-50/70 animate-pulse p-5"
+                className="h-44 rounded-md border border-slate-200 bg-slate-50/70 animate-pulse p-5"
               />
             ))}
           </div>
