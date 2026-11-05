@@ -28,6 +28,7 @@ export interface Job {
   description?: string;
   isActive: boolean;
   isFresherFriendly: boolean;
+  logoUrl?: string;
   postedAt?: string;
   createdAt: string;
   updatedAt: string;

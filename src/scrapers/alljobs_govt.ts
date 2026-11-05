@@ -1,7 +1,7 @@
 import * as cheerio from 'cheerio';
 import { BaseScraper, safeFetch } from './base';
 import { Job } from '../lib/types';
-import { generateJobHash, isFresherJob, safeIsoDate } from '../lib/utils';
+import { generateJobHash, isFresherJob, safeIsoDate, resolveCompanyLogo } from '../lib/utils';
 
 export const allJobsScraper: BaseScraper = {
   name: 'AllJobs BD & Govt Circulars',
@@ -56,6 +56,7 @@ export const allJobsScraper: BaseScraper = {
               description: `Official Government Recruitment Notice: ${rawTitle}. Original circular details and Teletalk application instructions available at link.`,
               isActive: true,
               isFresherFriendly: isFresherJob(rawTitle, 'Graduate'),
+              logoUrl: resolveCompanyLogo(company),
               postedAt: new Date().toISOString(),
             });
           }
@@ -85,6 +86,7 @@ export const allJobsScraper: BaseScraper = {
           description: 'Official recruitment circular for Assistant Programmer under Ministry of Posts, Telecommunications & IT.',
           isActive: true,
           isFresherFriendly: true,
+          logoUrl: resolveCompanyLogo('AllJobs Teletalk'),
           postedAt: new Date().toISOString(),
         }
       );

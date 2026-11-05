@@ -1,6 +1,6 @@
 import { BaseScraper } from './base';
 import { Job } from '../lib/types';
-import { generateJobHash, isFresherJob } from '../lib/utils';
+import { generateJobHash, isFresherJob, resolveCompanyLogo } from '../lib/utils';
 
 export const telecomScraper: BaseScraper = {
   name: 'Telecommunications (Grameenphone, Robi, Banglalink)',
@@ -62,6 +62,7 @@ export const telecomScraper: BaseScraper = {
       description: item.description,
       isActive: true,
       isFresherFriendly: item.isFresherFriendly ?? isFresherJob(item.title, item.experience),
+      logoUrl: resolveCompanyLogo(item.company),
       postedAt: new Date().toISOString(),
     }));
   },

@@ -1,6 +1,6 @@
 import { BaseScraper } from './base';
 import { Job } from '../lib/types';
-import { generateJobHash, isFresherJob } from '../lib/utils';
+import { generateJobHash, isFresherJob, resolveCompanyLogo } from '../lib/utils';
 
 export const bdTechFirmsScraper: BaseScraper = {
   name: 'Bangladesh Top Tech Companies (BJIT, Cefalo, Selise, Samsung R&D, Kaz, bKash)',
@@ -122,6 +122,7 @@ export const bdTechFirmsScraper: BaseScraper = {
       description: item.description,
       isActive: true,
       isFresherFriendly: item.isFresherFriendly ?? isFresherJob(item.title, item.experience),
+      logoUrl: resolveCompanyLogo(item.company),
       postedAt: new Date().toISOString(),
     }));
   },

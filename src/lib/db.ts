@@ -3,6 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import { Job, FilterOptions } from './types';
 import { getMockJobs } from './mockData';
+import { resolveCompanyLogo } from './utils';
 
 let supabase: SupabaseClient | null = null;
 
@@ -28,7 +29,10 @@ function loadLocalJobs(): Job[] {
       const content = fs.readFileSync(DATA_FILE, 'utf-8');
       const parsed = JSON.parse(content);
       if (Array.isArray(parsed) && parsed.length > 0) {
-        return parsed;
+        return parsed.map((j: Job) => ({
+          ...j,
+          logoUrl: j.logoUrl || resolveCompanyLogo(j.company),
+        }));
       }
     }
   } catch (e) {
@@ -198,6 +202,7 @@ export async function upsertJobs(jobsToUpsert: Omit<Job, 'id' | 'createdAt' | 'u
       existing.updatedAt = now;
       existing.deadline = item.deadline || existing.deadline;
       existing.isActive = item.isActive;
+      if (item.logoUrl) existing.logoUrl = item.logoUrl;
     }
   }
 

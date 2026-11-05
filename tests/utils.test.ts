@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { generateJobHash, isDeadlinePassed, formatDeadline, isFresherJob, safeIsoDate } from '../src/lib/utils';
+import { generateJobHash, isDeadlinePassed, formatDeadline, isFresherJob, safeIsoDate, resolveCompanyLogo } from '../src/lib/utils';
 import { getJobs, upsertJobs } from '../src/lib/db';
 import { Job } from '../src/lib/types';
 
@@ -62,6 +62,14 @@ describe('Job Utilities & Hashing', () => {
       { ...sampleJob, hash: generateJobHash('BJIT', 'Associate AI Engineer 2', 'https://bjit.com/job/3') },
     ]);
     expect(inBatchResult.newCount).toBe(1);
+  });
+
+  it('correctly resolves company logo or thumbnail URL', () => {
+    expect(resolveCompanyLogo('bKash Limited')).toBe('https://unavatar.io/bkash.com');
+    expect(resolveCompanyLogo('Brain Station 23')).toBe('https://unavatar.io/brainstation-23.com');
+    expect(resolveCompanyLogo('Grameenphone')).toBe('https://unavatar.io/grameenphone.com');
+    expect(resolveCompanyLogo('Bangladesh Bank')).toBe('https://unavatar.io/bb.org.bd');
+    expect(resolveCompanyLogo('Unknown Firm', 'https://example.com/logo.png')).toBe('https://example.com/logo.png');
   });
 });
 

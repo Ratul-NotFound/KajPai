@@ -1,6 +1,6 @@
 import { BaseScraper, safeFetch } from './base';
 import { Job } from '../lib/types';
-import { generateJobHash } from '../lib/utils';
+import { generateJobHash, resolveCompanyLogo } from '../lib/utils';
 
 export const remoteTechScraper: BaseScraper = {
   name: 'Remote Tech & AI Jobs (RemoteOK / WeWorkRemotely)',
@@ -38,6 +38,7 @@ export const remoteTechScraper: BaseScraper = {
                 description: `Remote developer opening at ${post.company}. Worldwide candidates encouraged to apply.`,
                 isActive: true,
                 isFresherFriendly: post.position.toLowerCase().includes('junior') || post.position.toLowerCase().includes('intern'),
+                logoUrl: resolveCompanyLogo(post.company, post.company_logo),
                 postedAt: post.date ? new Date(post.date).toISOString() : new Date().toISOString(),
               });
             }

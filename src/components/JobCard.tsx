@@ -13,9 +13,10 @@ import {
   Share2,
   Check,
   Sparkles,
+  Building2,
 } from 'lucide-react';
 import { Job } from '../lib/types';
-import { formatDeadline } from '../lib/utils';
+import { formatDeadline, resolveCompanyLogo } from '../lib/utils';
 
 interface JobCardProps {
   job: Job;
@@ -41,7 +42,7 @@ const CATEGORY_META: Record<
   },
   TELECOM: {
     label: 'Telecom',
-    dot: 'bg-purple-600',
+    dot: 'bg-violet-600',
   },
   INTERNSHIP: {
     label: 'Internship',
@@ -53,16 +54,16 @@ const CATEGORY_META: Record<
   },
   ADMIN: {
     label: 'Admin',
-    dot: 'bg-zinc-500',
+    dot: 'bg-slate-500',
   },
   OTHER: {
     label: 'Other',
-    dot: 'bg-zinc-400',
+    dot: 'bg-slate-400',
   },
 };
 
 /**
- * Generates consistent 2-letter monogram for company logo avatar
+ * Generates consistent 2-letter monogram for company fallback avatar
  */
 function getCompanyMonogram(name: string): string {
   const clean = name.replace(/[^a-zA-Z\s]/g, '').trim();
@@ -79,10 +80,13 @@ function getCompanyMonogram(name: string): string {
 export const JobCard: React.FC<JobCardProps> = ({ job, isSaved, onToggleSave }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [imgError, setImgError] = useState(false);
 
   const deadlineInfo = formatDeadline(job.deadline);
   const categoryMeta = CATEGORY_META[job.category] || CATEGORY_META.OTHER;
   const monogram = getCompanyMonogram(job.company);
+  const logoUrl = job.logoUrl || resolveCompanyLogo(job.company);
+  const showLogo = Boolean(logoUrl && !imgError);
 
   const handleCopyLink = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -93,30 +97,42 @@ export const JobCard: React.FC<JobCardProps> = ({ job, isSaved, onToggleSave }) 
   };
 
   return (
-    <article className="group relative flex flex-col justify-between h-full bg-white rounded-md border border-zinc-200/90 hover:border-zinc-400/80 p-5 shadow-[0_1px_2px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_18px_rgba(0,0,0,0.06)] transition-all duration-150">
+    <article className="group relative flex flex-col justify-between h-full bg-white rounded-md border border-slate-200/90 hover:border-slate-400 p-5 shadow-[0_1px_3px_rgba(0,0,0,0.03)] hover:shadow-[0_10px_20px_-4px_rgba(0,0,0,0.06),0_2px_4px_-1px_rgba(0,0,0,0.02)] transition-all duration-150">
       {/* Top Body Section */}
       <div className="flex-1">
-        {/* Header Row: Square Avatar + Company & Title + Actions */}
+        {/* Header Row: Scraped Logo/Thumbnail + Titles + Actions */}
         <div className="flex items-start justify-between gap-3">
-          <div className="flex items-start gap-3 min-w-0 flex-1">
-            {/* Minimalist Square Avatar */}
-            <div className="w-10 h-10 rounded-md shrink-0 flex items-center justify-center font-bold text-xs tracking-wider bg-zinc-100 text-zinc-900 border border-zinc-200/90 shadow-2xs">
-              {monogram}
+          <div className="flex items-start gap-3.5 min-w-0 flex-1">
+            {/* Square Logo / Thumbnail Avatar */}
+            <div className="w-11 h-11 rounded-md shrink-0 flex items-center justify-center border border-slate-200/90 bg-white shadow-2xs overflow-hidden p-1">
+              {showLogo ? (
+                <img
+                  src={logoUrl}
+                  alt={job.company}
+                  className="w-full h-full object-contain"
+                  onError={() => setImgError(true)}
+                  loading="lazy"
+                />
+              ) : (
+                <div className="w-full h-full rounded flex items-center justify-center bg-slate-100 font-bold text-xs tracking-wider text-slate-800">
+                  {monogram}
+                </div>
+              )}
             </div>
 
             <div className="min-w-0 flex-1">
               {/* Company Name & Source Tag */}
               <div className="flex items-center gap-2 flex-wrap mb-1">
-                <span className="text-xs font-semibold text-zinc-800 truncate max-w-[200px] sm:max-w-[260px]">
+                <span className="text-xs font-semibold text-slate-700 truncate max-w-[200px] sm:max-w-[260px]">
                   {job.company}
                 </span>
-                <span className="text-[10px] uppercase font-bold tracking-wider px-1.5 py-0.5 rounded bg-zinc-100 text-zinc-600 border border-zinc-200">
+                <span className="text-[10px] uppercase font-bold tracking-wider px-1.5 py-0.5 rounded bg-slate-100 text-slate-600 border border-slate-200/70 font-mono">
                   {job.source}
                 </span>
               </div>
 
               {/* Job Title */}
-              <h3 className="text-[15px] sm:text-base font-semibold text-zinc-950 group-hover:text-zinc-700 transition-colors leading-snug line-clamp-2">
+              <h3 className="text-[15px] sm:text-base font-semibold text-slate-950 group-hover:text-blue-600 transition-colors leading-snug line-clamp-2">
                 <a
                   href={job.applyUrl}
                   target="_blank"
@@ -134,7 +150,7 @@ export const JobCard: React.FC<JobCardProps> = ({ job, isSaved, onToggleSave }) 
             <button
               onClick={handleCopyLink}
               title={copied ? 'Link copied!' : 'Copy application link'}
-              className="w-7 h-7 rounded-md flex items-center justify-center text-zinc-400 hover:text-zinc-800 hover:bg-zinc-100 border border-transparent hover:border-zinc-200 transition-all"
+              className="w-7 h-7 rounded-md flex items-center justify-center text-slate-400 hover:text-slate-800 hover:bg-slate-100 border border-transparent hover:border-slate-200 transition-all"
             >
               {copied ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Share2 className="w-3.5 h-3.5" />}
             </button>
@@ -148,7 +164,7 @@ export const JobCard: React.FC<JobCardProps> = ({ job, isSaved, onToggleSave }) 
               className={`w-7 h-7 rounded-md flex items-center justify-center border transition-all ${
                 isSaved
                   ? 'bg-amber-50 text-amber-700 border-amber-300 shadow-2xs'
-                  : 'border-zinc-200 text-zinc-400 hover:text-zinc-800 hover:bg-zinc-50'
+                  : 'border-slate-200 text-slate-400 hover:text-slate-800 hover:bg-slate-50'
               }`}
             >
               <Bookmark className={`w-3.5 h-3.5 ${isSaved ? 'fill-amber-500 text-amber-600' : ''}`} />
@@ -156,60 +172,60 @@ export const JobCard: React.FC<JobCardProps> = ({ job, isSaved, onToggleSave }) 
           </div>
         </div>
 
-        {/* Minimalist Tags (Quiet neutral badges with subtle dot) */}
-        <div className="mt-3 flex flex-wrap items-center gap-1.5">
+        {/* Minimalist Tags (Category dot, Fresher badge, Employment Type) */}
+        <div className="mt-3.5 flex flex-wrap items-center gap-1.5">
           {/* Category Tag */}
-          <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[11px] font-medium bg-zinc-100 text-zinc-700 border border-zinc-200/80">
+          <span className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[11px] font-medium bg-slate-100/80 text-slate-700 border border-slate-200/80">
             <span className={`w-1.5 h-1.5 rounded-full ${categoryMeta.dot}`} />
             {categoryMeta.label}
           </span>
 
           {/* Fresher Friendly Badge */}
           {job.isFresherFriendly && (
-            <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[11px] font-medium bg-emerald-50 text-emerald-800 border border-emerald-200">
-              <Sparkles className="w-3 h-3 text-emerald-600" />
+            <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[11px] font-medium bg-blue-50 text-blue-700 border border-blue-200/80">
+              <Sparkles className="w-3 h-3 text-blue-500" />
               Fresher Friendly
             </span>
           )}
 
           {/* Employment Type */}
-          <span className="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-medium bg-zinc-50 text-zinc-600 border border-zinc-200/70">
+          <span className="inline-flex items-center px-2 py-0.5 rounded text-[11px] font-medium bg-slate-50 text-slate-600 border border-slate-200/60">
             {job.employmentType.replace('_', ' ')}
           </span>
         </div>
 
         {/* Structured 3-Column Specifications Box */}
-        <div className="mt-3 grid grid-cols-2 sm:grid-cols-3 gap-2 p-2.5 rounded-md bg-zinc-50/70 border border-zinc-200/70 text-xs">
+        <div className="mt-3 grid grid-cols-2 sm:grid-cols-3 gap-2 p-2.5 rounded-md bg-slate-50/70 border border-slate-200/60 text-xs">
           {/* Location */}
           <div className="flex items-center gap-2 min-w-0">
-            <div className="w-6 h-6 rounded bg-white border border-zinc-200 flex items-center justify-center text-zinc-400 shrink-0">
+            <div className="w-6 h-6 rounded bg-white border border-slate-200/80 flex items-center justify-center text-slate-400 shrink-0">
               <MapPin className="w-3.5 h-3.5" />
             </div>
             <div className="min-w-0">
-              <span className="text-[10px] uppercase font-bold text-zinc-400 block tracking-wider leading-none mb-0.5">Location</span>
-              <span className="text-zinc-700 font-medium truncate block text-xs">{job.location}</span>
+              <span className="text-[10px] uppercase font-bold text-slate-400 block tracking-wider leading-none mb-0.5">Location</span>
+              <span className="text-slate-700 font-medium truncate block text-xs">{job.location}</span>
             </div>
           </div>
 
           {/* Experience */}
           <div className="flex items-center gap-2 min-w-0">
-            <div className="w-6 h-6 rounded bg-white border border-zinc-200 flex items-center justify-center text-zinc-400 shrink-0">
+            <div className="w-6 h-6 rounded bg-white border border-slate-200/80 flex items-center justify-center text-slate-400 shrink-0">
               <Briefcase className="w-3.5 h-3.5" />
             </div>
             <div className="min-w-0">
-              <span className="text-[10px] uppercase font-bold text-zinc-400 block tracking-wider leading-none mb-0.5">Experience</span>
-              <span className="text-zinc-700 font-medium truncate block text-xs">{job.experience || 'Entry / Any'}</span>
+              <span className="text-[10px] uppercase font-bold text-slate-400 block tracking-wider leading-none mb-0.5">Experience</span>
+              <span className="text-slate-700 font-medium truncate block text-xs">{job.experience || 'Entry / Any'}</span>
             </div>
           </div>
 
           {/* Salary */}
           <div className="flex items-center gap-2 min-w-0 col-span-2 sm:col-span-1">
-            <div className="w-6 h-6 rounded bg-white border border-zinc-200 flex items-center justify-center text-zinc-400 shrink-0">
+            <div className="w-6 h-6 rounded bg-white border border-slate-200/80 flex items-center justify-center text-slate-400 shrink-0">
               <DollarSign className="w-3.5 h-3.5" />
             </div>
             <div className="min-w-0">
-              <span className="text-[10px] uppercase font-bold text-zinc-400 block tracking-wider leading-none mb-0.5">Salary</span>
-              <span className="text-zinc-950 font-semibold truncate block text-xs">{job.salary || 'Competitive'}</span>
+              <span className="text-[10px] uppercase font-bold text-slate-400 block tracking-wider leading-none mb-0.5">Salary</span>
+              <span className="text-slate-950 font-semibold truncate block text-xs">{job.salary || 'Competitive'}</span>
             </div>
           </div>
         </div>
@@ -220,13 +236,13 @@ export const JobCard: React.FC<JobCardProps> = ({ job, isSaved, onToggleSave }) 
             {job.skills.slice(0, 4).map((skill, idx) => (
               <span
                 key={idx}
-                className="text-[11px] px-2 py-0.5 rounded bg-white text-zinc-700 border border-zinc-200 font-mono shadow-2xs"
+                className="text-[11px] px-2 py-0.5 rounded bg-white text-slate-700 border border-slate-200 font-mono shadow-2xs"
               >
                 {skill}
               </span>
             ))}
             {job.skills.length > 4 && (
-              <span className="text-[10px] font-mono text-zinc-400">
+              <span className="text-[10px] font-mono text-slate-400">
                 +{job.skills.length - 4} more
               </span>
             )}
@@ -235,15 +251,15 @@ export const JobCard: React.FC<JobCardProps> = ({ job, isSaved, onToggleSave }) 
 
         {/* Inline Expandable Details */}
         {isExpanded && job.description && (
-          <div className="mt-3 p-3.5 rounded-md bg-zinc-50 border border-zinc-200 text-xs text-zinc-700 leading-relaxed animate-fade-in">
-            <p className="font-semibold text-zinc-950 mb-1">Role & Qualifications Summary:</p>
+          <div className="mt-3 p-3.5 rounded-md bg-slate-50 border border-slate-200 text-xs text-slate-700 leading-relaxed animate-fade-in">
+            <p className="font-semibold text-slate-950 mb-1">Role & Qualifications Summary:</p>
             <p className="whitespace-pre-line line-clamp-6">{job.description}</p>
           </div>
         )}
       </div>
 
       {/* Card Footer: Deadline Status + Actions */}
-      <div className="mt-3.5 pt-3 border-t border-zinc-100 flex items-center justify-between gap-2">
+      <div className="mt-3.5 pt-3 border-t border-slate-100 flex items-center justify-between gap-2">
         {/* Deadline Status Badge */}
         <div
           className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-medium border ${
@@ -251,7 +267,7 @@ export const JobCard: React.FC<JobCardProps> = ({ job, isSaved, onToggleSave }) 
               ? 'bg-rose-50 text-rose-700 border-rose-200'
               : deadlineInfo.status === 'amber'
               ? 'bg-amber-50 text-amber-800 border-amber-200'
-              : 'bg-zinc-50 text-zinc-700 border-zinc-200'
+              : 'bg-slate-50 text-slate-600 border-slate-200'
           }`}
         >
           <Calendar className="w-3.5 h-3.5 shrink-0" />
@@ -263,7 +279,7 @@ export const JobCard: React.FC<JobCardProps> = ({ job, isSaved, onToggleSave }) 
           {job.description && (
             <button
               onClick={() => setIsExpanded(!isExpanded)}
-              className="inline-flex items-center gap-1 text-xs font-medium text-zinc-500 hover:text-zinc-900 px-2 py-1 rounded-md hover:bg-zinc-100 transition-colors"
+              className="inline-flex items-center gap-1 text-xs font-medium text-slate-500 hover:text-slate-900 px-2.5 py-1 rounded-md hover:bg-slate-100 transition-colors"
             >
               <span>{isExpanded ? 'Less' : 'Details'}</span>
               {isExpanded ? <ChevronUp className="w-3.5 h-3.5" /> : <ChevronDown className="w-3.5 h-3.5" />}
@@ -274,7 +290,7 @@ export const JobCard: React.FC<JobCardProps> = ({ job, isSaved, onToggleSave }) 
             href={job.applyUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-xs font-medium text-white bg-zinc-900 hover:bg-zinc-800 px-3.5 py-1.5 rounded-md shadow-2xs hover:shadow-xs transition-colors group/btn"
+            className="inline-flex items-center gap-1.5 text-xs font-semibold text-white bg-slate-900 hover:bg-blue-600 px-3.5 py-1.5 rounded-md shadow-2xs hover:shadow-xs transition-colors group/btn"
           >
             <span>Apply Now</span>
             <ExternalLink className="w-3 h-3 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />

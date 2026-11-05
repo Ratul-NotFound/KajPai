@@ -1,8 +1,8 @@
 import { Job } from './types';
-import { generateJobHash } from './utils';
+import { generateJobHash, resolveCompanyLogo } from './utils';
 
 export function getMockJobs(): Job[] {
-  return [
+  const jobs: Job[] = [
     {
       id: 'job-1',
       hash: generateJobHash('Brain Station 23', 'Junior Software Engineer (React / Node.js)', 'https://www.linkedin.com/company/brainstation23/jobs/'),
@@ -224,4 +224,9 @@ export function getMockJobs(): Job[] {
       updatedAt: '2026-11-04T15:00:00Z',
     },
   ];
+
+  return jobs.map((job) => ({
+    ...job,
+    logoUrl: job.logoUrl || resolveCompanyLogo(job.company),
+  }));
 }

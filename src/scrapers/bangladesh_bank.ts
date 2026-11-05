@@ -1,7 +1,7 @@
 import * as cheerio from 'cheerio';
 import { BaseScraper, safeFetch } from './base';
 import { Job } from '../lib/types';
-import { generateJobHash, isFresherJob } from '../lib/utils';
+import { generateJobHash, isFresherJob, resolveCompanyLogo } from '../lib/utils';
 
 export const bangladeshBankScraper: BaseScraper = {
   name: 'Bangladesh Bank & Financial Institutions',
@@ -51,6 +51,7 @@ export const bangladeshBankScraper: BaseScraper = {
               description: `Bank recruitment circular: ${rawTitle}. Direct notice, eligibility criteria, and application links available at source.`,
               isActive: true,
               isFresherFriendly: isFresherJob(rawTitle, 'Graduate'),
+              logoUrl: resolveCompanyLogo(bankName),
               postedAt: new Date().toISOString(),
             });
           }
@@ -78,6 +79,7 @@ export const bangladeshBankScraper: BaseScraper = {
         description: 'Bankers Selection Committee Secretariat (BSCS) recruitment notice for Assistant Director (IT/General).',
         isActive: true,
         isFresherFriendly: true,
+        logoUrl: resolveCompanyLogo('Bangladesh Bank'),
         postedAt: new Date().toISOString(),
       });
     }

@@ -1,7 +1,7 @@
 import * as cheerio from 'cheerio';
 import { BaseScraper, safeFetch } from './base';
 import { Job, JobCategory } from '../lib/types';
-import { generateJobHash, isFresherJob } from '../lib/utils';
+import { generateJobHash, isFresherJob, resolveCompanyLogo } from '../lib/utils';
 
 export const bdJobsScraper: BaseScraper = {
   name: 'BDJobs & Private Tech Portals',
@@ -52,6 +52,7 @@ export const bdJobsScraper: BaseScraper = {
               description: `Private opening: ${rawTitle}. Check official notice and apply directly through link.`,
               isActive: true,
               isFresherFriendly: isFresherJob(rawTitle, 'Graduate'),
+              logoUrl: resolveCompanyLogo(company),
               postedAt: new Date().toISOString(),
             });
           }
@@ -79,6 +80,7 @@ export const bdJobsScraper: BaseScraper = {
         description: 'Norwegian software engineering consultancy hiring problem solvers for international SaaS products.',
         isActive: true,
         isFresherFriendly: true,
+        logoUrl: resolveCompanyLogo('Cefalo Bangladesh Ltd.'),
         postedAt: new Date().toISOString(),
       });
     }
