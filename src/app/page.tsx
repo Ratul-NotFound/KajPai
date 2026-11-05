@@ -1,0 +1,209 @@
+'use client';
+
+import React, { useState, useEffect, useMemo } from 'react';
+import { Header } from '@/components/Header';
+import { FilterBar } from '@/components/FilterBar';
+import { JobList } from '@/components/JobList';
+import { Job, JobCategory } from '@/lib/types';
+import { isDeadlinePassed } from '@/lib/utils';
+import { getMockJobs } from '@/lib/mockData';
+
+export default function DashboardPage() {
+  const [jobs, setJobs] = useState<Job[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [isRefreshing, setIsRefreshing] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState<JobCategory | 'ALL'>('ALL');
+  const [fresherOnly, setFresherOnly] = useState(false);
+  const [hideExpired, setHideExpired] = useState(true);
+  const [showSavedOnly, setShowSavedOnly] = useState(false);
+  const [savedJobIds, setSavedJobIds] = useState<Set<string>>(new Set());
+
+  // Load saved bookmarks from localStorage
+  useEffect(() => {
+    try {
+      const stored = localStorage.getItem('jobpulse_saved_jobs');
+      if (stored) {
+        setSavedJobIds(new Set(JSON.parse(stored)));
+      }
+    } catch (e) {
+      console.warn('Could not read saved jobs from localStorage:', e);
+    }
+  }, []);
+
+  // Save bookmarks to localStorage
+  const handleToggleSave = (jobId: string) => {
+    setSavedJobIds((prev) => {
+      const next = new Set(prev);
+      if (next.has(jobId)) {
+        next.delete(jobId);
+      } else {
+        next.add(jobId);
+      }
+      try {
+        localStorage.setItem('jobpulse_saved_jobs', JSON.stringify(Array.from(next)));
+      } catch (e) {
+        console.warn('Could not persist saved jobs to localStorage:', e);
+      }
+      return next;
+    });
+  };
+
+  // Fetch jobs from API
+  const fetchJobs = async () => {
+    setIsRefreshing(true);
+    try {
+      const res = await fetch('/api/jobs');
+      const data = await res.json();
+      if (data.success && Array.isArray(data.jobs) && data.jobs.length > 0) {
+        setJobs(data.jobs);
+      } else {
+        // Fallback to initial seed mock jobs if API returned empty
+        setJobs(getMockJobs());
+      }
+    } catch {
+      setJobs(getMockJobs());
+    } finally {
+      setLoading(false);
+      setIsRefreshing(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchJobs();
+  }, []);
+
+  // Category counts computation
+  const categoryCounts = useMemo(() => {
+    const counts: Record<string, number> = { ALL: jobs.length };
+    for (const job of jobs) {
+      counts[job.category] = (counts[job.category] || 0) + 1;
+    }
+    return counts;
+  }, [jobs]);
+
+  // Filtered jobs
+  const filteredJobs = useMemo(() => {
+    return jobs.filter((job) => {
+      // Saved only
+      if (showSavedOnly && !savedJobIds.has(job.id)) {
+        return false;
+      }
+
+      // Hide expired
+      if (hideExpired && isDeadlinePassed(job.deadline)) {
+        return false;
+      }
+
+      // Category
+      if (selectedCategory !== 'ALL' && job.category !== selectedCategory) {
+        return false;
+      }
+
+      // Fresher friendly
+      if (fresherOnly && !job.isFresherFriendly) {
+        return false;
+      }
+
+      // Universal search query
+      if (searchQuery.trim()) {
+        const q = searchQuery.toLowerCase();
+        const matchesTitle = job.title.toLowerCase().includes(q);
+        const matchesCompany = job.company.toLowerCase().includes(q);
+        const matchesLocation = job.location.toLowerCase().includes(q);
+        const matchesSkills = job.skills.some((s) => s.toLowerCase().includes(q));
+        const matchesSource = job.source.toLowerCase().includes(q);
+
+        if (!matchesTitle && !matchesCompany && !matchesLocation && !matchesSkills && !matchesSource) {
+          return false;
+        }
+      }
+
+      return true;
+    });
+  }, [jobs, showSavedOnly, savedJobIds, hideExpired, selectedCategory, fresherOnly, searchQuery]);
+
+  const handleResetFilters = () => {
+    setSearchQuery('');
+    setSelectedCategory('ALL');
+    setFresherOnly(false);
+    setHideExpired(true);
+    setShowSavedOnly(false);
+  };
+
+  return (
+    <div className="min-h-screen bg-white">
+      {/* Navigation Header */}
+      <Header
+        totalJobs={jobs.length}
+        savedCount={savedJobIds.size}
+        showSavedOnly={showSavedOnly}
+        onToggleSaved={() => setShowSavedOnly((prev) => !prev)}
+        onRefresh={fetchJobs}
+        isRefreshing={isRefreshing}
+      />
+
+      {/* Main Container */}
+      <main className="max-w-6xl mx-auto px-4 sm:px-6 pb-20">
+        {/* Filter Navigation */}
+        <FilterBar
+          searchQuery={searchQuery}
+          onSearchChange={setSearchQuery}
+          selectedCategory={selectedCategory}
+          onCategoryChange={(cat) => {
+            setSelectedCategory(cat);
+            if (showSavedOnly) setShowSavedOnly(false);
+          }}
+          fresherOnly={fresherOnly}
+          onToggleFresher={() => setFresherOnly((prev) => !prev)}
+          hideExpired={hideExpired}
+          onToggleHideExpired={() => setHideExpired((prev) => !prev)}
+          categoryCounts={categoryCounts}
+        />
+
+        {/* Results Metadata Bar */}
+        <div className="py-4 flex items-center justify-between text-xs text-slate-500">
+          <div>
+            Showing <span className="font-semibold text-slate-900">{filteredJobs.length}</span>{' '}
+            {showSavedOnly ? 'saved' : ''} jobs
+            {selectedCategory !== 'ALL' && (
+              <span>
+                {' '}
+                in <strong className="text-slate-800">{selectedCategory}</strong>
+              </span>
+            )}
+            {fresherOnly && <span> • Freshers Only</span>}
+          </div>
+          {(searchQuery || selectedCategory !== 'ALL' || fresherOnly || showSavedOnly) && (
+            <button
+              onClick={handleResetFilters}
+              className="text-blue-600 hover:text-blue-800 hover:underline font-medium"
+            >
+              Clear filters
+            </button>
+          )}
+        </div>
+
+        {/* Job Listings Feed */}
+        {loading ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {[1, 2, 3, 4].map((i) => (
+              <div
+                key={i}
+                className="h-44 rounded-xl border border-slate-100 bg-slate-50/70 animate-pulse p-5"
+              />
+            ))}
+          </div>
+        ) : (
+          <JobList
+            jobs={filteredJobs}
+            savedJobIds={savedJobIds}
+            onToggleSave={handleToggleSave}
+            onResetFilters={handleResetFilters}
+          />
+        )}
+      </main>
+    </div>
+  );
+}
+
