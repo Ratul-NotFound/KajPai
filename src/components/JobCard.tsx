@@ -80,13 +80,10 @@ function getCompanyMonogram(name: string): string {
 export const JobCard: React.FC<JobCardProps> = ({ job, isSaved, onToggleSave }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [copied, setCopied] = useState(false);
-  const [imgError, setImgError] = useState(false);
 
   const deadlineInfo = formatDeadline(job.deadline);
   const categoryMeta = CATEGORY_META[job.category] || CATEGORY_META.OTHER;
-  const monogram = getCompanyMonogram(job.company);
-  const logoUrl = job.logoUrl || resolveCompanyLogo(job.company);
-  const showLogo = Boolean(logoUrl && !imgError);
+  const logoUrl = resolveCompanyLogo(job.company, job.logoUrl);
 
   const handleCopyLink = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -105,19 +102,12 @@ export const JobCard: React.FC<JobCardProps> = ({ job, isSaved, onToggleSave }) 
           <div className="flex items-start gap-3.5 min-w-0 flex-1">
             {/* Square Logo / Thumbnail Avatar */}
             <div className="w-11 h-11 rounded-md shrink-0 flex items-center justify-center border border-slate-200/90 bg-white shadow-2xs overflow-hidden p-1">
-              {showLogo ? (
-                <img
-                  src={logoUrl}
-                  alt={job.company}
-                  className="w-full h-full object-contain"
-                  onError={() => setImgError(true)}
-                  loading="lazy"
-                />
-              ) : (
-                <div className="w-full h-full rounded flex items-center justify-center bg-slate-100 font-bold text-xs tracking-wider text-slate-800">
-                  {monogram}
-                </div>
-              )}
+              <img
+                src={logoUrl}
+                alt={job.company}
+                className="w-full h-full object-contain"
+                loading="eager"
+              />
             </div>
 
             <div className="min-w-0 flex-1">

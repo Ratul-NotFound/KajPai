@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <rect width="100" height="100" rx="16" fill="#FFF"/>
+  <rect x="25" y="22" width="50" height="50" rx="4" fill="#D32F2F"/>
+  <rect x="35" y="32" width="30" height="30" fill="#FFF"/>
+  <rect x="42" y="39" width="16" height="16" fill="#D32F2F"/>
+  <text x="50" y="88" font-family="sans-serif" font-size="9" font-weight="900" fill="#D32F2F" text-anchor="middle">CITY BANK</text>
+</svg>

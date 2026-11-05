@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none">
+  <rect width="100" height="100" rx="16" fill="#FFF"/>
+  <rect x="22" y="24" width="24" height="24" rx="4" fill="#0052CC"/>
+  <rect x="52" y="24" width="24" height="24" rx="4" fill="#FF5630"/>
+  <rect x="22" y="54" width="24" height="24" rx="4" fill="#36B37E"/>
+  <rect x="52" y="54" width="24" height="24" rx="4" fill="#6554C0"/>
+  <text x="34" y="41" font-family="sans-serif" font-size="14" font-weight="900" fill="#FFF" text-anchor="middle">B</text>
+  <text x="64" y="41" font-family="sans-serif" font-size="14" font-weight="900" fill="#FFF" text-anchor="middle">S</text>
+  <text x="34" y="71" font-family="sans-serif" font-size="14" font-weight="900" fill="#FFF" text-anchor="middle">2</text>
+  <text x="64" y="71" font-family="sans-serif" font-size="14" font-weight="900" fill="#FFF" text-anchor="middle">3</text>
+  <text x="50" y="90" font-family="sans-serif" font-size="8.5" font-weight="900" fill="#0052CC" text-anchor="middle">BRAIN STATION 23</text>
+</svg>

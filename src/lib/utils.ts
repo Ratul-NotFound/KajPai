@@ -98,85 +98,89 @@ export function isFresherJob(title: string, experience?: string): boolean {
   return fresherKeywords.some((keyword) => text.includes(keyword));
 }
 
-const KNOWN_COMPANY_DOMAINS: Record<string, string> = {
-  // Bangladesh Premier Tech Firms
-  'bjit': 'bjitgroup.com',
-  'cefalo': 'cefalo.com',
-  'samsung': 'samsung.com',
-  'selise': 'selisegroup.com',
-  'kaz': 'kaz.com.bd',
-  'bkash': 'bkash.com',
-  'brain station': 'brainstation-23.com',
-  'enosis': 'enosisbd.com',
-  'chaldal': 'chaldal.com',
-  'pathao': 'pathao.com',
-  'optimizely': 'optimizely.com',
-  'therap': 'therapservices.net',
+const LOCAL_BRAND_LOGOS: Record<string, string> = {
+  // Top Bangladesh Tech
+  'bkash': '/logos/bkash.svg',
+  'brain station': '/logos/brainstation.svg',
+  'bjit': '/logos/bjit.svg',
+  'samsung': '/logos/samsung.svg',
+  'selise': '/logos/selise.svg',
+  'cefalo': '/logos/cefalo.svg',
+  'kaz': '/logos/kaz.svg',
+  'enosis': '/logos/enosis.svg',
+  'pathao': '/logos/tech.svg',
+  'chaldal': '/logos/tech.svg',
+  'therap': '/logos/tech.svg',
 
   // Telecommunications
-  'grameenphone': 'grameenphone.com',
-  'telenor': 'telenor.com',
-  'robi': 'robi.com.bd',
-  'banglalink': 'banglalink.net',
+  'grameenphone': '/logos/grameenphone.svg',
+  'telenor': '/logos/grameenphone.svg',
+  'robi': '/logos/robi.svg',
+  'banglalink': '/logos/banglalink.svg',
 
-  // Banks & Financial Institutions
-  'bangladesh bank': 'bb.org.bd',
-  'brac bank': 'bracbank.com',
-  'city bank': 'thecitybank.com',
-  'eastern bank': 'ebl.com.bd',
-  'dutch-bangla': 'dutchbanglabank.com',
-  'sonali bank': 'sonalibank.com.bd',
-  'islami bank': 'islamibankbd.com',
-  'prime bank': 'primebank.com.bd',
-  'standard chartered': 'sc.com',
+  // Banks & Financial
+  'bangladesh bank': '/logos/bangladesh-bank.svg',
+  'central bank': '/logos/bangladesh-bank.svg',
+  'brac bank': '/logos/bracbank.svg',
+  'city bank': '/logos/citybank.svg',
+  'sonali bank': '/logos/bank.svg',
+  'islami bank': '/logos/bank.svg',
+  'bank': '/logos/bank.svg',
 
   // Govt Circulars & Portals
-  'teletalk': 'teletalk.com.bd',
-  'alljobs': 'teletalk.com.bd',
-  'govt': 'bangladesh.gov.bd',
-  'government': 'bangladesh.gov.bd',
-  'ministry': 'bangladesh.gov.bd',
-  'bdjobs': 'bdjobs.com',
+  'teletalk': '/logos/teletalk.svg',
+  'alljobs': '/logos/teletalk.svg',
+  'supreme court': '/logos/govt.svg',
+  'police': '/logos/govt.svg',
+  'dmp': '/logos/govt.svg',
+  'ministry': '/logos/govt.svg',
+  'commission': '/logos/govt.svg',
+  'council': '/logos/govt.svg',
+  'govt': '/logos/govt.svg',
+  'government': '/logos/govt.svg',
+  'bdjobs': '/logos/bdjobs.svg',
 
-  // Global / Remote
-  'automattic': 'automattic.com',
-  'canonical': 'canonical.com',
-  'gitlab': 'gitlab.com',
-  'supabase': 'supabase.com',
-  'cloudflare': 'cloudflare.com',
-  'remoteok': 'remoteok.com',
+  // Global & Remote
+  'remote': '/logos/remote.svg',
+  'remoteok': '/logos/remote.svg',
+  'automattic': '/logos/tech.svg',
+  'canonical': '/logos/tech.svg',
+  'gitlab': '/logos/tech.svg',
 };
 
 /**
- * Resolves a high-quality logo or thumbnail URL for a company.
- * Falls back to unavatar CDN with known domain or clearbit lookup.
+ * Resolves a reliable, instant logo or thumbnail URL for a company.
+ * Prioritizes local first-party SVGs (zero adblocker blocking, zero latency).
  */
-export function resolveCompanyLogo(company: string, explicitLogo?: string): string | undefined {
-  if (explicitLogo && explicitLogo.trim().startsWith('http')) {
+export function resolveCompanyLogo(company: string, explicitLogo?: string): string {
+  // If explicitly a local asset path, use immediately
+  if (explicitLogo && explicitLogo.startsWith('/logos/')) {
+    return explicitLogo;
+  }
+
+  // If explicit HTTP logo exists, verify it is not an unavatar tracker
+  if (explicitLogo && explicitLogo.trim().startsWith('http') && !explicitLogo.includes('unavatar.io')) {
     return explicitLogo.trim();
   }
 
   const clean = company.toLowerCase().trim();
-  for (const [key, domain] of Object.entries(KNOWN_COMPANY_DOMAINS)) {
+  for (const [key, logoPath] of Object.entries(LOCAL_BRAND_LOGOS)) {
     if (clean.includes(key)) {
-      return `https://unavatar.io/${domain}`;
+      return logoPath;
     }
   }
 
-  // If company string itself looks like a domain (e.g. Acme.io)
-  if (clean.includes('.')) {
-    const domainMatch = clean.match(/([a-zA-Z0-9-]+\.[a-zA-Z]{2,})/);
-    if (domainMatch) {
-      return `https://unavatar.io/${domainMatch[1]}`;
-    }
+  // Categorical tech/code fallback
+  if (
+    clean.includes('software') ||
+    clean.includes('tech') ||
+    clean.includes('developer') ||
+    clean.includes('engineering') ||
+    clean.includes('system')
+  ) {
+    return '/logos/tech.svg';
   }
 
-  // Fallback to unavatar by company name
-  const sanitized = clean.replace(/[^a-zA-Z0-9]/g, '');
-  if (sanitized.length >= 3) {
-    return `https://unavatar.io/${sanitized}.com`;
-  }
-
-  return undefined;
+  return '/logos/remote.svg';
 }
 

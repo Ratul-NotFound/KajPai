@@ -65,10 +65,10 @@ describe('Job Utilities & Hashing', () => {
   });
 
   it('correctly resolves company logo or thumbnail URL', () => {
-    expect(resolveCompanyLogo('bKash Limited')).toBe('https://unavatar.io/bkash.com');
-    expect(resolveCompanyLogo('Brain Station 23')).toBe('https://unavatar.io/brainstation-23.com');
-    expect(resolveCompanyLogo('Grameenphone')).toBe('https://unavatar.io/grameenphone.com');
-    expect(resolveCompanyLogo('Bangladesh Bank')).toBe('https://unavatar.io/bb.org.bd');
+    expect(resolveCompanyLogo('bKash Limited')).toBe('/logos/bkash.svg');
+    expect(resolveCompanyLogo('Brain Station 23')).toBe('/logos/brainstation.svg');
+    expect(resolveCompanyLogo('Grameenphone')).toBe('/logos/grameenphone.svg');
+    expect(resolveCompanyLogo('Bangladesh Bank')).toBe('/logos/bangladesh-bank.svg');
     expect(resolveCompanyLogo('Unknown Firm', 'https://example.com/logo.png')).toBe('https://example.com/logo.png');
   });
 });
