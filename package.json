@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "test": "vitest run",
-    "scrape": "tsx scripts/scrape.ts"
+    "scrape": "tsx scripts/scrape.ts",
+    "daemon": "tsx scripts/daemon.ts"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.49.1",

@@ -1,4 +1,6 @@
 import { createClient, SupabaseClient } from '@supabase/supabase-js';
+import fs from 'fs';
+import path from 'path';
 import { Job, FilterOptions } from './types';
 import { getMockJobs } from './mockData';
 
@@ -16,8 +18,37 @@ if (supabaseUrl && supabaseKey) {
   }
 }
 
-// In-memory fallback repository for local offline development & testing
-let memoryJobs: Job[] = [...getMockJobs()];
+// Local JSON file persistence for local offline runs and Next.js server consistency
+const DATA_DIR = path.resolve(process.cwd(), 'data');
+const DATA_FILE = path.join(DATA_DIR, 'jobs.json');
+
+function loadLocalJobs(): Job[] {
+  try {
+    if (fs.existsSync(DATA_FILE)) {
+      const content = fs.readFileSync(DATA_FILE, 'utf-8');
+      const parsed = JSON.parse(content);
+      if (Array.isArray(parsed) && parsed.length > 0) {
+        return parsed;
+      }
+    }
+  } catch (e) {
+    console.warn('Could not read from data/jobs.json:', e);
+  }
+  return [...getMockJobs()];
+}
+
+function saveLocalJobs(jobs: Job[]) {
+  try {
+    if (!fs.existsSync(DATA_DIR)) {
+      fs.mkdirSync(DATA_DIR, { recursive: true });
+    }
+    fs.writeFileSync(DATA_FILE, JSON.stringify(jobs, null, 2), 'utf-8');
+  } catch (e) {
+    console.warn('Could not write to data/jobs.json:', e);
+  }
+}
+
+let memoryJobs: Job[] = loadLocalJobs();
 
 export interface UpsertResult {
   total: number;
@@ -27,11 +58,14 @@ export interface UpsertResult {
 
 /**
  * Inserts or updates jobs in the database.
- * Deduplicates strictly by `hash`.
+ * Deduplicates strictly by `hash` and persists to file / Supabase.
  */
 export async function upsertJobs(jobsToUpsert: Omit<Job, 'id' | 'createdAt' | 'updatedAt'>[]): Promise<UpsertResult> {
   const newJobs: Job[] = [];
   const now = new Date().toISOString();
+
+  // Reload latest saved jobs from disk
+  memoryJobs = loadLocalJobs();
 
   // 1. In-batch deduplication: keep only unique jobs by hash within the current batch
   const uniqueIncomingMap = new Map<string, Omit<Job, 'id' | 'createdAt' | 'updatedAt'>>();
@@ -101,7 +135,6 @@ export async function upsertJobs(jobsToUpsert: Omit<Job, 'id' | 'createdAt' | 'u
         await supabase.from('jobs').insert(rowsToInsert);
       }
 
-      // Execute batch updates for existing jobs
       for (const updateRow of rowsToUpdate) {
         await supabase
           .from('jobs')
@@ -113,24 +146,41 @@ export async function upsertJobs(jobsToUpsert: Omit<Job, 'id' | 'createdAt' | 'u
           .eq('hash', updateRow.hash);
       }
 
+      // Also persist to local file cache
+      for (const item of uniqueIncomingJobs) {
+        const idx = memoryJobs.findIndex((j) => j.hash === item.hash);
+        if (idx === -1) {
+          memoryJobs.unshift({
+            ...item,
+            id: crypto.randomUUID(),
+            createdAt: now,
+            updatedAt: now,
+          });
+        } else {
+          memoryJobs[idx].deadline = item.deadline || memoryJobs[idx].deadline;
+          memoryJobs[idx].updatedAt = now;
+        }
+      }
+      saveLocalJobs(memoryJobs);
+
       return {
         total: jobsToUpsert.length,
         newCount: newJobs.length,
         newJobs,
       };
     } catch (error) {
-      console.warn('Supabase upsert failed, falling back to local memory store:', error);
+      console.warn('Supabase upsert failed, falling back to local file store:', error);
     }
   }
 
-  // In-memory fallback
+  // Local file & in-memory fallback
   const existingMap = new Map(memoryJobs.map((j) => [j.hash, j]));
 
   for (const item of uniqueIncomingJobs) {
     if (!existingMap.has(item.hash)) {
       const newJob: Job = {
         ...item,
-        id: `local-${crypto.randomUUID()}`,
+        id: `job-${crypto.randomUUID().slice(0, 8)}`,
         createdAt: now,
         updatedAt: now,
       };
@@ -144,6 +194,8 @@ export async function upsertJobs(jobsToUpsert: Omit<Job, 'id' | 'createdAt' | 'u
       existing.isActive = item.isActive;
     }
   }
+
+  saveLocalJobs(memoryJobs);
 
   return {
     total: jobsToUpsert.length,
@@ -168,7 +220,7 @@ export async function getJobs(filters?: Partial<FilterOptions>): Promise<Job[]> 
       }
 
       const { data, error } = await query;
-      if (!error && data) {
+      if (!error && data && data.length > 0) {
         let results = data.map((r: any): Job => ({
           id: r.id,
           hash: r.hash,
@@ -206,11 +258,12 @@ export async function getJobs(filters?: Partial<FilterOptions>): Promise<Job[]> 
         return results;
       }
     } catch (e) {
-      console.warn('Supabase query failed, falling back to local memory store:', e);
+      console.warn('Supabase query failed, falling back to local file store:', e);
     }
   }
 
-  // In-memory query
+  // Load latest from persistent file store
+  memoryJobs = loadLocalJobs();
   let results = [...memoryJobs];
 
   if (filters?.category && filters.category !== 'ALL') {

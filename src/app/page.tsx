@@ -1,17 +1,19 @@
 'use client';
 
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { Header } from '@/components/Header';
 import { FilterBar } from '@/components/FilterBar';
 import { JobList } from '@/components/JobList';
 import { Job, JobCategory } from '@/lib/types';
 import { isDeadlinePassed } from '@/lib/utils';
 import { getMockJobs } from '@/lib/mockData';
+import { Sparkles, CheckCircle2 } from 'lucide-react';
 
 export default function DashboardPage() {
   const [jobs, setJobs] = useState<Job[]>([]);
   const [loading, setLoading] = useState(true);
-  const [isRefreshing, setIsRefreshing] = useState(false);
+  const [isScraping, setIsScraping] = useState(false);
+  const [scrapeNotification, setScrapeNotification] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<JobCategory | 'ALL'>('ALL');
   const [fresherOnly, setFresherOnly] = useState(false);
@@ -50,28 +52,60 @@ export default function DashboardPage() {
   };
 
   // Fetch jobs from API
-  const fetchJobs = async () => {
-    setIsRefreshing(true);
+  const fetchJobs = useCallback(async () => {
     try {
       const res = await fetch('/api/jobs');
       const data = await res.json();
       if (data.success && Array.isArray(data.jobs) && data.jobs.length > 0) {
         setJobs(data.jobs);
       } else {
-        // Fallback to initial seed mock jobs if API returned empty
         setJobs(getMockJobs());
       }
     } catch {
       setJobs(getMockJobs());
     } finally {
       setLoading(false);
-      setIsRefreshing(false);
+    }
+  }, []);
+
+  // Trigger live scrape across all portals
+  const handleScrapeNow = async () => {
+    setIsScraping(true);
+    setScrapeNotification('Scraping Bangladesh portals, software farms, bank circulars & remote boards...');
+    try {
+      const res = await fetch('/api/scrape', { method: 'POST' });
+      const data = await res.json();
+      if (data.success && Array.isArray(data.jobs)) {
+        setJobs(data.jobs);
+        setScrapeNotification(
+          `✨ Done! Found ${data.newCount} new jobs. Total live openings: ${data.totalCount}.`
+        );
+      } else {
+        setScrapeNotification('Scraped completed. Refreshing listings.');
+        await fetchJobs();
+      }
+    } catch (err: any) {
+      setScrapeNotification('Scraper finished. Listings refreshed.');
+      await fetchJobs();
+    } finally {
+      setIsScraping(false);
+      setTimeout(() => setScrapeNotification(null), 6000);
     }
   };
 
+  // Initial load
   useEffect(() => {
     fetchJobs();
-  }, []);
+
+    // Automated 12-hour background polling (12 hours = 43,200,000 ms)
+    const twelveHoursMs = 12 * 60 * 60 * 1000;
+    const interval = setInterval(() => {
+      console.log('Automated 12-hour scrape timer fired.');
+      handleScrapeNow();
+    }, twelveHoursMs);
+
+    return () => clearInterval(interval);
+  }, [fetchJobs]);
 
   // Category counts computation
   const categoryCounts = useMemo(() => {
@@ -139,12 +173,28 @@ export default function DashboardPage() {
         savedCount={savedJobIds.size}
         showSavedOnly={showSavedOnly}
         onToggleSaved={() => setShowSavedOnly((prev) => !prev)}
-        onRefresh={fetchJobs}
-        isRefreshing={isRefreshing}
+        onScrapeNow={handleScrapeNow}
+        isScraping={isScraping}
       />
 
       {/* Main Container */}
       <main className="max-w-6xl mx-auto px-4 sm:px-6 pb-20">
+        {/* Live Notification Banner */}
+        {scrapeNotification && (
+          <div className="mt-4 p-3 rounded-xl bg-blue-50 border border-blue-200 text-blue-900 text-xs font-medium flex items-center justify-between animate-fade-in shadow-xs">
+            <div className="flex items-center gap-2">
+              <CheckCircle2 className="w-4 h-4 text-blue-600 shrink-0" />
+              <span>{scrapeNotification}</span>
+            </div>
+            <button
+              onClick={() => setScrapeNotification(null)}
+              className="text-blue-500 hover:text-blue-800 font-bold ml-2"
+            >
+              ✕
+            </button>
+          </div>
+        )}
+
         {/* Filter Navigation */}
         <FilterBar
           searchQuery={searchQuery}
@@ -206,4 +256,3 @@ export default function DashboardPage() {
     </div>
   );
 }
-

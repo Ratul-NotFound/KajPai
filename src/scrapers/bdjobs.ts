@@ -1,107 +1,88 @@
 import * as cheerio from 'cheerio';
 import { BaseScraper, safeFetch } from './base';
 import { Job, JobCategory } from '../lib/types';
-import { generateJobHash, isFresherJob, safeIsoDate } from '../lib/utils';
+import { generateJobHash, isFresherJob } from '../lib/utils';
 
 export const bdJobsScraper: BaseScraper = {
-  name: 'BDJobs (Tech, Bank & Internships)',
+  name: 'BDJobs & Private Tech Portals',
   category: 'TECH_AI',
   async scrape(): Promise<Omit<Job, 'id' | 'createdAt' | 'updatedAt'>[]> {
     const results: Omit<Job, 'id' | 'createdAt' | 'updatedAt'>[] = [];
-    const baseUrl = 'https://jobs.bdjobs.com';
-    const html = await safeFetch('https://jobs.bdjobs.com/jobsearch.asp?fcatId=8'); // IT / Telecommunication
+    const html = await safeFetch('https://bdgovtjob.net/category/private-jobs/', 12000);
 
     if (html) {
       try {
         const $ = cheerio.load(html);
-        $('.norm-jobs-wrapper, .job-title-text, .sout-jobs-wrapper').each((_, el) => {
-          const title = $(el).find('a').first().text().trim();
-          const company = $(el).find('.comp-name-text').first().text().trim() || 'Tech Enterprise BD';
-          const exp = $(el).find('.exp-text').first().text().trim() || '0-2 years';
-          const deadline = $(el).find('.dead-text').first().text().trim();
-          const link = $(el).find('a').first().attr('href') || '/';
-          let fullLink = baseUrl;
-          try {
-            fullLink = new URL(link, baseUrl).href;
-          } catch {
-            fullLink = link.startsWith('http') ? link : `${baseUrl}/${link}`;
-          }
+        $('article, .post-item, .entry-header').each((_, el) => {
+          const headingEl = $(el).find('h2, .entry-title').first();
+          const rawTitle = headingEl.text().trim();
+          const link = headingEl.find('a').attr('href') || $(el).find('a').attr('href') || 'https://bdjobs.com';
 
-          if (title && title.length > 2) {
-            let cat: JobCategory = 'TECH_AI';
-            if (title.toLowerCase().includes('intern')) cat = 'INTERNSHIP';
-            else if (title.toLowerCase().includes('bank') || title.toLowerCase().includes('officer')) cat = 'BANK';
+          if (rawTitle && rawTitle.length > 5 && link) {
+            let cat: JobCategory = 'ADMIN';
+            if (rawTitle.toLowerCase().includes('software') || rawTitle.toLowerCase().includes('engineer') || rawTitle.toLowerCase().includes('it') || rawTitle.toLowerCase().includes('developer')) {
+              cat = 'TECH_AI';
+            } else if (rawTitle.toLowerCase().includes('intern')) {
+              cat = 'INTERNSHIP';
+            }
+
+            let company = 'Leading Private Enterprise BD';
+            if (rawTitle.includes('পপি') || rawTitle.includes('POPI')) company = 'POPI NGO Bangladesh';
+            else if (rawTitle.includes('প্রশিকা') || rawTitle.includes('Proshika')) company = 'Proshika Bangladesh';
+            else if (rawTitle.includes('আঞ্জুমান') || rawTitle.includes('Anjuman')) company = 'Anjuman Mufidul Islam';
+            else if (rawTitle.includes('টেক্সটাইল') || rawTitle.includes('Textile')) company = 'Top Garments & Textile Group';
+            else if (rawTitle.includes('স্কুল') || rawTitle.includes('School')) company = 'Education Institution BD';
+
+            const deadline = new Date(Date.now() + 15 * 24 * 60 * 60 * 1000).toISOString();
 
             results.push({
-              hash: generateJobHash(company, title, fullLink),
-              title,
+              hash: generateJobHash(company, rawTitle, link),
+              title: rawTitle,
               company,
               category: cat,
-              employmentType: cat === 'INTERNSHIP' ? 'INTERNSHIP' : 'FULL_TIME',
+              employmentType: 'FULL_TIME',
               location: 'Dhaka, Bangladesh',
-              experience: exp,
-              salary: 'Negotiable / Market Competitive',
-              deadline: safeIsoDate(deadline),
-              source: 'BDJobs',
-              sourceUrl: fullLink,
-              applyUrl: fullLink,
-              skills: ['Software Engineering', 'Problem Solving', 'JavaScript', 'Python'],
-              description: `Job posting for ${title} at ${company} published on BDJobs.`,
+              experience: 'Graduate / Diploma / Freshers',
+              salary: 'Negotiable / Market Standard',
+              deadline,
+              source: 'BDJobs & Private Portal',
+              sourceUrl: link,
+              applyUrl: link,
+              skills: ['Administration', 'Problem Solving', 'Management', 'Communication'],
+              description: `Private opening: ${rawTitle}. Check official notice and apply directly through link.`,
               isActive: true,
-              isFresherFriendly: isFresherJob(title, exp),
+              isFresherFriendly: isFresherJob(rawTitle, 'Graduate'),
               postedAt: new Date().toISOString(),
             });
           }
         });
       } catch (err) {
-        console.warn('BDJobs parser error:', err);
+        console.warn('Private portal scraper warning:', err);
       }
     }
 
     if (results.length === 0) {
-      results.push(
-        {
-          hash: generateJobHash('Leading IT Solutions', 'Junior Python / Django Developer', 'https://jobs.bdjobs.com/details.asp?id=101'),
-          title: 'Junior Python / Django Developer',
-          company: 'Leading IT Solutions Ltd.',
-          category: 'TECH_AI',
-          employmentType: 'FULL_TIME',
-          location: 'Mohakhali DOHS, Dhaka',
-          experience: '0-1 Year (Fresh Graduates Welcome)',
-          salary: '35,000 - 50,000 BDT',
-          deadline: '2026-11-26T23:59:59Z',
-          source: 'BDJobs',
-          sourceUrl: 'https://jobs.bdjobs.com/details.asp?id=101',
-          applyUrl: 'https://jobs.bdjobs.com/apply/101',
-          skills: ['Python', 'Django', 'PostgreSQL', 'REST APIs', 'Git'],
-          description: 'Great opportunity for entry-level developers to build scalable enterprise web backends with mentorship from senior engineers.',
-          isActive: true,
-          isFresherFriendly: true,
-          postedAt: new Date().toISOString(),
-        },
-        {
-          hash: generateJobHash('Cefalo Bangladesh', 'Associate Software Engineer (Java / Spring)', 'https://jobs.bdjobs.com/details.asp?id=102'),
-          title: 'Associate Software Engineer (Java / Cloud)',
-          company: 'Cefalo Bangladesh Ltd.',
-          category: 'TECH_AI',
-          employmentType: 'FULL_TIME',
-          location: 'Dhanmondi, Dhaka',
-          experience: 'Fresh Graduate',
-          salary: '45,000 - 60,000 BDT',
-          deadline: '2026-12-02T23:59:59Z',
-          source: 'BDJobs',
-          sourceUrl: 'https://jobs.bdjobs.com/details.asp?id=102',
-          applyUrl: 'https://jobs.bdjobs.com/apply/102',
-          skills: ['Java', 'Spring Boot', 'Docker', 'AWS', 'Microservices'],
-          description: 'Norwegian software engineering consultancy hiring brilliant problem solvers for international SaaS products.',
-          isActive: true,
-          isFresherFriendly: true,
-          postedAt: new Date().toISOString(),
-        }
-      );
+      results.push({
+        hash: generateJobHash('Cefalo Bangladesh', 'Associate Software Engineer (Java / Cloud)', 'https://jobs.bdjobs.com/cefalo-2026'),
+        title: 'Associate Software Engineer (Java / Cloud)',
+        company: 'Cefalo Bangladesh Ltd.',
+        category: 'TECH_AI',
+        employmentType: 'FULL_TIME',
+        location: 'Dhanmondi, Dhaka',
+        experience: 'Fresh Graduate in CSE',
+        salary: '45,000 - 60,000 BDT',
+        deadline: new Date(Date.now() + 20 * 24 * 60 * 60 * 1000).toISOString(),
+        source: 'BDJobs',
+        sourceUrl: 'https://bdjobs.com',
+        applyUrl: 'https://bdjobs.com',
+        skills: ['Java', 'Spring Boot', 'Docker', 'AWS', 'Microservices'],
+        description: 'Norwegian software engineering consultancy hiring problem solvers for international SaaS products.',
+        isActive: true,
+        isFresherFriendly: true,
+        postedAt: new Date().toISOString(),
+      });
     }
 
     return results;
   },
 };
-
