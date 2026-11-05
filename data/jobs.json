@@ -1,51 +1,5 @@
 [
   {
-    "hash": "06d545f67bbff01709486af59ce335bf926372a80d426b733fc99575e2d39b65",
-    "title": "Associate AI Engineer",
-    "company": "BJIT",
-    "category": "TECH_AI",
-    "employmentType": "FULL_TIME",
-    "location": "Dhaka",
-    "experience": "Fresher",
-    "salary": "50k",
-    "deadline": "2026-12-31",
-    "source": "BJIT Careers",
-    "sourceUrl": "https://bjit.com/job/2",
-    "applyUrl": "https://bjit.com/job/2",
-    "skills": [
-      "Python",
-      "AI"
-    ],
-    "isActive": true,
-    "isFresherFriendly": true,
-    "id": "job-4d3719fd",
-    "createdAt": "2026-11-05T17:29:59.538Z",
-    "updatedAt": "2026-11-05T17:29:59.538Z"
-  },
-  {
-    "hash": "f48782fa9f157732999a18e446a50b80927ab4c0eb9a4bebf8547abad17c445a",
-    "title": "Associate AI Engineer",
-    "company": "BJIT",
-    "category": "TECH_AI",
-    "employmentType": "FULL_TIME",
-    "location": "Dhaka",
-    "experience": "Fresher",
-    "salary": "50k",
-    "deadline": "2026-12-31",
-    "source": "BJIT Careers",
-    "sourceUrl": "https://bjit.com/job/2",
-    "applyUrl": "https://bjit.com/job/2",
-    "skills": [
-      "Python",
-      "AI"
-    ],
-    "isActive": true,
-    "isFresherFriendly": true,
-    "id": "job-e5ebee52",
-    "createdAt": "2026-11-05T17:29:59.533Z",
-    "updatedAt": "2026-11-05T17:29:59.535Z"
-  },
-  {
     "hash": "0598709bd737df74172dd3d190cfedb8a542be9a04f9269b714acb0ea894c269",
     "title": "Partner Operations Manager",
     "company": "Mecka",
@@ -68,9 +22,9 @@
     "isActive": true,
     "isFresherFriendly": false,
     "postedAt": "2026-11-01T00:00:08.000Z",
-    "id": "job-f16b06e0",
-    "createdAt": "2026-11-05T17:29:37.251Z",
-    "updatedAt": "2026-11-05T17:29:37.251Z"
+    "id": "job-d4af3bf4",
+    "createdAt": "2026-11-05T19:51:15.517Z",
+    "updatedAt": "2026-11-05T19:51:15.517Z"
   },
   {
     "hash": "89c872a33e70516d19238942313cc4754bb6826dcc75c8a4b16fd165d577a10d",
@@ -95,9 +49,9 @@
     "isActive": true,
     "isFresherFriendly": false,
     "postedAt": "2026-11-01T08:00:12.000Z",
-    "id": "job-614d3c45",
-    "createdAt": "2026-11-05T17:29:37.251Z",
-    "updatedAt": "2026-11-05T17:29:37.251Z"
+    "id": "job-19f28582",
+    "createdAt": "2026-11-05T19:51:15.517Z",
+    "updatedAt": "2026-11-05T19:51:15.517Z"
   },
   {
     "hash": "5e7d90b4f65f9a4c5cedf1d1a744283b2513e89039edae20dfa3fa0566e2af04",
@@ -122,9 +76,9 @@
     "isActive": true,
     "isFresherFriendly": false,
     "postedAt": "2026-11-02T00:00:07.000Z",
-    "id": "job-6e7c342d",
-    "createdAt": "2026-11-05T17:29:37.251Z",
-    "updatedAt": "2026-11-05T17:29:37.251Z"
+    "id": "job-adf4f41d",
+    "createdAt": "2026-11-05T19:51:15.517Z",
+    "updatedAt": "2026-11-05T19:51:15.517Z"
   },
   {
     "hash": "12a307057c3307737470e4e0576666b259cfd284e6a0a48151c51103085a54c7",
@@ -149,9 +103,9 @@
     "isActive": true,
     "isFresherFriendly": false,
     "postedAt": "2026-11-02T00:00:13.000Z",
-    "id": "job-ac40b22f",
-    "createdAt": "2026-11-05T17:29:37.251Z",
-    "updatedAt": "2026-11-05T17:29:37.251Z"
+    "id": "job-08884f78",
+    "createdAt": "2026-11-05T19:51:15.517Z",
+    "updatedAt": "2026-11-05T19:51:15.517Z"
   },
   {
     "hash": "bae37dbf38b0dd2231be7ac8922bca6339821dba8ddfba0147b989f609359f3b",
@@ -176,9 +130,9 @@
     "isActive": true,
     "isFresherFriendly": false,
     "postedAt": "2026-11-02T10:43:35.000Z",
-    "id": "job-14f0408a",
-    "createdAt": "2026-11-05T17:29:37.251Z",
-    "updatedAt": "2026-11-05T17:29:37.251Z"
+    "id": "job-06fac760",
+    "createdAt": "2026-11-05T19:51:15.517Z",
+    "updatedAt": "2026-11-05T19:51:15.517Z"
   },
   {
     "hash": "2b0268bb9d0785b380148c437a5fdbda3309503b95997dc084076d226674b2e8",
@@ -203,9 +157,9 @@
     "isActive": true,
     "isFresherFriendly": false,
     "postedAt": "2026-11-03T00:00:10.000Z",
-    "id": "job-2ffcb827",
-    "createdAt": "2026-11-05T17:29:37.251Z",
-    "updatedAt": "2026-11-05T17:29:37.251Z"
+    "id": "job-0da9fa31",
+    "createdAt": "2026-11-05T19:51:15.517Z",
+    "updatedAt": "2026-11-05T19:51:15.517Z"
   },
   {
     "hash": "dd4255e130b9c0ba9e1417cf4ab8c486362aa036e20c2a88fdc27ee6771a5366",
@@ -230,9 +184,9 @@
     "isActive": true,
     "isFresherFriendly": false,
     "postedAt": "2026-11-03T00:00:18.000Z",
-    "id": "job-f9d571c9",
-    "createdAt": "2026-11-05T17:29:37.251Z",
-    "updatedAt": "2026-11-05T17:29:37.251Z"
+    "id": "job-240257d5",
+    "createdAt": "2026-11-05T19:51:15.517Z",
+    "updatedAt": "2026-11-05T19:51:15.517Z"
   },
   {
     "hash": "67c0e98cec77e2cc5bd57967393a9b8c9759324573694fb3e0c618ca634da6e4",
@@ -257,9 +211,9 @@
     "isActive": true,
     "isFresherFriendly": false,
     "postedAt": "2026-11-03T08:00:12.000Z",
-    "id": "job-3c968cfe",
-    "createdAt": "2026-11-05T17:29:37.251Z",
-    "updatedAt": "2026-11-05T17:29:37.251Z"
+    "id": "job-9af729f8",
+    "createdAt": "2026-11-05T19:51:15.517Z",
+    "updatedAt": "2026-11-05T19:51:15.517Z"
   },
   {
     "hash": "25d5dae274973a065998bd9f2550193a46117b842f1a63b84900dcf0e240e812",
@@ -283,9 +237,9 @@
     "isActive": true,
     "isFresherFriendly": false,
     "postedAt": "2026-11-03T14:53:55.000Z",
-    "id": "job-44e30e74",
-    "createdAt": "2026-11-05T17:29:37.251Z",
-    "updatedAt": "2026-11-05T17:29:37.251Z"
+    "id": "job-a224d85a",
+    "createdAt": "2026-11-05T19:51:15.517Z",
+    "updatedAt": "2026-11-05T19:51:15.517Z"
   },
   {
     "hash": "900e928a6e921ce6fd975f2be1fd5c575ea53e62094f9daf07d53c523b47f73c",
@@ -310,9 +264,9 @@
     "isActive": true,
     "isFresherFriendly": false,
     "postedAt": "2026-11-03T16:00:05.000Z",
-    "id": "job-80f62f0e",
-    "createdAt": "2026-11-05T17:29:37.251Z",
-    "updatedAt": "2026-11-05T17:29:37.251Z"
+    "id": "job-2a2d5129",
+    "createdAt": "2026-11-05T19:51:15.517Z",
+    "updatedAt": "2026-11-05T19:51:15.517Z"
   },
   {
     "hash": "b7695f6fb263dfd76724a7145d61f70cdeca1572711f579e2375e668216c564f",
@@ -337,9 +291,9 @@
     "isActive": true,
     "isFresherFriendly": false,
     "postedAt": "2026-11-03T16:00:12.000Z",
-    "id": "job-0afdd047",
-    "createdAt": "2026-11-05T17:29:37.251Z",
-    "updatedAt": "2026-11-05T17:29:37.251Z"
+    "id": "job-1c3aaede",
+    "createdAt": "2026-11-05T19:51:15.517Z",
+    "updatedAt": "2026-11-05T19:51:15.517Z"
   },
   {
     "hash": "485c7c2314201d4e053c887a992b8a2fe273ff6d5d6a448bc22c2e450d9e5bf1",
@@ -364,9 +318,9 @@
     "isActive": true,
     "isFresherFriendly": true,
     "postedAt": "2026-11-03T16:00:25.000Z",
-    "id": "job-f18becbc",
-    "createdAt": "2026-11-05T17:29:37.251Z",
-    "updatedAt": "2026-11-05T17:29:37.251Z"
+    "id": "job-8eb5e1e5",
+    "createdAt": "2026-11-05T19:51:15.517Z",
+    "updatedAt": "2026-11-05T19:51:15.517Z"
   },
   {
     "hash": "141e899a7fa6872372216e80b336bbf48ce2fe26f7f935a2054ac59bc304de70",
@@ -391,9 +345,9 @@
     "isActive": true,
     "isFresherFriendly": false,
     "postedAt": "2026-11-04T00:00:06.000Z",
-    "id": "job-3699ba6b",
-    "createdAt": "2026-11-05T17:29:37.251Z",
-    "updatedAt": "2026-11-05T17:29:37.251Z"
+    "id": "job-f3e5cc8d",
+    "createdAt": "2026-11-05T19:51:15.517Z",
+    "updatedAt": "2026-11-05T19:51:15.517Z"
   },
   {
     "hash": "aad71f0b0b5a86c377631afef888895e44b5c9e704516948a1f21a920b94294a",
@@ -416,12 +370,12 @@
     "isActive": true,
     "isFresherFriendly": false,
     "postedAt": "2026-11-04T15:09:09.000Z",
-    "id": "job-d39772b7",
-    "createdAt": "2026-11-05T17:29:37.251Z",
-    "updatedAt": "2026-11-05T17:29:37.251Z"
+    "id": "job-1ab4411d",
+    "createdAt": "2026-11-05T19:51:15.517Z",
+    "updatedAt": "2026-11-05T19:51:15.517Z"
   },
   {
-    "hash": "d23b0380906cc4f332148cd4925343b43593135c90ce32c3e81512ef72f494b2",
+    "hash": "cb7ad9bfc62d7dd5ba9445d9b8f9cb3e0346a6e19b284d9a8086db644b37dc5e",
     "title": "Junior Cyber Security Analyst",
     "company": "Banglalink (VEON)",
     "category": "TELECOM",
@@ -429,10 +383,10 @@
     "location": "Tigers Den, Gulshan, Dhaka",
     "experience": "0-2 Years",
     "salary": "Attractive Compensation + Provident Fund & Health",
-    "deadline": "2026-12-04T23:59:59Z",
+    "deadline": "2026-12-02T19:51:13.746Z",
     "source": "Banglalink (VEON) Careers",
-    "sourceUrl": "https://banglalink.bd/en/careers",
-    "applyUrl": "https://banglalink.bd/en/careers",
+    "sourceUrl": "https://banglalink.net/en/careers",
+    "applyUrl": "https://banglalink.net/en/careers",
     "skills": [
       "SOC",
       "SIEM",
@@ -442,10 +396,10 @@
     "description": "Protect critical telecommunication network assets and digital customer services from emerging cyber threats.",
     "isActive": true,
     "isFresherFriendly": true,
-    "postedAt": "2026-11-05T17:29:35.327Z",
-    "id": "job-abc6c935",
-    "createdAt": "2026-11-05T17:29:37.251Z",
-    "updatedAt": "2026-11-05T17:29:37.251Z"
+    "postedAt": "2026-11-05T19:51:13.746Z",
+    "id": "job-bdfe99f2",
+    "createdAt": "2026-11-05T19:51:15.517Z",
+    "updatedAt": "2026-11-05T19:51:15.517Z"
   },
   {
     "hash": "252ec34751cbd182837a25fba9f29ad1398a26f6360e8497ed3282b8cc592741",
@@ -456,7 +410,7 @@
     "location": "Gulshan-1, Dhaka",
     "experience": "1-3 Years",
     "salary": "Competitive Industry Standard",
-    "deadline": "2026-11-27T23:59:59Z",
+    "deadline": "2026-11-27T19:51:13.746Z",
     "source": "Robi Axiata Limited Careers",
     "sourceUrl": "https://www.robi.com.bd/en/corporate/careers",
     "applyUrl": "https://www.robi.com.bd/en/corporate/careers",
@@ -469,13 +423,13 @@
     "description": "Lead 24/7 IT incident response, digital services monitoring, and automated infrastructure deployments at Robi.",
     "isActive": true,
     "isFresherFriendly": false,
-    "postedAt": "2026-11-05T17:29:35.327Z",
-    "id": "job-94757d08",
-    "createdAt": "2026-11-05T17:29:37.251Z",
-    "updatedAt": "2026-11-05T17:29:37.251Z"
+    "postedAt": "2026-11-05T19:51:13.746Z",
+    "id": "job-2ec21d17",
+    "createdAt": "2026-11-05T19:51:15.517Z",
+    "updatedAt": "2026-11-05T19:51:15.517Z"
   },
   {
-    "hash": "60800e61981864789de3a59892d1a9024e03b58cda7a812f624a74469b8b288e",
+    "hash": "60f523b87ebffdd8f8f393d7c4713b6aa5730b6f551efa8436469fb7e4757529",
     "title": "Apprentice / Graduate Engineer - Cloud & Infrastructure",
     "company": "Grameenphone Ltd.",
     "category": "TELECOM",
@@ -483,10 +437,10 @@
     "location": "GPhouse, Bashundhara, Dhaka",
     "experience": "0-1 Year / Freshers Eligible",
     "salary": "Competitive Enterprise Package",
-    "deadline": "2026-11-25T23:59:59Z",
+    "deadline": "2026-11-25T19:51:13.746Z",
     "source": "Grameenphone Ltd. Careers",
-    "sourceUrl": "https://telenor.wd3.myworkdayjobs.com/GP_Careers/job/GP-House-Dhaka/Apprentice-Engineer_JR1001",
-    "applyUrl": "https://telenor.wd3.myworkdayjobs.com/GP_Careers/job/GP-House-Dhaka/Apprentice-Engineer_JR1001",
+    "sourceUrl": "https://www.telenor.com/career/",
+    "applyUrl": "https://www.telenor.com/career/",
     "skills": [
       "Cloud Computing",
       "Linux Administration",
@@ -497,10 +451,66 @@
     "description": "Join the premier telecom operator driving Smart Bangladesh connectivity and 5G enterprise infrastructure.",
     "isActive": true,
     "isFresherFriendly": true,
-    "postedAt": "2026-11-05T17:29:35.327Z",
-    "id": "job-734e5977",
-    "createdAt": "2026-11-05T17:29:37.251Z",
-    "updatedAt": "2026-11-05T17:29:37.251Z"
+    "postedAt": "2026-11-05T19:51:13.746Z",
+    "id": "job-a8f1646a",
+    "createdAt": "2026-11-05T19:51:15.517Z",
+    "updatedAt": "2026-11-05T19:51:15.517Z"
+  },
+  {
+    "hash": "e9899d3c905b5cb6bbd094da36098cc5df82a6a75c76e5bd6a30d6f6b6b958b7",
+    "title": "Software Engineer Trainee (C# / .NET / Web)",
+    "company": "Enosis Solutions",
+    "category": "TECH_AI",
+    "employmentType": "FULL_TIME",
+    "location": "Banani, Dhaka",
+    "experience": "Final Year / Fresh Graduate in CSE",
+    "salary": "40,000 - 55,000 BDT",
+    "deadline": "2026-11-23T19:51:13.746Z",
+    "source": "Enosis Solutions Careers",
+    "sourceUrl": "https://www.linkedin.com/company/enosis-solutions/jobs/",
+    "applyUrl": "https://www.linkedin.com/company/enosis-solutions/jobs/",
+    "skills": [
+      "C#",
+      ".NET Core",
+      "SQL Server",
+      "Problem Solving",
+      "Data Structures"
+    ],
+    "description": "Fast-track engineering program for top competitive programmers and computer science graduates in Bangladesh.",
+    "isActive": true,
+    "isFresherFriendly": true,
+    "postedAt": "2026-11-05T19:51:13.746Z",
+    "id": "job-4de5e984",
+    "createdAt": "2026-11-05T19:51:15.517Z",
+    "updatedAt": "2026-11-05T19:51:15.517Z"
+  },
+  {
+    "hash": "aa5a0f6c22fdd5e83c07055d5310696a0b2d1de0ff9ded725e3849876a57cb34",
+    "title": "Junior Software Engineer (React / TypeScript)",
+    "company": "Brain Station 23",
+    "category": "TECH_AI",
+    "employmentType": "FULL_TIME",
+    "location": "Gulshan-1, Dhaka",
+    "experience": "0-1 Year / Fresh Graduate",
+    "salary": "45,000 - 65,000 BDT",
+    "deadline": "2026-11-25T19:51:13.746Z",
+    "source": "Brain Station 23 Careers",
+    "sourceUrl": "https://www.linkedin.com/company/brainstation23/jobs/",
+    "applyUrl": "https://www.linkedin.com/company/brainstation23/jobs/",
+    "skills": [
+      "React",
+      "TypeScript",
+      "Node.js",
+      "Redux",
+      "TailwindCSS"
+    ],
+    "description": "Join Brain Station 23 building enterprise software solutions. Apply directly through the official recruitment portal.",
+    "isActive": true,
+    "isFresherFriendly": true,
+    "postedAt": "2026-11-05T19:51:13.746Z",
+    "id": "job-e975c7da",
+    "createdAt": "2026-11-05T19:51:15.517Z",
+    "updatedAt": "2026-11-05T19:51:15.517Z"
   },
   {
     "hash": "3caea71e54f93ea5db1ea0f651b81ad5b709d4a15add55827cc45a0d4305c70b",
@@ -511,7 +521,7 @@
     "location": "Shadhinata Bhaban, Dhaka",
     "experience": "Graduating 2026 Batch",
     "salary": "65,000 - 85,000 BDT",
-    "deadline": "2026-12-08T23:59:59Z",
+    "deadline": "2026-12-03T19:51:13.746Z",
     "source": "bKash Limited Careers",
     "sourceUrl": "https://www.bkash.com/career",
     "applyUrl": "https://www.bkash.com/career",
@@ -525,24 +535,52 @@
     "description": "Be part of the largest financial inclusion platform in Bangladesh processing billions in daily mobile transactions.",
     "isActive": true,
     "isFresherFriendly": true,
-    "postedAt": "2026-11-05T17:29:35.327Z",
-    "id": "job-5da5e317",
-    "createdAt": "2026-11-05T17:29:37.251Z",
-    "updatedAt": "2026-11-05T17:29:37.251Z"
+    "postedAt": "2026-11-05T19:51:13.746Z",
+    "id": "job-970c5417",
+    "createdAt": "2026-11-05T19:51:15.517Z",
+    "updatedAt": "2026-11-05T19:51:15.517Z"
   },
   {
-    "hash": "e85d243e033aaeebafb2ee215b8fd30f46c9ba651eb18a8b679fcfa3dcbceb23",
-    "title": "Associate Frontend Developer (Angular / Vue / React)",
+    "hash": "f91aebff2ae47d943a122329b747f9420380911c842e7a79c403d052ae090219",
+    "title": "Junior Software Developer (Web & Mobile)",
+    "company": "Kaz Software Limited",
+    "category": "TECH_AI",
+    "employmentType": "FULL_TIME",
+    "location": "Dhanmondi, Dhaka",
+    "experience": "0-1 Year / Fresh Graduates",
+    "salary": "40,000 - 55,000 BDT",
+    "deadline": "2026-11-24T19:51:13.746Z",
+    "source": "Kaz Software Limited Careers",
+    "sourceUrl": "https://kaz.com.bd",
+    "applyUrl": "https://kaz.com.bd",
+    "skills": [
+      "JavaScript",
+      "Python",
+      "React",
+      "SQL",
+      "Git"
+    ],
+    "description": "Boutique software engineering farm building custom web applications for North American and European businesses.",
+    "isActive": true,
+    "isFresherFriendly": true,
+    "postedAt": "2026-11-05T19:51:13.746Z",
+    "id": "job-77b1ee17",
+    "createdAt": "2026-11-05T19:51:15.517Z",
+    "updatedAt": "2026-11-05T19:51:15.517Z"
+  },
+  {
+    "hash": "69ecbe47e571f85098f8de23cb59ee71695467e793e5a829a2f10ef241ae3da7",
+    "title": "Associate Frontend Developer (Angular / React)",
     "company": "Selise Digital Platforms",
     "category": "TECH_AI",
     "employmentType": "FULL_TIME",
     "location": "Mirpur DOHS, Dhaka",
     "experience": "0-1.5 Years",
     "salary": "45,000 - 60,000 BDT",
-    "deadline": "2026-11-29T23:59:59Z",
+    "deadline": "2026-11-26T19:51:13.746Z",
     "source": "Selise Digital Platforms Careers",
-    "sourceUrl": "https://selisegroup.com/careers",
-    "applyUrl": "https://selisegroup.com/careers",
+    "sourceUrl": "https://selisegroup.com/career/",
+    "applyUrl": "https://selisegroup.com/career/",
     "skills": [
       "JavaScript",
       "Angular",
@@ -553,10 +591,10 @@
     "description": "Swiss-headquartered digital engineering platform creating world-class fintech and enterprise portals.",
     "isActive": true,
     "isFresherFriendly": true,
-    "postedAt": "2026-11-05T17:29:35.327Z",
-    "id": "job-e97e3ec3",
-    "createdAt": "2026-11-05T17:29:37.251Z",
-    "updatedAt": "2026-11-05T17:29:37.251Z"
+    "postedAt": "2026-11-05T19:51:13.746Z",
+    "id": "job-3226d202",
+    "createdAt": "2026-11-05T19:51:15.517Z",
+    "updatedAt": "2026-11-05T19:51:15.517Z"
   },
   {
     "hash": "d11e686776487c1f7a30b59fe05f0855a47e13b74e77474707195270967b4d56",
@@ -567,7 +605,7 @@
     "location": "1/1, Bir Uttam Mir Shawkat Sarak, Dhaka",
     "experience": "B.Sc in CSE / EEE (Fresh Graduates Welcome)",
     "salary": "70,000 - 95,000 BDT + Annual Bonus",
-    "deadline": "2026-12-10T23:59:59Z",
+    "deadline": "2026-12-05T19:51:13.746Z",
     "source": "Samsung R&D Institute Bangladesh (SRBD) Careers",
     "sourceUrl": "https://research.samsung.com/srbd",
     "applyUrl": "https://research.samsung.com/srbd",
@@ -581,94 +619,38 @@
     "description": "Work directly on Samsung Galaxy flagship software, on-device AI algorithms, and core system optimizations.",
     "isActive": true,
     "isFresherFriendly": true,
-    "postedAt": "2026-11-05T17:29:35.327Z",
-    "id": "job-fd055b7d",
-    "createdAt": "2026-11-05T17:29:37.251Z",
-    "updatedAt": "2026-11-05T17:29:37.251Z"
+    "postedAt": "2026-11-05T19:51:13.746Z",
+    "id": "job-0a7f6573",
+    "createdAt": "2026-11-05T19:51:15.517Z",
+    "updatedAt": "2026-11-05T19:51:15.517Z"
   },
   {
-    "hash": "7c7ab242573f9857a1b2cec3e4a90a0003f3e84f6c870d9035a310246b37d809",
-    "title": "Software Engineer Trainee (C# / .NET / Web)",
-    "company": "Enosis Solutions",
+    "hash": "a13b1f4b31dabf977f2a3d14787c08484ca7b9a2ff032d56a301ac96604620f1",
+    "title": "Associate Software Engineer (Fullstack & Cloud)",
+    "company": "Cefalo Bangladesh Ltd.",
     "category": "TECH_AI",
     "employmentType": "FULL_TIME",
-    "location": "Banani, Dhaka",
-    "experience": "Final Year / Fresh Graduate in CSE",
-    "salary": "40,000 - 55,000 BDT",
-    "deadline": "2026-11-25T23:59:59Z",
-    "source": "Enosis Solutions Careers",
-    "sourceUrl": "https://www.enosisbd.com/careers/trainee-engineer",
-    "applyUrl": "https://www.enosisbd.com/careers/trainee-engineer",
-    "skills": [
-      "C#",
-      ".NET Core",
-      "SQL Server",
-      "Problem Solving",
-      "Data Structures"
-    ],
-    "description": "Fast-track engineering program for top competitive programmers and computer science graduates in Bangladesh.",
-    "isActive": true,
-    "isFresherFriendly": true,
-    "postedAt": "2026-11-05T17:29:35.327Z",
-    "id": "job-051dde2a",
-    "createdAt": "2026-11-05T17:29:37.251Z",
-    "updatedAt": "2026-11-05T17:29:37.251Z"
-  },
-  {
-    "hash": "fdf4fc4c3ca914e8ef1a0bf12b164b68fcfba6e0b31279f5b2072ec4d0af4bf7",
-    "title": "Associate AI Engineer / Computer Vision Trainee",
-    "company": "BJIT Limited",
-    "category": "TECH_AI",
-    "employmentType": "FULL_TIME",
-    "location": "Baridhara, Dhaka (Hybrid)",
-    "experience": "Fresher Friendly",
-    "salary": "50,000 - 70,000 BDT",
-    "deadline": "2026-12-05T23:59:59Z",
-    "source": "BJIT Limited Careers",
-    "sourceUrl": "https://bjitgroup.com/careers/associate-ai-engineer",
-    "applyUrl": "https://bjitgroup.com/careers/associate-ai-engineer",
-    "skills": [
-      "Python",
-      "PyTorch",
-      "TensorFlow",
-      "LLMs",
-      "Computer Vision"
-    ],
-    "description": "Develop production ML pipelines and generative AI solutions for global enterprise clients with mentorship from senior AI scientists.",
-    "isActive": true,
-    "isFresherFriendly": true,
-    "postedAt": "2026-11-05T17:29:35.327Z",
-    "id": "job-5a039ea5",
-    "createdAt": "2026-11-05T17:29:37.251Z",
-    "updatedAt": "2026-11-05T17:29:37.251Z"
-  },
-  {
-    "hash": "c1fc600893e210a3ad369e378a4cd55d1dd5ec38f208752b2c7baae5ae6ed4bb",
-    "title": "Junior Software Engineer (React / TypeScript)",
-    "company": "Brain Station 23",
-    "category": "TECH_AI",
-    "employmentType": "FULL_TIME",
-    "location": "Gulshan-1, Dhaka",
-    "experience": "0-1 Year / Fresh Graduate",
+    "location": "Dhanmondi, Dhaka",
+    "experience": "0-1 Year / Fresh Graduate in CSE",
     "salary": "45,000 - 65,000 BDT",
-    "deadline": "2026-11-28T23:59:59Z",
-    "source": "Brain Station 23 Careers",
-    "sourceUrl": "https://brainstation-23.com/careers/junior-react-engineer",
-    "applyUrl": "https://brainstation-23.com/careers/junior-react-engineer",
+    "deadline": "2026-11-27T19:51:13.746Z",
+    "source": "Cefalo Bangladesh Ltd. Careers",
+    "sourceUrl": "https://www.cefalo.com/en/career",
+    "applyUrl": "https://www.cefalo.com/en/career",
     "skills": [
-      "React",
+      "JavaScript",
       "TypeScript",
-      "Next.js",
-      "Redux",
-      "TailwindCSS"
+      "React",
+      "Node.js",
+      "AWS"
     ],
-    "description": "Brain Station 23 is looking for passionate fresh CS graduates who love building scalable modern frontend and full-stack web applications.",
+    "description": "Norwegian software engineering consultancy hiring problem solvers to build scalable SaaS products for international clients.",
     "isActive": true,
     "isFresherFriendly": true,
-    "postedAt": "2026-11-05T17:29:35.327Z",
-    "id": "job-c5f9e16a",
-    "createdAt": "2026-11-05T17:29:37.251Z",
-    "updatedAt": "2026-11-05T17:29:37.251Z"
+    "postedAt": "2026-11-05T19:51:13.746Z",
+    "id": "job-aaa333bb",
+    "createdAt": "2026-11-05T19:51:15.517Z",
+    "updatedAt": "2026-11-05T19:51:15.517Z"
   },
   {
     "hash": "b96192ed204b3150cf91335afb233eff391b758c8ab74f37eeafe97774df0cbd",
@@ -679,7 +661,7 @@
     "location": "Dhaka / Across Bangladesh",
     "experience": "Graduate / Masters / Freshers Welcome",
     "salary": "Competitive Banking Pay Scale (Grade 9 / Grade 10 / MTO)",
-    "deadline": "2026-11-25T17:29:35.608Z",
+    "deadline": "2026-11-25T19:51:14.049Z",
     "source": "Bangladesh Bank & Bank Portals",
     "sourceUrl": "https://bdgovtjob.net/modhumoti-bank-job-circular/",
     "applyUrl": "https://bdgovtjob.net/modhumoti-bank-job-circular/",
@@ -692,10 +674,10 @@
     "description": "Bank recruitment circular: মধুমতি ব্যাংক নিয়োগ বিজ্ঞপ্তি ২০২৬ Modhumoti Bank Job Circular 2026. Direct notice, eligibility criteria, and application links available at source.",
     "isActive": true,
     "isFresherFriendly": false,
-    "postedAt": "2026-11-05T17:29:35.608Z",
-    "id": "job-93571f74",
-    "createdAt": "2026-11-05T17:29:37.251Z",
-    "updatedAt": "2026-11-05T17:29:37.251Z"
+    "postedAt": "2026-11-05T19:51:14.049Z",
+    "id": "job-9585c282",
+    "createdAt": "2026-11-05T19:51:15.517Z",
+    "updatedAt": "2026-11-05T19:51:15.517Z"
   },
   {
     "hash": "60acaa3ea7c0001f70b0de6d3eb2663ce1403ff96025b12b04838e31332bee5e",
@@ -706,7 +688,7 @@
     "location": "Dhaka / Across Bangladesh",
     "experience": "Graduate / Masters / Freshers Welcome",
     "salary": "Competitive Banking Pay Scale (Grade 9 / Grade 10 / MTO)",
-    "deadline": "2026-11-25T17:29:35.608Z",
+    "deadline": "2026-11-25T19:51:14.049Z",
     "source": "Bangladesh Bank & Bank Portals",
     "sourceUrl": "https://bdgovtjob.net/mutual-trust-bank-limited-job-circular/",
     "applyUrl": "https://bdgovtjob.net/mutual-trust-bank-limited-job-circular/",
@@ -719,10 +701,10 @@
     "description": "Bank recruitment circular: মিউচুয়াল ট্রাস্ট ব্যাংক নিয়োগ বিজ্ঞপ্তি ২০২৬. Direct notice, eligibility criteria, and application links available at source.",
     "isActive": true,
     "isFresherFriendly": false,
-    "postedAt": "2026-11-05T17:29:35.608Z",
-    "id": "job-dd27edf9",
-    "createdAt": "2026-11-05T17:29:37.251Z",
-    "updatedAt": "2026-11-05T17:29:37.251Z"
+    "postedAt": "2026-11-05T19:51:14.049Z",
+    "id": "job-f0450b11",
+    "createdAt": "2026-11-05T19:51:15.517Z",
+    "updatedAt": "2026-11-05T19:51:15.517Z"
   },
   {
     "hash": "1ca448f7fc2ee2a94943590d8c01020c8104ca1f70cef8b3997ee2a374c1019f",
@@ -733,7 +715,7 @@
     "location": "Dhaka / Across Bangladesh",
     "experience": "Graduate / Masters / Freshers Welcome",
     "salary": "Competitive Banking Pay Scale (Grade 9 / Grade 10 / MTO)",
-    "deadline": "2026-11-25T17:29:35.608Z",
+    "deadline": "2026-11-25T19:51:14.049Z",
     "source": "Bangladesh Bank & Bank Portals",
     "sourceUrl": "https://bdgovtjob.net/nagad-job-circular/",
     "applyUrl": "https://bdgovtjob.net/nagad-job-circular/",
@@ -746,10 +728,10 @@
     "description": "Bank recruitment circular: নগদ নিয়োগ বিজ্ঞপ্তি ২০২৬ Nagad Job Circular 2026. Direct notice, eligibility criteria, and application links available at source.",
     "isActive": true,
     "isFresherFriendly": false,
-    "postedAt": "2026-11-05T17:29:35.608Z",
-    "id": "job-6ce5ecb9",
-    "createdAt": "2026-11-05T17:29:37.251Z",
-    "updatedAt": "2026-11-05T17:29:37.251Z"
+    "postedAt": "2026-11-05T19:51:14.049Z",
+    "id": "job-18a3d2bf",
+    "createdAt": "2026-11-05T19:51:15.517Z",
+    "updatedAt": "2026-11-05T19:51:15.517Z"
   },
   {
     "hash": "8e56f7b3770bb5a3b8f2310b50bd9a22965099e0d0a12559fcd41001ccfe4305",
@@ -760,7 +742,7 @@
     "location": "Dhaka / Across Bangladesh",
     "experience": "Graduate / Masters / Freshers Welcome",
     "salary": "Competitive Banking Pay Scale (Grade 9 / Grade 10 / MTO)",
-    "deadline": "2026-11-25T17:29:35.608Z",
+    "deadline": "2026-11-25T19:51:14.049Z",
     "source": "Bangladesh Bank & Bank Portals",
     "sourceUrl": "https://bdgovtjob.net/eastern-bank-limited-job-circular/",
     "applyUrl": "https://bdgovtjob.net/eastern-bank-limited-job-circular/",
@@ -773,10 +755,10 @@
     "description": "Bank recruitment circular: ইস্টার্ন ব্যাংক নিয়োগ বিজ্ঞপ্তি ২০২৬ EBL Job Circular 2026. Direct notice, eligibility criteria, and application links available at source.",
     "isActive": true,
     "isFresherFriendly": false,
-    "postedAt": "2026-11-05T17:29:35.608Z",
-    "id": "job-09bbf0bb",
-    "createdAt": "2026-11-05T17:29:37.251Z",
-    "updatedAt": "2026-11-05T17:29:37.251Z"
+    "postedAt": "2026-11-05T19:51:14.049Z",
+    "id": "job-9cb79ffc",
+    "createdAt": "2026-11-05T19:51:15.517Z",
+    "updatedAt": "2026-11-05T19:51:15.517Z"
   },
   {
     "hash": "eaa84c60266cd371568628573b933f8b2318182ef6f9ada8867930b2157e2dc1",
@@ -787,7 +769,7 @@
     "location": "Dhaka / Across Bangladesh",
     "experience": "Graduate / Masters / Freshers Welcome",
     "salary": "Competitive Banking Pay Scale (Grade 9 / Grade 10 / MTO)",
-    "deadline": "2026-11-25T17:29:35.608Z",
+    "deadline": "2026-11-25T19:51:14.049Z",
     "source": "Bangladesh Bank & Bank Portals",
     "sourceUrl": "https://bdgovtjob.net/one-bank-limited-job-circular/",
     "applyUrl": "https://bdgovtjob.net/one-bank-limited-job-circular/",
@@ -800,10 +782,10 @@
     "description": "Bank recruitment circular: ওয়ান ব্যাংক নিয়োগ বিজ্ঞপ্তি ২০২৬ One Bank Job Circular 2026. Direct notice, eligibility criteria, and application links available at source.",
     "isActive": true,
     "isFresherFriendly": false,
-    "postedAt": "2026-11-05T17:29:35.608Z",
-    "id": "job-1ecbb9fd",
-    "createdAt": "2026-11-05T17:29:37.251Z",
-    "updatedAt": "2026-11-05T17:29:37.251Z"
+    "postedAt": "2026-11-05T19:51:14.049Z",
+    "id": "job-0ffae284",
+    "createdAt": "2026-11-05T19:51:15.517Z",
+    "updatedAt": "2026-11-05T19:51:15.517Z"
   },
   {
     "hash": "321ad3d52382a81673f50664ebf009c9dd10eb9bdeecc4b43f311ab80cb58532",
@@ -814,7 +796,7 @@
     "location": "Dhaka / Across Bangladesh",
     "experience": "Graduate / Masters / Freshers Welcome",
     "salary": "Competitive Banking Pay Scale (Grade 9 / Grade 10 / MTO)",
-    "deadline": "2026-11-25T17:29:35.608Z",
+    "deadline": "2026-11-25T19:51:14.049Z",
     "source": "Bangladesh Bank & Bank Portals",
     "sourceUrl": "https://bdgovtjob.net/shimanto-bank-job-circular/",
     "applyUrl": "https://bdgovtjob.net/shimanto-bank-job-circular/",
@@ -827,10 +809,10 @@
     "description": "Bank recruitment circular: সীমান্ত ব্যাংক নিয়োগ বিজ্ঞপ্তি ২০২৬ Shimanto Bank Job Circular 2026. Direct notice, eligibility criteria, and application links available at source.",
     "isActive": true,
     "isFresherFriendly": false,
-    "postedAt": "2026-11-05T17:29:35.608Z",
-    "id": "job-8d1578ea",
-    "createdAt": "2026-11-05T17:29:37.251Z",
-    "updatedAt": "2026-11-05T17:29:37.251Z"
+    "postedAt": "2026-11-05T19:51:14.049Z",
+    "id": "job-5bc1c1ee",
+    "createdAt": "2026-11-05T19:51:15.517Z",
+    "updatedAt": "2026-11-05T19:51:15.517Z"
   },
   {
     "hash": "21f10534308b98cd1f8a20d4910700d293c7e6ee5e51012598de54d9efacc401",
@@ -841,7 +823,7 @@
     "location": "Dhaka / Across Bangladesh",
     "experience": "Graduate / Masters / Freshers Welcome",
     "salary": "Competitive Banking Pay Scale (Grade 9 / Grade 10 / MTO)",
-    "deadline": "2026-11-25T17:29:35.607Z",
+    "deadline": "2026-11-25T19:51:14.048Z",
     "source": "Bangladesh Bank & Bank Portals",
     "sourceUrl": "https://bdgovtjob.net/bengal-commercial-bank-limited-job-circular/",
     "applyUrl": "https://bdgovtjob.net/bengal-commercial-bank-limited-job-circular/",
@@ -854,10 +836,10 @@
     "description": "Bank recruitment circular: বেঙ্গল কমার্শিয়াল ব্যাংক নিয়োগ বিজ্ঞপ্তি ২০২৬. Direct notice, eligibility criteria, and application links available at source.",
     "isActive": true,
     "isFresherFriendly": false,
-    "postedAt": "2026-11-05T17:29:35.607Z",
-    "id": "job-878faffd",
-    "createdAt": "2026-11-05T17:29:37.251Z",
-    "updatedAt": "2026-11-05T17:29:37.251Z"
+    "postedAt": "2026-11-05T19:51:14.048Z",
+    "id": "job-6a063410",
+    "createdAt": "2026-11-05T19:51:15.517Z",
+    "updatedAt": "2026-11-05T19:51:15.517Z"
   },
   {
     "hash": "e1fd32d86c882bcc8d26732b1df469f5fab7c61eaa05812cb560ba6c10bbee61",
@@ -868,7 +850,7 @@
     "location": "Dhaka / Across Bangladesh",
     "experience": "Graduate / Masters / Freshers Welcome",
     "salary": "Competitive Banking Pay Scale (Grade 9 / Grade 10 / MTO)",
-    "deadline": "2026-11-25T17:29:35.607Z",
+    "deadline": "2026-11-25T19:51:14.048Z",
     "source": "Bangladesh Bank & Bank Portals",
     "sourceUrl": "https://bdgovtjob.net/ncc-bank-job-circular/",
     "applyUrl": "https://bdgovtjob.net/ncc-bank-job-circular/",
@@ -881,10 +863,10 @@
     "description": "Bank recruitment circular: এনসিসি ব্যাংক নিয়োগ বিজ্ঞপ্তি ২০২৬ NCC Bank Job Circular 2026. Direct notice, eligibility criteria, and application links available at source.",
     "isActive": true,
     "isFresherFriendly": false,
-    "postedAt": "2026-11-05T17:29:35.607Z",
-    "id": "job-4e2cb733",
-    "createdAt": "2026-11-05T17:29:37.251Z",
-    "updatedAt": "2026-11-05T17:29:37.251Z"
+    "postedAt": "2026-11-05T19:51:14.048Z",
+    "id": "job-15f4d86c",
+    "createdAt": "2026-11-05T19:51:15.517Z",
+    "updatedAt": "2026-11-05T19:51:15.517Z"
   },
   {
     "hash": "61bbc260f8ef18265e1f96b6b6fb06198ddc267dc47b28ec868cd4d4ede797c6",
@@ -895,7 +877,7 @@
     "location": "Dhaka / Across Bangladesh",
     "experience": "Graduate / Masters / Freshers Welcome",
     "salary": "Competitive Banking Pay Scale (Grade 9 / Grade 10 / MTO)",
-    "deadline": "2026-11-25T17:29:35.607Z",
+    "deadline": "2026-11-25T19:51:14.048Z",
     "source": "Bangladesh Bank & Bank Portals",
     "sourceUrl": "https://bdgovtjob.net/mercantile-bank-limited-job-circular/",
     "applyUrl": "https://bdgovtjob.net/mercantile-bank-limited-job-circular/",
@@ -908,10 +890,10 @@
     "description": "Bank recruitment circular: মার্কেন্টাইল ব্যাংক নিয়োগ বিজ্ঞপ্তি ২০২৬ Mercantile Bank Job Circular 2026. Direct notice, eligibility criteria, and application links available at source.",
     "isActive": true,
     "isFresherFriendly": false,
-    "postedAt": "2026-11-05T17:29:35.607Z",
-    "id": "job-5016e359",
-    "createdAt": "2026-11-05T17:29:37.251Z",
-    "updatedAt": "2026-11-05T17:29:37.251Z"
+    "postedAt": "2026-11-05T19:51:14.048Z",
+    "id": "job-e2cd1216",
+    "createdAt": "2026-11-05T19:51:15.517Z",
+    "updatedAt": "2026-11-05T19:51:15.517Z"
   },
   {
     "hash": "e1076e46d345fed258abbc1bf8003cae0123d20d00ec7726abdb079b48258fe5",
@@ -922,7 +904,7 @@
     "location": "Dhaka / Across Bangladesh",
     "experience": "Graduate / Masters / Freshers Welcome",
     "salary": "Competitive Banking Pay Scale (Grade 9 / Grade 10 / MTO)",
-    "deadline": "2026-11-25T17:29:35.607Z",
+    "deadline": "2026-11-25T19:51:14.048Z",
     "source": "Bangladesh Bank & Bank Portals",
     "sourceUrl": "https://bdgovtjob.net/al-arafah-islami-bank-job-circular/",
     "applyUrl": "https://bdgovtjob.net/al-arafah-islami-bank-job-circular/",
@@ -935,10 +917,10 @@
     "description": "Bank recruitment circular: আল আরাফাহ ইসলামী ব্যাংক নিয়োগ বিজ্ঞপ্তি ২০২৬. Direct notice, eligibility criteria, and application links available at source.",
     "isActive": true,
     "isFresherFriendly": false,
-    "postedAt": "2026-11-05T17:29:35.607Z",
-    "id": "job-a24dae09",
-    "createdAt": "2026-11-05T17:29:37.251Z",
-    "updatedAt": "2026-11-05T17:29:37.251Z"
+    "postedAt": "2026-11-05T19:51:14.048Z",
+    "id": "job-78d87aed",
+    "createdAt": "2026-11-05T19:51:15.517Z",
+    "updatedAt": "2026-11-05T19:51:15.517Z"
   },
   {
     "hash": "e51970f4bb2c06179367c556a1d37dddd3d18ff79afbaaec93ba76ddf97c7dbb",
@@ -949,7 +931,7 @@
     "location": "Dhaka, Bangladesh",
     "experience": "Graduate / Diploma / Freshers",
     "salary": "Negotiable / Market Standard",
-    "deadline": "2026-11-20T17:29:35.630Z",
+    "deadline": "2026-11-20T19:51:14.074Z",
     "source": "BDJobs & Private Portal",
     "sourceUrl": "https://bdgovtjob.net/medical-college-and-hospital-job-circular/",
     "applyUrl": "https://bdgovtjob.net/medical-college-and-hospital-job-circular/",
@@ -962,10 +944,10 @@
     "description": "Private opening: সকল মেডিকেল কলেজ ও হাসপাতাল নিয়োগ বিজ্ঞপ্তি ২০২৬. Check official notice and apply directly through link.",
     "isActive": true,
     "isFresherFriendly": false,
-    "postedAt": "2026-11-05T17:29:35.630Z",
-    "id": "job-33406e0f",
-    "createdAt": "2026-11-05T17:29:37.251Z",
-    "updatedAt": "2026-11-05T17:29:37.251Z"
+    "postedAt": "2026-11-05T19:51:14.074Z",
+    "id": "job-876f7042",
+    "createdAt": "2026-11-05T19:51:15.517Z",
+    "updatedAt": "2026-11-05T19:51:15.517Z"
   },
   {
     "hash": "6b41eb78a4d4538b0c5e990abda8cc9a10027ded3780b890658850b7724c3b6b",
@@ -976,7 +958,7 @@
     "location": "Dhaka, Bangladesh",
     "experience": "Graduate / Diploma / Freshers",
     "salary": "Negotiable / Market Standard",
-    "deadline": "2026-11-20T17:29:35.630Z",
+    "deadline": "2026-11-20T19:51:14.074Z",
     "source": "BDJobs & Private Portal",
     "sourceUrl": "https://bdgovtjob.net/beacon-pharmaceuticals-job-circular/",
     "applyUrl": "https://bdgovtjob.net/beacon-pharmaceuticals-job-circular/",
@@ -989,10 +971,10 @@
     "description": "Private opening: বিকন ফার্মাসিউটিক্যালস নিয়োগ বিজ্ঞপ্তি ২০২৬. Check official notice and apply directly through link.",
     "isActive": true,
     "isFresherFriendly": false,
-    "postedAt": "2026-11-05T17:29:35.630Z",
-    "id": "job-c1038fc6",
-    "createdAt": "2026-11-05T17:29:37.251Z",
-    "updatedAt": "2026-11-05T17:29:37.251Z"
+    "postedAt": "2026-11-05T19:51:14.074Z",
+    "id": "job-8b477ea3",
+    "createdAt": "2026-11-05T19:51:15.517Z",
+    "updatedAt": "2026-11-05T19:51:15.517Z"
   },
   {
     "hash": "a5011ae8d3b13a5054c8305df08b2f2327db2709fa5d3fc7aca63f1f3264d7b3",
@@ -1003,7 +985,7 @@
     "location": "Dhaka, Bangladesh",
     "experience": "Graduate / Diploma / Freshers",
     "salary": "Negotiable / Market Standard",
-    "deadline": "2026-11-20T17:29:35.629Z",
+    "deadline": "2026-11-20T19:51:14.074Z",
     "source": "BDJobs & Private Portal",
     "sourceUrl": "https://bdgovtjob.net/dhaka-ahsania-mission-job-circular/",
     "applyUrl": "https://bdgovtjob.net/dhaka-ahsania-mission-job-circular/",
@@ -1016,10 +998,10 @@
     "description": "Private opening: ঢাকা আহ্ছানিয়া মিশন নিয়োগ বিজ্ঞপ্তি ২০২৬ Dhaka Ahsania Mission Job Circular 2026. Check official notice and apply directly through link.",
     "isActive": true,
     "isFresherFriendly": false,
-    "postedAt": "2026-11-05T17:29:35.629Z",
-    "id": "job-a7a070ec",
-    "createdAt": "2026-11-05T17:29:37.251Z",
-    "updatedAt": "2026-11-05T17:29:37.251Z"
+    "postedAt": "2026-11-05T19:51:14.074Z",
+    "id": "job-ed4d3d33",
+    "createdAt": "2026-11-05T19:51:15.517Z",
+    "updatedAt": "2026-11-05T19:51:15.517Z"
   },
   {
     "hash": "885e6a3684fdbec55ba22e884bd1ef96a09e31ce1bc7c677813a09f4a29efad2",
@@ -1030,7 +1012,7 @@
     "location": "Dhaka, Bangladesh",
     "experience": "Graduate / Diploma / Freshers",
     "salary": "Negotiable / Market Standard",
-    "deadline": "2026-11-20T17:29:35.629Z",
+    "deadline": "2026-11-20T19:51:14.073Z",
     "source": "BDJobs & Private Portal",
     "sourceUrl": "https://bdgovtjob.net/ucep-bangladesh-job-circular/",
     "applyUrl": "https://bdgovtjob.net/ucep-bangladesh-job-circular/",
@@ -1043,10 +1025,10 @@
     "description": "Private opening: ইউসেপ বাংলাদেশ নিয়োগ বিজ্ঞপ্তি ২০২৬ UCEP Bangladesh Job Circular 2026. Check official notice and apply directly through link.",
     "isActive": true,
     "isFresherFriendly": false,
-    "postedAt": "2026-11-05T17:29:35.629Z",
-    "id": "job-3d926df6",
-    "createdAt": "2026-11-05T17:29:37.251Z",
-    "updatedAt": "2026-11-05T17:29:37.251Z"
+    "postedAt": "2026-11-05T19:51:14.073Z",
+    "id": "job-44093a04",
+    "createdAt": "2026-11-05T19:51:15.517Z",
+    "updatedAt": "2026-11-05T19:51:15.517Z"
   },
   {
     "hash": "f78afb5cc5cb45577102a353301eed4c0fdc86ff844b9cccc23960be2584b06b",
@@ -1057,7 +1039,7 @@
     "location": "Dhaka, Bangladesh",
     "experience": "Graduate / Diploma / Freshers",
     "salary": "Negotiable / Market Standard",
-    "deadline": "2026-11-20T17:29:35.629Z",
+    "deadline": "2026-11-20T19:51:14.073Z",
     "source": "BDJobs & Private Portal",
     "sourceUrl": "https://bdgovtjob.net/sks-foundation-job-circular/",
     "applyUrl": "https://bdgovtjob.net/sks-foundation-job-circular/",
@@ -1070,10 +1052,10 @@
     "description": "Private opening: ২০৫ পদে এসকেএস ফাউন্ডেশনে নিয়োগ বিজ্ঞপ্তি ২০২৬ SKS Foundation Job Circular 2026. Check official notice and apply directly through link.",
     "isActive": true,
     "isFresherFriendly": false,
-    "postedAt": "2026-11-05T17:29:35.629Z",
-    "id": "job-4c3ad2d0",
-    "createdAt": "2026-11-05T17:29:37.251Z",
-    "updatedAt": "2026-11-05T17:29:37.251Z"
+    "postedAt": "2026-11-05T19:51:14.073Z",
+    "id": "job-4babdd06",
+    "createdAt": "2026-11-05T19:51:15.517Z",
+    "updatedAt": "2026-11-05T19:51:15.517Z"
   },
   {
     "hash": "c7c6870a83fcf890d232892ca21957f526fc98b70c0267f58a6dd4f9dcbe2522",
@@ -1084,7 +1066,7 @@
     "location": "Dhaka, Bangladesh",
     "experience": "Graduate / Diploma / Freshers",
     "salary": "Negotiable / Market Standard",
-    "deadline": "2026-11-20T17:29:35.629Z",
+    "deadline": "2026-11-20T19:51:14.073Z",
     "source": "BDJobs & Private Portal",
     "sourceUrl": "https://bdgovtjob.net/school-and-college-job-circular/",
     "applyUrl": "https://bdgovtjob.net/school-and-college-job-circular/",
@@ -1097,10 +1079,10 @@
     "description": "Private opening: সকল স্কুল ও কলেজের নিয়োগ বিজ্ঞপ্তি ২০২৬ All School & College Job Circular 2026. Check official notice and apply directly through link.",
     "isActive": true,
     "isFresherFriendly": false,
-    "postedAt": "2026-11-05T17:29:35.629Z",
-    "id": "job-5f83579a",
-    "createdAt": "2026-11-05T17:29:37.251Z",
-    "updatedAt": "2026-11-05T17:29:37.251Z"
+    "postedAt": "2026-11-05T19:51:14.073Z",
+    "id": "job-cf4cc7f4",
+    "createdAt": "2026-11-05T19:51:15.517Z",
+    "updatedAt": "2026-11-05T19:51:15.517Z"
   },
   {
     "hash": "24c0481ff8dcd290a3de282fdbc9af5cb2daa7bc2b935c82a569e0391fcc40ec",
@@ -1111,7 +1093,7 @@
     "location": "Dhaka, Bangladesh",
     "experience": "Graduate / Diploma / Freshers",
     "salary": "Negotiable / Market Standard",
-    "deadline": "2026-11-20T17:29:35.629Z",
+    "deadline": "2026-11-20T19:51:14.073Z",
     "source": "BDJobs & Private Portal",
     "sourceUrl": "https://bdgovtjob.net/garments-and-textile-job-circular/",
     "applyUrl": "https://bdgovtjob.net/garments-and-textile-job-circular/",
@@ -1124,10 +1106,10 @@
     "description": "Private opening: সকল গার্মেন্টস ও টেক্সটাইল নিয়োগ বিজ্ঞপ্তি ২০২৬. Check official notice and apply directly through link.",
     "isActive": true,
     "isFresherFriendly": false,
-    "postedAt": "2026-11-05T17:29:35.629Z",
-    "id": "job-20f7de72",
-    "createdAt": "2026-11-05T17:29:37.251Z",
-    "updatedAt": "2026-11-05T17:29:37.251Z"
+    "postedAt": "2026-11-05T19:51:14.073Z",
+    "id": "job-1531af16",
+    "createdAt": "2026-11-05T19:51:15.517Z",
+    "updatedAt": "2026-11-05T19:51:15.517Z"
   },
   {
     "hash": "f44d9e6f877a4acb7e62c089b47bd70b1e0c89771b56360cea37587dd3a8d908",
@@ -1138,7 +1120,7 @@
     "location": "Dhaka, Bangladesh",
     "experience": "Graduate / Diploma / Freshers",
     "salary": "Negotiable / Market Standard",
-    "deadline": "2026-11-20T17:29:35.629Z",
+    "deadline": "2026-11-20T19:51:14.073Z",
     "source": "BDJobs & Private Portal",
     "sourceUrl": "https://bdgovtjob.net/anjuman-mufidul-islam-job-circular/",
     "applyUrl": "https://bdgovtjob.net/anjuman-mufidul-islam-job-circular/",
@@ -1151,10 +1133,10 @@
     "description": "Private opening: আঞ্জুমান মুফিদুল ইসলাম নিয়োগ বিজ্ঞপ্তি ২০২৬. Check official notice and apply directly through link.",
     "isActive": true,
     "isFresherFriendly": false,
-    "postedAt": "2026-11-05T17:29:35.629Z",
-    "id": "job-5eed61bf",
-    "createdAt": "2026-11-05T17:29:37.251Z",
-    "updatedAt": "2026-11-05T17:29:37.251Z"
+    "postedAt": "2026-11-05T19:51:14.073Z",
+    "id": "job-1057ea3b",
+    "createdAt": "2026-11-05T19:51:15.517Z",
+    "updatedAt": "2026-11-05T19:51:15.517Z"
   },
   {
     "hash": "8e58700f28cc0eef14594f1e91eaad61b3f424b218b60ddfd4cf2fdb974cbe18",
@@ -1165,7 +1147,7 @@
     "location": "Dhaka, Bangladesh",
     "experience": "Graduate / Diploma / Freshers",
     "salary": "Negotiable / Market Standard",
-    "deadline": "2026-11-20T17:29:35.629Z",
+    "deadline": "2026-11-20T19:51:14.073Z",
     "source": "BDJobs & Private Portal",
     "sourceUrl": "https://bdgovtjob.net/proshika-job-circular/",
     "applyUrl": "https://bdgovtjob.net/proshika-job-circular/",
@@ -1178,10 +1160,10 @@
     "description": "Private opening: প্রশিকা নিয়োগ বিজ্ঞপ্তি ২০২৬ Proshika Job Circular 2026. Check official notice and apply directly through link.",
     "isActive": true,
     "isFresherFriendly": false,
-    "postedAt": "2026-11-05T17:29:35.629Z",
-    "id": "job-3113ea43",
-    "createdAt": "2026-11-05T17:29:37.251Z",
-    "updatedAt": "2026-11-05T17:29:37.251Z"
+    "postedAt": "2026-11-05T19:51:14.073Z",
+    "id": "job-fb0bf487",
+    "createdAt": "2026-11-05T19:51:15.517Z",
+    "updatedAt": "2026-11-05T19:51:15.517Z"
   },
   {
     "hash": "461ed13e2b1b1c2e1e9de1507f4661c8c23ac33a26f2371844d09880e78cf049",
@@ -1192,7 +1174,7 @@
     "location": "Dhaka, Bangladesh",
     "experience": "Graduate / Diploma / Freshers",
     "salary": "Negotiable / Market Standard",
-    "deadline": "2026-11-20T17:29:35.629Z",
+    "deadline": "2026-11-20T19:51:14.073Z",
     "source": "BDJobs & Private Portal",
     "sourceUrl": "https://bdgovtjob.net/popi-job-circular/",
     "applyUrl": "https://bdgovtjob.net/popi-job-circular/",
@@ -1205,10 +1187,10 @@
     "description": "Private opening: ৪৮০ পদে পপি এনজিও নিয়োগ বিজ্ঞপ্তি ২০২৬ POPI NGO Job Circular 2026. Check official notice and apply directly through link.",
     "isActive": true,
     "isFresherFriendly": false,
-    "postedAt": "2026-11-05T17:29:35.629Z",
-    "id": "job-6ec791f4",
-    "createdAt": "2026-11-05T17:29:37.251Z",
-    "updatedAt": "2026-11-05T17:29:37.251Z"
+    "postedAt": "2026-11-05T19:51:14.073Z",
+    "id": "job-31c8ff37",
+    "createdAt": "2026-11-05T19:51:15.517Z",
+    "updatedAt": "2026-11-05T19:51:15.517Z"
   },
   {
     "hash": "98c39efe7d9fa375eaf75dd824176b7a78222df3b981844329dc745781689c6a",
@@ -1219,7 +1201,7 @@
     "location": "Dhaka / Across Bangladesh",
     "experience": "Graduate / B.Sc / Diploma / Masters",
     "salary": "National Pay Scale (Grade 9 / 10 / 11)",
-    "deadline": "2026-11-23T17:29:35.642Z",
+    "deadline": "2026-11-23T19:51:14.065Z",
     "source": "AllJobs BD & Govt Portal",
     "sourceUrl": "https://bdgovtjob.net/ais-job-circular/",
     "applyUrl": "https://bdgovtjob.net/ais-job-circular/",
@@ -1231,10 +1213,10 @@
     "description": "Official Government Recruitment Notice: ১৫ পদে কৃষি তথ্য সার্ভিস নিয়োগ বিজ্ঞপ্তি ২০২৬ AIS Job Circular 2026. Original circular details and Teletalk application instructions available at link.",
     "isActive": true,
     "isFresherFriendly": false,
-    "postedAt": "2026-11-05T17:29:35.642Z",
-    "id": "job-98728ce0",
-    "createdAt": "2026-11-05T17:29:37.251Z",
-    "updatedAt": "2026-11-05T17:29:37.251Z"
+    "postedAt": "2026-11-05T19:51:14.065Z",
+    "id": "job-4f607352",
+    "createdAt": "2026-11-05T19:51:15.517Z",
+    "updatedAt": "2026-11-05T19:51:15.517Z"
   },
   {
     "hash": "5b2ba0add7d5a9a408d7b0d20591f59524de3ac61af07ae72e63d45ca0790edd",
@@ -1245,7 +1227,7 @@
     "location": "Dhaka / Across Bangladesh",
     "experience": "Graduate / B.Sc / Diploma / Masters",
     "salary": "National Pay Scale (Grade 9 / 10 / 11)",
-    "deadline": "2026-11-23T17:29:35.642Z",
+    "deadline": "2026-11-23T19:51:14.065Z",
     "source": "AllJobs BD & Govt Portal",
     "sourceUrl": "https://bdgovtjob.net/cantonment-public-school-and-college-job-circular/",
     "applyUrl": "https://bdgovtjob.net/cantonment-public-school-and-college-job-circular/",
@@ -1257,10 +1239,10 @@
     "description": "Official Government Recruitment Notice: সকল ক্যান্টনমেন্ট পাবলিক স্কুল ও কলেজ নিয়োগ বিজ্ঞপ্তি ২০২৬. Original circular details and Teletalk application instructions available at link.",
     "isActive": true,
     "isFresherFriendly": false,
-    "postedAt": "2026-11-05T17:29:35.642Z",
-    "id": "job-715a2636",
-    "createdAt": "2026-11-05T17:29:37.251Z",
-    "updatedAt": "2026-11-05T17:29:37.251Z"
+    "postedAt": "2026-11-05T19:51:14.065Z",
+    "id": "job-c17994dc",
+    "createdAt": "2026-11-05T19:51:15.517Z",
+    "updatedAt": "2026-11-05T19:51:15.517Z"
   },
   {
     "hash": "98b10265785bc116aa9208a4128107e7ce64f11f1512d88a99cf3bbfe17f9bab",
@@ -1271,7 +1253,7 @@
     "location": "Dhaka / Across Bangladesh",
     "experience": "Graduate / B.Sc / Diploma / Masters",
     "salary": "National Pay Scale (Grade 9 / 10 / 11)",
-    "deadline": "2026-11-23T17:29:35.642Z",
+    "deadline": "2026-11-23T19:51:14.065Z",
     "source": "AllJobs BD & Govt Portal",
     "sourceUrl": "https://bdgovtjob.net/dhaka-university-job-circular/",
     "applyUrl": "https://bdgovtjob.net/dhaka-university-job-circular/",
@@ -1283,10 +1265,10 @@
     "description": "Official Government Recruitment Notice: ঢাকা বিশ্ববিদ্যালয় নিয়োগ বিজ্ঞপ্তি ২০২৬ Dhaka University Job Circular 2026. Original circular details and Teletalk application instructions available at link.",
     "isActive": true,
     "isFresherFriendly": false,
-    "postedAt": "2026-11-05T17:29:35.642Z",
-    "id": "job-f2955f85",
-    "createdAt": "2026-11-05T17:29:37.251Z",
-    "updatedAt": "2026-11-05T17:29:37.251Z"
+    "postedAt": "2026-11-05T19:51:14.065Z",
+    "id": "job-6082580a",
+    "createdAt": "2026-11-05T19:51:15.517Z",
+    "updatedAt": "2026-11-05T19:51:15.517Z"
   },
   {
     "hash": "3d259eab36081783f4957d569f399b7bf8099de97020add0be9b8e373d583a55",
@@ -1297,7 +1279,7 @@
     "location": "Dhaka / Across Bangladesh",
     "experience": "Graduate / B.Sc / Diploma / Masters",
     "salary": "National Pay Scale (Grade 9 / 10 / 11)",
-    "deadline": "2026-11-23T17:29:35.642Z",
+    "deadline": "2026-11-23T19:51:14.065Z",
     "source": "AllJobs BD & Govt Portal",
     "sourceUrl": "https://bdgovtjob.net/bangladesh-shipping-corporation-job-circular/",
     "applyUrl": "https://bdgovtjob.net/bangladesh-shipping-corporation-job-circular/",
@@ -1309,10 +1291,10 @@
     "description": "Official Government Recruitment Notice: ৩৯ পদে বাংলাদেশ শিপিং কর্পোরেশন নিয়োগ বিজ্ঞপ্তি ২০২৬ BSC Job Circular 2026. Original circular details and Teletalk application instructions available at link.",
     "isActive": true,
     "isFresherFriendly": false,
-    "postedAt": "2026-11-05T17:29:35.642Z",
-    "id": "job-a47355cd",
-    "createdAt": "2026-11-05T17:29:37.251Z",
-    "updatedAt": "2026-11-05T17:29:37.251Z"
+    "postedAt": "2026-11-05T19:51:14.065Z",
+    "id": "job-1bdfaebd",
+    "createdAt": "2026-11-05T19:51:15.517Z",
+    "updatedAt": "2026-11-05T19:51:15.517Z"
   },
   {
     "hash": "f44b401c2beef77cd344d1c639efa7f627dc7960f4a390fbcf20be7514784276",
@@ -1323,7 +1305,7 @@
     "location": "Dhaka / Across Bangladesh",
     "experience": "Graduate / B.Sc / Diploma / Masters",
     "salary": "National Pay Scale (Grade 9 / 10 / 11)",
-    "deadline": "2026-11-23T17:29:35.642Z",
+    "deadline": "2026-11-23T19:51:14.065Z",
     "source": "AllJobs BD & Govt Portal",
     "sourceUrl": "https://bdgovtjob.net/bangladesh-police-job-circular/",
     "applyUrl": "https://bdgovtjob.net/bangladesh-police-job-circular/",
@@ -1335,10 +1317,10 @@
     "description": "Official Government Recruitment Notice: বাংলাদেশ পুলিশ নিয়োগ বিজ্ঞপ্তি ২০২৬ – Bangladesh Police Job Circular 2026. Original circular details and Teletalk application instructions available at link.",
     "isActive": true,
     "isFresherFriendly": false,
-    "postedAt": "2026-11-05T17:29:35.642Z",
-    "id": "job-68b67266",
-    "createdAt": "2026-11-05T17:29:37.251Z",
-    "updatedAt": "2026-11-05T17:29:37.251Z"
+    "postedAt": "2026-11-05T19:51:14.065Z",
+    "id": "job-ecf13949",
+    "createdAt": "2026-11-05T19:51:15.517Z",
+    "updatedAt": "2026-11-05T19:51:15.517Z"
   },
   {
     "hash": "ce31c7844df782fefba298ff482df584e529d9ada0539d9d6f90ba5aed3a7caa",
@@ -1349,7 +1331,7 @@
     "location": "Dhaka / Across Bangladesh",
     "experience": "Graduate / B.Sc / Diploma / Masters",
     "salary": "National Pay Scale (Grade 9 / 10 / 11)",
-    "deadline": "2026-11-23T17:29:35.642Z",
+    "deadline": "2026-11-23T19:51:14.065Z",
     "source": "AllJobs BD & Govt Portal",
     "sourceUrl": "https://bdgovtjob.net/sicip-job-circular/",
     "applyUrl": "https://bdgovtjob.net/sicip-job-circular/",
@@ -1361,10 +1343,10 @@
     "description": "Official Government Recruitment Notice: SICIP Job Circular 2026 স্কিলস ফর ইন্ডাস্ট্রি কম্পিটিটিভনেস এন্ড ইনোভেশন প্রোগ্রাম নিয়োগ ২০২৬. Original circular details and Teletalk application instructions available at link.",
     "isActive": true,
     "isFresherFriendly": false,
-    "postedAt": "2026-11-05T17:29:35.642Z",
-    "id": "job-cdce72e4",
-    "createdAt": "2026-11-05T17:29:37.251Z",
-    "updatedAt": "2026-11-05T17:29:37.251Z"
+    "postedAt": "2026-11-05T19:51:14.065Z",
+    "id": "job-0d66eb00",
+    "createdAt": "2026-11-05T19:51:15.517Z",
+    "updatedAt": "2026-11-05T19:51:15.517Z"
   },
   {
     "hash": "f661d2be8b4bdbe3999851246bf42fc3eafa7cbc90721707c9735c67e44d9575",
@@ -1375,7 +1357,7 @@
     "location": "Dhaka / Across Bangladesh",
     "experience": "Graduate / B.Sc / Diploma / Masters",
     "salary": "National Pay Scale (Grade 9 / 10 / 11)",
-    "deadline": "2026-11-23T17:29:35.642Z",
+    "deadline": "2026-11-23T19:51:14.065Z",
     "source": "AllJobs BD & Govt Portal",
     "sourceUrl": "https://bdgovtjob.net/dc-office-job-circular/",
     "applyUrl": "https://bdgovtjob.net/dc-office-job-circular/",
@@ -1387,10 +1369,10 @@
     "description": "Official Government Recruitment Notice: সকল জেলা প্রশাসকের কার্যালয়ে নিয়োগ ২০২৬ – DC Office Job Circular 2026. Original circular details and Teletalk application instructions available at link.",
     "isActive": true,
     "isFresherFriendly": false,
-    "postedAt": "2026-11-05T17:29:35.642Z",
-    "id": "job-5b25e34f",
-    "createdAt": "2026-11-05T17:29:37.251Z",
-    "updatedAt": "2026-11-05T17:29:37.251Z"
+    "postedAt": "2026-11-05T19:51:14.065Z",
+    "id": "job-904d5a46",
+    "createdAt": "2026-11-05T19:51:15.517Z",
+    "updatedAt": "2026-11-05T19:51:15.517Z"
   },
   {
     "hash": "8aef15dd5cc75d187b2f7455db56ac0b7ae0fc180820079928b09d60769daa85",
@@ -1401,7 +1383,7 @@
     "location": "Dhaka / Across Bangladesh",
     "experience": "Graduate / B.Sc / Diploma / Masters",
     "salary": "National Pay Scale (Grade 9 / 10 / 11)",
-    "deadline": "2026-11-23T17:29:35.642Z",
+    "deadline": "2026-11-23T19:51:14.065Z",
     "source": "AllJobs BD & Govt Portal",
     "sourceUrl": "https://bdgovtjob.net/bcsl-job-circular/",
     "applyUrl": "https://bdgovtjob.net/bcsl-job-circular/",
@@ -1413,10 +1395,10 @@
     "description": "Official Government Recruitment Notice: ২৪ পদে বাংলাদেশ ক্যাবল শিল্প লিমিটেড নিয়োগ বিজ্ঞপ্তি ২০২৬ BCSL Job Circular 2026. Original circular details and Teletalk application instructions available at link.",
     "isActive": true,
     "isFresherFriendly": false,
-    "postedAt": "2026-11-05T17:29:35.642Z",
-    "id": "job-05d1ae98",
-    "createdAt": "2026-11-05T17:29:37.251Z",
-    "updatedAt": "2026-11-05T17:29:37.251Z"
+    "postedAt": "2026-11-05T19:51:14.065Z",
+    "id": "job-24e9452b",
+    "createdAt": "2026-11-05T19:51:15.517Z",
+    "updatedAt": "2026-11-05T19:51:15.517Z"
   },
   {
     "hash": "7a5f2de5053d51c99dec9101d98bec391d74117380643f8837bec9f4602be03f",
@@ -1427,7 +1409,7 @@
     "location": "Dhaka / Across Bangladesh",
     "experience": "Graduate / B.Sc / Diploma / Masters",
     "salary": "National Pay Scale (Grade 9 / 10 / 11)",
-    "deadline": "2026-11-23T17:29:35.641Z",
+    "deadline": "2026-11-23T19:51:14.065Z",
     "source": "AllJobs BD & Govt Portal",
     "sourceUrl": "https://bdgovtjob.net/bangladesh-supreme-court-job-circular/",
     "applyUrl": "https://bdgovtjob.net/bangladesh-supreme-court-job-circular/",
@@ -1439,10 +1421,10 @@
     "description": "Official Government Recruitment Notice: ০৫ পদে সুপ্রীম কোর্ট নিয়োগ বিজ্ঞপ্তি ২০২৬ Supreme Court Job Circular 2026. Original circular details and Teletalk application instructions available at link.",
     "isActive": true,
     "isFresherFriendly": false,
-    "postedAt": "2026-11-05T17:29:35.641Z",
-    "id": "job-77cb8214",
-    "createdAt": "2026-11-05T17:29:37.251Z",
-    "updatedAt": "2026-11-05T17:29:37.251Z"
+    "postedAt": "2026-11-05T19:51:14.065Z",
+    "id": "job-bdad08f8",
+    "createdAt": "2026-11-05T19:51:15.517Z",
+    "updatedAt": "2026-11-05T19:51:15.517Z"
   },
   {
     "hash": "15921ba5ac336324b236ff5e7ae5e4d923ba64d97aea427343b914677ebfd9d2",
@@ -1453,7 +1435,7 @@
     "location": "Dhaka / Across Bangladesh",
     "experience": "Graduate / B.Sc / Diploma / Masters",
     "salary": "National Pay Scale (Grade 9 / 10 / 11)",
-    "deadline": "2026-11-23T17:29:35.641Z",
+    "deadline": "2026-11-23T19:51:14.064Z",
     "source": "AllJobs BD & Govt Portal",
     "sourceUrl": "https://bdgovtjob.net/dmp-job-circular/",
     "applyUrl": "https://bdgovtjob.net/dmp-job-circular/",
@@ -1465,14 +1447,14 @@
     "description": "Official Government Recruitment Notice: ২০ পদে ঢাকা মেট্রোপলিটন পুলিশ নিয়োগ বিজ্ঞপ্তি ২০২৬ DMP Job Circular 2026. Original circular details and Teletalk application instructions available at link.",
     "isActive": true,
     "isFresherFriendly": false,
-    "postedAt": "2026-11-05T17:29:35.641Z",
-    "id": "job-4f5742f1",
-    "createdAt": "2026-11-05T17:29:37.251Z",
-    "updatedAt": "2026-11-05T17:29:37.251Z"
+    "postedAt": "2026-11-05T19:51:14.065Z",
+    "id": "job-19d33fa1",
+    "createdAt": "2026-11-05T19:51:15.517Z",
+    "updatedAt": "2026-11-05T19:51:15.517Z"
   },
   {
     "id": "job-1",
-    "hash": "hash-tech-1",
+    "hash": "4b3d4ac89a9e94624d95311509ebd28d1b42aabcd3f74b0dfd6b1db649799400",
     "title": "Junior Software Engineer (React / Node.js)",
     "company": "Brain Station 23",
     "category": "TECH_AI",
@@ -1482,8 +1464,8 @@
     "salary": "45,000 - 65,000 BDT",
     "deadline": "2026-11-28T23:59:59Z",
     "source": "Brain Station 23 Careers",
-    "sourceUrl": "https://brainstation-23.com/careers/junior-software-engineer",
-    "applyUrl": "https://brainstation-23.com/careers/junior-software-engineer/apply",
+    "sourceUrl": "https://www.linkedin.com/company/brainstation23/jobs/",
+    "applyUrl": "https://www.linkedin.com/company/brainstation23/jobs/",
     "skills": [
       "JavaScript",
       "TypeScript",
@@ -1500,7 +1482,7 @@
   },
   {
     "id": "job-2",
-    "hash": "hash-ai-2",
+    "hash": "d2fe3310c67a36838eebf88992a59cc26c4bc909cf828f6bc84eda78fc33c44b",
     "title": "Associate AI Engineer / Computer Vision Trainee",
     "company": "BJIT Limited",
     "category": "TECH_AI",
@@ -1508,10 +1490,10 @@
     "location": "Dhaka (Baridhara), Bangladesh",
     "experience": "Fresher Friendly",
     "salary": "50,000 - 70,000 BDT",
-    "deadline": "2026-12-05T23:59:59Z",
+    "deadline": "2026-11-30T19:51:13.746Z",
     "source": "BJIT Careers",
-    "sourceUrl": "https://bjitgroup.com/careers/ai-engineer",
-    "applyUrl": "https://bjitgroup.com/careers/ai-engineer/apply",
+    "sourceUrl": "https://bjitgroup.com/career",
+    "applyUrl": "https://bjitgroup.com/career",
     "skills": [
       "Python",
       "PyTorch",
@@ -1524,11 +1506,11 @@
     "isFresherFriendly": true,
     "postedAt": "2026-11-03T09:00:00Z",
     "createdAt": "2026-11-03T09:00:00Z",
-    "updatedAt": "2026-11-03T09:00:00Z"
+    "updatedAt": "2026-11-05T19:51:15.517Z"
   },
   {
     "id": "job-3",
-    "hash": "hash-bank-3",
+    "hash": "6dd18872438e8d98619ec3c3935ef21ea635484c9b89834485b4d5ed3e1a060f",
     "title": "Assistant Director (General / IT) - 2026 Batch",
     "company": "Bangladesh Bank (BSC)",
     "category": "BANK",
@@ -1538,8 +1520,8 @@
     "salary": "Grade 9 (National Pay Scale: 22,000 - 53,060 BDT + Allowances)",
     "deadline": "2026-12-15T23:59:59Z",
     "source": "Bangladesh Bank eRecruitment",
-    "sourceUrl": "https://erecruitment.bb.org.bd/onlineapp/joblist.php",
-    "applyUrl": "https://erecruitment.bb.org.bd",
+    "sourceUrl": "https://bdgovtjob.net/category/bank-jobs/",
+    "applyUrl": "https://bdgovtjob.net/category/bank-jobs/",
     "skills": [
       "Banking Law",
       "Quantitative Aptitude",
@@ -1555,7 +1537,7 @@
   },
   {
     "id": "job-4",
-    "hash": "hash-govt-4",
+    "hash": "e13d617861b02da3da4a77cb65a41dc6fe0f26443b53c7c87dae7e544af46cec",
     "title": "Assistant Programmer (ICT Division)",
     "company": "Bangladesh Computer Council (BCC)",
     "category": "GOVT",
@@ -1566,7 +1548,7 @@
     "deadline": "2026-11-30T17:00:00Z",
     "source": "AllJobs Teletalk",
     "sourceUrl": "https://alljobs.teletalk.com.bd",
-    "applyUrl": "http://bcc.teletalk.com.bd",
+    "applyUrl": "https://alljobs.teletalk.com.bd",
     "skills": [
       "Software Engineering",
       "Database Management",
@@ -1582,7 +1564,7 @@
   },
   {
     "id": "job-5",
-    "hash": "hash-telecom-5",
+    "hash": "54e5203ede62499401a451caa1e0ac92e23b7d7343292d616703287e5015456e",
     "title": "Graduate Trainee - Technology (Core Network & Cloud)",
     "company": "Grameenphone Ltd.",
     "category": "TELECOM",
@@ -1592,8 +1574,8 @@
     "salary": "Competitive Industry Standard + Health & Annual Benefits",
     "deadline": "2026-11-25T23:59:59Z",
     "source": "Grameenphone Telenor Careers",
-    "sourceUrl": "https://www.grameenphone.com/about/careers",
-    "applyUrl": "https://telenor.wd3.myworkdayjobs.com/GP_Careers",
+    "sourceUrl": "https://www.grameenphone.com",
+    "applyUrl": "https://www.telenor.com/career/",
     "skills": [
       "Linux",
       "Cloud Computing",
@@ -1609,7 +1591,7 @@
   },
   {
     "id": "job-6",
-    "hash": "hash-intern-6",
+    "hash": "8f4ae6d5af6ae497cc8d7fb511f91fb168f8d42763b77b6cd082fcd5c3b4e854",
     "title": "Software Engineering Intern (Summer / Winter 2026)",
     "company": "Enosis Solutions",
     "category": "INTERNSHIP",
@@ -1619,8 +1601,8 @@
     "salary": "20,000 - 25,000 BDT Stipend",
     "deadline": "2026-11-20T23:59:59Z",
     "source": "Enosis Careers",
-    "sourceUrl": "https://www.enosisbd.com/careers",
-    "applyUrl": "https://www.enosisbd.com/careers/internship",
+    "sourceUrl": "https://www.linkedin.com/company/enosis-solutions/jobs/",
+    "applyUrl": "https://www.linkedin.com/company/enosis-solutions/jobs/",
     "skills": [
       "C#",
       ".NET",
@@ -1637,7 +1619,7 @@
   },
   {
     "id": "job-7",
-    "hash": "hash-remote-7",
+    "hash": "97b22e2e0f6ae7bcd02f0fa5ae6ef328e738ebb0ad2ebcbf0b0646b8ae2c2cb3",
     "title": "Junior Fullstack Developer (Next.js & TypeScript)",
     "company": "Supastack Remote (US / APAC Remote)",
     "category": "REMOTE",
@@ -1648,7 +1630,7 @@
     "deadline": "2026-12-10T23:59:59Z",
     "source": "RemoteOK",
     "sourceUrl": "https://remoteok.com",
-    "applyUrl": "https://remoteok.com/apply",
+    "applyUrl": "https://remoteok.com",
     "skills": [
       "React",
       "Next.js",
@@ -1665,7 +1647,7 @@
   },
   {
     "id": "job-8",
-    "hash": "hash-telecom-8",
+    "hash": "77b47a481fbab37857680ffbf590a9c625ebc360c7c8d9a8178c320c1175dab4",
     "title": "Specialist - IT Systems & Integration",
     "company": "Banglalink (VEON)",
     "category": "TELECOM",
@@ -1675,8 +1657,8 @@
     "salary": "Negotiable + Enterprise Benefits",
     "deadline": "2026-11-22T23:59:59Z",
     "source": "Banglalink Careers",
-    "sourceUrl": "https://banglalink.bd/en/careers",
-    "applyUrl": "https://banglalink.bd/en/careers/apply",
+    "sourceUrl": "https://banglalink.net/en/careers",
+    "applyUrl": "https://banglalink.net/en/careers",
     "skills": [
       "Oracle DB",
       "API Gateway",
@@ -1692,7 +1674,7 @@
   },
   {
     "id": "job-9",
-    "hash": "hash-bank-9",
+    "hash": "f3fb65ca04873d9c778978a8b6101bee351744d3b099195ba2b8148a236371d8",
     "title": "Management Trainee Officer (MTO) - 2026",
     "company": "BRAC Bank PLC",
     "category": "BANK",
@@ -1703,7 +1685,7 @@
     "deadline": "2026-12-01T23:59:59Z",
     "source": "BRAC Bank Careers",
     "sourceUrl": "https://www.bracbank.com/en/career",
-    "applyUrl": "https://www.bracbank.com/en/career/apply",
+    "applyUrl": "https://www.bracbank.com/en/career",
     "skills": [
       "Leadership",
       "Analytical Skills",
@@ -1719,7 +1701,7 @@
   },
   {
     "id": "job-10",
-    "hash": "hash-admin-10",
+    "hash": "8e71af8ef6fba63a659d74f54ed3cfe0b58294a3a0e1bf269f927146d6671195",
     "title": "Executive - People Operations & Admin",
     "company": "Therap (BD) Ltd.",
     "category": "ADMIN",
@@ -1728,9 +1710,9 @@
     "experience": "0-1 Year",
     "salary": "35,000 - 45,000 BDT",
     "deadline": "2026-11-19T23:59:59Z",
-    "source": "BDJobs",
-    "sourceUrl": "https://bdjobs.com",
-    "applyUrl": "https://bdjobs.com/apply/therap",
+    "source": "BDJobs & Private Portals",
+    "sourceUrl": "https://bdgovtjob.net/category/private-jobs/",
+    "applyUrl": "https://bdgovtjob.net/category/private-jobs/",
     "skills": [
       "Administration",
       "Vendor Management",

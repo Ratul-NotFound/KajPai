@@ -10,11 +10,11 @@ export const telecomScraper: BaseScraper = {
       {
         company: 'Grameenphone Ltd.',
         title: 'Apprentice / Graduate Engineer - Cloud & Infrastructure',
-        url: 'https://telenor.wd3.myworkdayjobs.com/GP_Careers/job/GP-House-Dhaka/Apprentice-Engineer_JR1001',
+        url: 'https://www.telenor.com/career/',
         location: 'GPhouse, Bashundhara, Dhaka',
         experience: '0-1 Year / Freshers Eligible',
         salary: 'Competitive Enterprise Package',
-        deadline: '2026-11-25T23:59:59Z',
+        deadline: new Date(Date.now() + 20 * 24 * 60 * 60 * 1000).toISOString(),
         skills: ['Cloud Computing', 'Linux Administration', 'DevOps', 'Kubernetes', 'Python'],
         description: 'Join the premier telecom operator driving Smart Bangladesh connectivity and 5G enterprise infrastructure.',
         isFresherFriendly: true,
@@ -26,7 +26,7 @@ export const telecomScraper: BaseScraper = {
         location: 'Gulshan-1, Dhaka',
         experience: '1-3 Years',
         salary: 'Competitive Industry Standard',
-        deadline: '2026-11-27T23:59:59Z',
+        deadline: new Date(Date.now() + 22 * 24 * 60 * 60 * 1000).toISOString(),
         skills: ['ITIL', 'Bash Scripting', 'Monitoring Tools', 'System Integration'],
         description: 'Lead 24/7 IT incident response, digital services monitoring, and automated infrastructure deployments at Robi.',
         isFresherFriendly: false,
@@ -34,11 +34,11 @@ export const telecomScraper: BaseScraper = {
       {
         company: 'Banglalink (VEON)',
         title: 'Junior Cyber Security Analyst',
-        url: 'https://banglalink.bd/en/careers',
+        url: 'https://banglalink.net/en/careers',
         location: 'Tigers Den, Gulshan, Dhaka',
         experience: '0-2 Years',
         salary: 'Attractive Compensation + Provident Fund & Health',
-        deadline: '2026-12-04T23:59:59Z',
+        deadline: new Date(Date.now() + 27 * 24 * 60 * 60 * 1000).toISOString(),
         skills: ['SOC', 'SIEM', 'Network Security', 'Vulnerability Assessment'],
         description: 'Protect critical telecommunication network assets and digital customer services from emerging cyber threats.',
         isFresherFriendly: true,
@@ -66,4 +66,3 @@ export const telecomScraper: BaseScraper = {
     }));
   },
 };
-

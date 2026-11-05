@@ -38,6 +38,10 @@ function loadLocalJobs(): Job[] {
 }
 
 function saveLocalJobs(jobs: Job[]) {
+  // Do not pollute or overwrite production jobs.json during test runs
+  if (process.env.NODE_ENV === 'test' || process.env.VITEST) {
+    return;
+  }
   try {
     if (!fs.existsSync(DATA_DIR)) {
       fs.mkdirSync(DATA_DIR, { recursive: true });
@@ -64,8 +68,10 @@ export async function upsertJobs(jobsToUpsert: Omit<Job, 'id' | 'createdAt' | 'u
   const newJobs: Job[] = [];
   const now = new Date().toISOString();
 
-  // Reload latest saved jobs from disk
-  memoryJobs = loadLocalJobs();
+  // Reload latest saved jobs from disk (in non-test environments)
+  if (!process.env.VITEST && process.env.NODE_ENV !== 'test') {
+    memoryJobs = loadLocalJobs();
+  }
 
   // 1. In-batch deduplication: keep only unique jobs by hash within the current batch
   const uniqueIncomingMap = new Map<string, Omit<Job, 'id' | 'createdAt' | 'updatedAt'>>();
