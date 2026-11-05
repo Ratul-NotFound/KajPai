@@ -66,3 +66,4 @@ export const telecomScraper: BaseScraper = {
     }));
   },
 };
+

@@ -52,3 +52,4 @@ export async function runAllScrapers(options?: ScrapeRunOptions): Promise<Omit<J
   console.log(`Aggregated a total of ${aggregatedJobs.length} jobs.`);
   return aggregatedJobs;
 }
+

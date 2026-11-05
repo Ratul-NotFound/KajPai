@@ -46,3 +46,4 @@ export interface ScrapeResult {
   jobs: Omit<Job, 'id' | 'createdAt' | 'updatedAt'>[];
   error?: string;
 }
+

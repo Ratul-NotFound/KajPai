@@ -36,3 +36,4 @@ export async function safeFetch(url: string, timeoutMs: number = 10000): Promise
     return null;
   }
 }
+

@@ -274,3 +274,4 @@ job-scrapper/
    - Bookmarking persists across page refreshes via `localStorage`.
    - Search bar filters in real-time.
 4. **Deployment Verification:** Ready for one-click deployment to Vercel free tier with environment variables configured in Vercel project settings.
+
