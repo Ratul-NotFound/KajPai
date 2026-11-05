@@ -9,6 +9,20 @@ export function generateJobHash(company: string, title: string, sourceUrl: strin
 }
 
 /**
+ * Safely parses a date string into an ISO string without throwing RangeError on invalid values.
+ */
+export function safeIsoDate(dateStr?: string): string | undefined {
+  if (!dateStr || typeof dateStr !== 'string') return undefined;
+  try {
+    const d = new Date(dateStr.trim());
+    if (isNaN(d.getTime())) return undefined;
+    return d.toISOString();
+  } catch {
+    return undefined;
+  }
+}
+
+/**
  * Checks if a given ISO deadline string has already passed relative to current time.
  */
 export function isDeadlinePassed(deadlineStr?: string): boolean {
@@ -52,21 +66,34 @@ export function formatDeadline(deadlineStr?: string): { text: string; status: 'g
 
 /**
  * Determines whether a job is suitable for freshers / entry-level based on title and experience.
+ * Protects against senior false positives (e.g., "Associate Director").
  */
 export function isFresherJob(title: string, experience?: string): boolean {
   const text = `${title} ${experience || ''}`.toLowerCase();
+
+  // If explicitly senior or director, it's not a fresher role
+  const seniorIndicators = ['senior', 'lead', 'principal', 'director', 'head of', 'manager', '5+ year', '7+ year', '10+ year'];
+  if (seniorIndicators.some((word) => text.includes(word))) {
+    return false;
+  }
+
   const fresherKeywords = [
     'fresher',
     'fresh graduate',
     'trainee',
     'intern',
     'junior',
-    'associate',
     'entry level',
     'entry-level',
     '0-1',
     '0 to 1',
     'no experience',
   ];
+
+  // Specific check for 'associate' when not associated with director/vp
+  if (text.includes('associate') && !text.includes('director') && !text.includes('manager')) {
+    return true;
+  }
+
   return fresherKeywords.some((keyword) => text.includes(keyword));
 }

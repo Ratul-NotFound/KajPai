@@ -1,7 +1,6 @@
 import { createClient, SupabaseClient } from '@supabase/supabase-js';
 import { Job, FilterOptions } from './types';
 import { getMockJobs } from './mockData';
-import { isDeadlinePassed } from './utils';
 
 let supabase: SupabaseClient | null = null;
 
@@ -34,10 +33,18 @@ export async function upsertJobs(jobsToUpsert: Omit<Job, 'id' | 'createdAt' | 'u
   const newJobs: Job[] = [];
   const now = new Date().toISOString();
 
+  // 1. In-batch deduplication: keep only unique jobs by hash within the current batch
+  const uniqueIncomingMap = new Map<string, Omit<Job, 'id' | 'createdAt' | 'updatedAt'>>();
+  for (const item of jobsToUpsert) {
+    if (!uniqueIncomingMap.has(item.hash)) {
+      uniqueIncomingMap.set(item.hash, item);
+    }
+  }
+  const uniqueIncomingJobs = Array.from(uniqueIncomingMap.values());
+
   if (supabase) {
     try {
-      // Fetch existing hashes
-      const hashes = jobsToUpsert.map((j) => j.hash);
+      const hashes = uniqueIncomingJobs.map((j) => j.hash);
       const { data: existingRows } = await supabase
         .from('jobs')
         .select('hash')
@@ -48,8 +55,9 @@ export async function upsertJobs(jobsToUpsert: Omit<Job, 'id' | 'createdAt' | 'u
       const rowsToInsert: any[] = [];
       const rowsToUpdate: any[] = [];
 
-      for (const item of jobsToUpsert) {
+      for (const item of uniqueIncomingJobs) {
         if (!existingHashSet.has(item.hash)) {
+          existingHashSet.add(item.hash);
           const newJob: Job = {
             ...item,
             id: crypto.randomUUID(),
@@ -93,6 +101,18 @@ export async function upsertJobs(jobsToUpsert: Omit<Job, 'id' | 'createdAt' | 'u
         await supabase.from('jobs').insert(rowsToInsert);
       }
 
+      // Execute batch updates for existing jobs
+      for (const updateRow of rowsToUpdate) {
+        await supabase
+          .from('jobs')
+          .update({
+            deadline: updateRow.deadline,
+            is_active: updateRow.is_active,
+            updated_at: updateRow.updated_at,
+          })
+          .eq('hash', updateRow.hash);
+      }
+
       return {
         total: jobsToUpsert.length,
         newCount: newJobs.length,
@@ -106,7 +126,7 @@ export async function upsertJobs(jobsToUpsert: Omit<Job, 'id' | 'createdAt' | 'u
   // In-memory fallback
   const existingMap = new Map(memoryJobs.map((j) => [j.hash, j]));
 
-  for (const item of jobsToUpsert) {
+  for (const item of uniqueIncomingJobs) {
     if (!existingMap.has(item.hash)) {
       const newJob: Job = {
         ...item,

@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { generateJobHash, isDeadlinePassed, formatDeadline, isFresherJob } from '../src/lib/utils';
+import { generateJobHash, isDeadlinePassed, formatDeadline, isFresherJob, safeIsoDate } from '../src/lib/utils';
 import { getJobs, upsertJobs } from '../src/lib/db';
 import { Job } from '../src/lib/types';
 
@@ -21,6 +21,13 @@ describe('Job Utilities & Hashing', () => {
     expect(isFresherJob('Junior Developer', 'Fresh Graduate or 0-1 yr')).toBe(true);
     expect(isFresherJob('Intern Software Engineer', '')).toBe(true);
     expect(isFresherJob('Senior Solutions Architect', '7+ years required')).toBe(false);
+    expect(isFresherJob('Associate Director of Technology', '10+ years')).toBe(false);
+  });
+
+  it('safely parses dates without throwing on invalid formats', () => {
+    expect(safeIsoDate('2026-12-01')).toBeDefined();
+    expect(safeIsoDate('Not a valid date string')).toBeUndefined();
+    expect(safeIsoDate(undefined)).toBeUndefined();
   });
 
   it('database upsert should prevent duplicate entries by hash', async () => {
@@ -48,5 +55,13 @@ describe('Job Utilities & Hashing', () => {
     // Second upsert of the exact same job should yield 0 new jobs
     const duplicateResult = await upsertJobs([sampleJob]);
     expect(duplicateResult.newCount).toBe(0);
+
+    // In-batch duplicate test: passing the same job twice in the same batch
+    const inBatchResult = await upsertJobs([
+      { ...sampleJob, hash: generateJobHash('BJIT', 'Associate AI Engineer 2', 'https://bjit.com/job/3') },
+      { ...sampleJob, hash: generateJobHash('BJIT', 'Associate AI Engineer 2', 'https://bjit.com/job/3') },
+    ]);
+    expect(inBatchResult.newCount).toBe(1);
   });
 });
+

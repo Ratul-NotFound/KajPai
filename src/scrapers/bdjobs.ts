@@ -1,13 +1,14 @@
 import * as cheerio from 'cheerio';
 import { BaseScraper, safeFetch } from './base';
 import { Job, JobCategory } from '../lib/types';
-import { generateJobHash, isFresherJob } from '../lib/utils';
+import { generateJobHash, isFresherJob, safeIsoDate } from '../lib/utils';
 
 export const bdJobsScraper: BaseScraper = {
   name: 'BDJobs (Tech, Bank & Internships)',
   category: 'TECH_AI',
   async scrape(): Promise<Omit<Job, 'id' | 'createdAt' | 'updatedAt'>[]> {
     const results: Omit<Job, 'id' | 'createdAt' | 'updatedAt'>[] = [];
+    const baseUrl = 'https://jobs.bdjobs.com';
     const html = await safeFetch('https://jobs.bdjobs.com/jobsearch.asp?fcatId=8'); // IT / Telecommunication
 
     if (html) {
@@ -18,8 +19,13 @@ export const bdJobsScraper: BaseScraper = {
           const company = $(el).find('.comp-name-text').first().text().trim() || 'Tech Enterprise BD';
           const exp = $(el).find('.exp-text').first().text().trim() || '0-2 years';
           const deadline = $(el).find('.dead-text').first().text().trim();
-          const link = $(el).find('a').first().attr('href') || 'https://jobs.bdjobs.com';
-          const fullLink = link.startsWith('http') ? link : `https://jobs.bdjobs.com/${link}`;
+          const link = $(el).find('a').first().attr('href') || '/';
+          let fullLink = baseUrl;
+          try {
+            fullLink = new URL(link, baseUrl).href;
+          } catch {
+            fullLink = link.startsWith('http') ? link : `${baseUrl}/${link}`;
+          }
 
           if (title && title.length > 2) {
             let cat: JobCategory = 'TECH_AI';
@@ -35,7 +41,7 @@ export const bdJobsScraper: BaseScraper = {
               location: 'Dhaka, Bangladesh',
               experience: exp,
               salary: 'Negotiable / Market Competitive',
-              deadline: deadline ? new Date(deadline).toISOString() : undefined,
+              deadline: safeIsoDate(deadline),
               source: 'BDJobs',
               sourceUrl: fullLink,
               applyUrl: fullLink,
@@ -98,3 +104,4 @@ export const bdJobsScraper: BaseScraper = {
     return results;
   },
 };
+

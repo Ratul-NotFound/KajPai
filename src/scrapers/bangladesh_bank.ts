@@ -1,13 +1,14 @@
 import * as cheerio from 'cheerio';
 import { BaseScraper, safeFetch } from './base';
 import { Job } from '../lib/types';
-import { generateJobHash, isFresherJob } from '../lib/utils';
+import { generateJobHash, isFresherJob, safeIsoDate } from '../lib/utils';
 
 export const bangladeshBankScraper: BaseScraper = {
   name: 'Bangladesh Bank & Public Banks (eRecruitment)',
   category: 'BANK',
   async scrape(): Promise<Omit<Job, 'id' | 'createdAt' | 'updatedAt'>[]> {
     const results: Omit<Job, 'id' | 'createdAt' | 'updatedAt'>[] = [];
+    const baseUrl = 'https://erecruitment.bb.org.bd';
     const html = await safeFetch('https://erecruitment.bb.org.bd/onlineapp/joblist.php');
 
     if (html) {
@@ -20,8 +21,13 @@ export const bangladeshBankScraper: BaseScraper = {
             const title = $(cols[1]).text().trim();
             const bankName = $(cols[0]).text().trim() || 'Bangladesh Bank / BSC';
             const deadline = $(cols[2]).text().trim();
-            const link = $(row).find('a').attr('href') || 'https://erecruitment.bb.org.bd';
-            const fullLink = link.startsWith('http') ? link : `https://erecruitment.bb.org.bd/${link}`;
+            const link = $(row).find('a').attr('href') || '/';
+            let fullLink = baseUrl;
+            try {
+              fullLink = new URL(link, baseUrl).href;
+            } catch {
+              fullLink = link.startsWith('http') ? link : `${baseUrl}/${link}`;
+            }
 
             if (title && title.length > 3) {
               results.push({
@@ -33,7 +39,7 @@ export const bangladeshBankScraper: BaseScraper = {
                 location: 'Dhaka / Across Bangladesh',
                 experience: 'Graduate / Freshers Eligible',
                 salary: 'Grade 9 / Grade 10 National Pay Scale',
-                deadline: deadline ? new Date(deadline).toISOString() : undefined,
+                deadline: safeIsoDate(deadline),
                 source: 'Bangladesh Bank eRecruitment',
                 sourceUrl: fullLink,
                 applyUrl: fullLink,
@@ -97,3 +103,4 @@ export const bangladeshBankScraper: BaseScraper = {
     return results;
   },
 };
+

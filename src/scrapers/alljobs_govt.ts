@@ -1,13 +1,14 @@
 import * as cheerio from 'cheerio';
 import { BaseScraper, safeFetch } from './base';
 import { Job } from '../lib/types';
-import { generateJobHash, isFresherJob } from '../lib/utils';
+import { generateJobHash, isFresherJob, safeIsoDate } from '../lib/utils';
 
 export const allJobsScraper: BaseScraper = {
   name: 'AllJobs BD (Teletalk Govt Circulars)',
   category: 'GOVT',
   async scrape(): Promise<Omit<Job, 'id' | 'createdAt' | 'updatedAt'>[]> {
     const results: Omit<Job, 'id' | 'createdAt' | 'updatedAt'>[] = [];
+    const baseUrl = 'https://alljobs.teletalk.com.bd';
     const html = await safeFetch('https://alljobs.teletalk.com.bd/bn/jobs/government');
 
     if (html) {
@@ -17,8 +18,13 @@ export const allJobsScraper: BaseScraper = {
           const title = $(el).find('.job-title, .title, a').first().text().trim();
           const company = $(el).find('.org-name, .company, .ministry').first().text().trim() || 'Government of Bangladesh';
           const deadline = $(el).find('.deadline, .last-date').first().text().trim();
-          const link = $(el).find('a').first().attr('href') || 'https://alljobs.teletalk.com.bd';
-          const fullLink = link.startsWith('http') ? link : `https://alljobs.teletalk.com.bd${link}`;
+          const link = $(el).find('a').first().attr('href') || '/';
+          let fullLink = baseUrl;
+          try {
+            fullLink = new URL(link, baseUrl).href;
+          } catch {
+            fullLink = link.startsWith('http') ? link : `${baseUrl}${link}`;
+          }
 
           if (title && title.length > 3) {
             results.push({
@@ -30,7 +36,7 @@ export const allJobsScraper: BaseScraper = {
               location: 'Dhaka / Across Bangladesh',
               experience: 'Graduate / B.Sc / Masters',
               salary: 'National Pay Scale (Grade 9 / 10)',
-              deadline: deadline ? new Date(deadline).toISOString() : undefined,
+              deadline: safeIsoDate(deadline),
               source: 'AllJobs BD (Teletalk)',
               sourceUrl: fullLink,
               applyUrl: fullLink,
@@ -94,3 +100,4 @@ export const allJobsScraper: BaseScraper = {
     return results;
   },
 };
+

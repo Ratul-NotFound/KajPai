@@ -9,6 +9,14 @@ export function escapeTelegramMarkdown(text: string): string {
 }
 
 /**
+ * Escapes characters inside inline Markdown link target: (url)
+ * Telegram requires ')' and '\' to be escaped inside the URL parentheses.
+ */
+export function escapeTelegramUrl(url: string): string {
+  return url.replace(/([)\\])/g, '\\$1');
+}
+
+/**
  * Formats a list of newly scraped jobs into a concise, readable Telegram MarkdownV2 message.
  */
 export function formatTelegramMessage(jobs: Job[]): string {
@@ -22,7 +30,7 @@ export function formatTelegramMessage(jobs: Job[]): string {
     const location = escapeTelegramMarkdown(job.location);
     const category = escapeTelegramMarkdown(job.category.replace('_', ' '));
     const salary = job.salary ? escapeTelegramMarkdown(job.salary) : 'Negotiable';
-    const applyUrl = job.applyUrl;
+    const applyUrl = escapeTelegramUrl(job.applyUrl);
 
     return (
       `*${idx + 1}\\. ${title}*\n` +
