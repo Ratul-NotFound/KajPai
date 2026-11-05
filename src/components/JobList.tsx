@@ -40,7 +40,7 @@ export const JobList: React.FC<JobListProps> = ({
   }
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4.5 sm:gap-5 items-stretch">
       {jobs.map((job) => (
         <JobCard
           key={job.id}
