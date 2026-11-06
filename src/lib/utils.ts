@@ -1,6 +1,29 @@
 import crypto from 'crypto';
 
 /**
+ * Sanitizes and cleans mojibake / corrupted UTF-8 encodings and HTML entities from scraped job text.
+ */
+export function cleanText(text?: string): string {
+  if (!text) return '';
+  return text
+    .replace(/â\u0080\u0093/g, '–')
+    .replace(/â\u0080\u0094/g, '—')
+    .replace(/â\u0080\u0099/g, "'")
+    .replace(/â\u0080\u0098/g, "'")
+    .replace(/â\u0080\u009c/g, '"')
+    .replace(/â\u0080\u009d/g, '"')
+    .replace(/â\u0080\u00a6/g, '...')
+    .replace(/â\u0080\u00a2/g, '•')
+    .replace(/&amp;/g, '&')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+/**
  * Deterministically generates a SHA-256 hash for a job posting.
  */
 export function generateJobHash(company: string, title: string, sourceUrl: string): string {

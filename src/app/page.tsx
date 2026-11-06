@@ -7,7 +7,7 @@ import { JobList } from '@/components/JobList';
 import { Job, JobCategory } from '@/lib/types';
 import { isDeadlinePassed } from '@/lib/utils';
 import { getMockJobs } from '@/lib/mockData';
-import { Sparkles, CheckCircle2 } from 'lucide-react';
+import { CheckCircle2 } from 'lucide-react';
 
 export default function DashboardPage() {
   const [jobs, setJobs] = useState<Job[]>([]);
@@ -84,7 +84,7 @@ export default function DashboardPage() {
         setScrapeNotification('Scraped completed. Refreshing listings.');
         await fetchJobs();
       }
-    } catch (err: any) {
+    } catch {
       setScrapeNotification('Scraper finished. Listings refreshed.');
       await fetchJobs();
     } finally {
@@ -178,17 +178,18 @@ export default function DashboardPage() {
       />
 
       {/* Main Container */}
-      <main className="max-w-6xl mx-auto px-4 sm:px-6 pb-20">
+      <main className="max-w-6xl mx-auto px-3 sm:px-6 pb-20">
         {/* Live Notification Banner */}
         {scrapeNotification && (
-          <div className="mt-4 p-3 rounded-md bg-zinc-900 text-zinc-100 border border-zinc-800 text-xs font-medium flex items-center justify-between animate-fade-in shadow-xs">
-            <div className="flex items-center gap-2">
-              <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
-              <span>{scrapeNotification}</span>
+          <div className="mt-3 sm:mt-4 p-2.5 sm:p-3 rounded-md bg-zinc-900 text-zinc-100 border border-zinc-800 text-xs font-medium flex items-start sm:items-center justify-between gap-2 animate-fade-in shadow-xs">
+            <div className="flex items-start sm:items-center gap-2 min-w-0">
+              <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5 sm:mt-0" />
+              <span className="leading-snug">{scrapeNotification}</span>
             </div>
             <button
               onClick={() => setScrapeNotification(null)}
-              className="text-zinc-400 hover:text-white font-bold ml-2 transition-colors"
+              aria-label="Dismiss notification"
+              className="text-zinc-400 hover:text-white font-bold p-1 shrink-0 transition-colors touch-manipulation"
             >
               ✕
             </button>
@@ -212,7 +213,7 @@ export default function DashboardPage() {
         />
 
         {/* Results Metadata Bar */}
-        <div className="py-4 flex items-center justify-between text-xs text-zinc-500">
+        <div className="py-2.5 sm:py-3.5 flex flex-wrap items-center justify-between gap-1.5 text-xs text-zinc-500">
           <div>
             Showing <span className="font-semibold text-zinc-900">{filteredJobs.length}</span>{' '}
             {showSavedOnly ? 'saved' : ''} jobs
@@ -227,7 +228,7 @@ export default function DashboardPage() {
           {(searchQuery || selectedCategory !== 'ALL' || fresherOnly || showSavedOnly) && (
             <button
               onClick={handleResetFilters}
-              className="text-zinc-900 hover:text-zinc-600 underline font-medium transition-colors"
+              className="text-zinc-900 hover:text-zinc-600 underline font-medium transition-colors p-1 -mr-1 touch-manipulation"
             >
               Clear filters
             </button>
@@ -236,11 +237,11 @@ export default function DashboardPage() {
 
         {/* Job Listings Feed */}
         {loading ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4.5 sm:gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3.5 sm:gap-5">
             {[1, 2, 3, 4].map((i) => (
               <div
                 key={i}
-                className="h-44 rounded-md border border-zinc-200 bg-zinc-50/70 animate-pulse p-5"
+                className="h-36 sm:h-44 rounded-md border border-zinc-200 bg-zinc-50/70 animate-pulse p-3.5 sm:p-5"
               />
             ))}
           </div>

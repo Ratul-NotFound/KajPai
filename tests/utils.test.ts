@@ -8,6 +8,7 @@ import {
   resolveCompanyLogo,
   extractSkillsFromText,
   parseBanglaDeadline,
+  cleanText,
 } from '../src/lib/utils';
 import { getJobs, upsertJobs } from '../src/lib/db';
 import { Job } from '../src/lib/types';
@@ -95,6 +96,12 @@ describe('Job Utilities & Hashing', () => {
     const iso = parseBanglaDeadline(banglaText);
     expect(iso).toBeDefined();
     expect(iso).toContain('2026-11-30');
+  });
+
+  it('cleans mojibake characters and html entities from job text', () => {
+    const raw = 'ML Inference Engineer â\u0080\u0093 Terminal-Bench &amp; Task Design';
+    const cleaned = cleanText(raw);
+    expect(cleaned).toBe('ML Inference Engineer – Terminal-Bench & Task Design');
   });
 });
 
