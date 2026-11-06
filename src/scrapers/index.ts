@@ -1,6 +1,7 @@
 import { BaseScraper } from './base';
 import { allJobsScraper } from './alljobs_govt';
 import { bdJobsScraper } from './bdjobs';
+import { skillJobsScraper } from './skill_jobs';
 import { bangladeshBankScraper } from './bangladesh_bank';
 import { bdTechFirmsScraper } from './bd_tech_firms';
 import { telecomScraper } from './telecom';
@@ -10,6 +11,7 @@ import { Job } from '../lib/types';
 export const allScrapers: BaseScraper[] = [
   allJobsScraper,
   bdJobsScraper,
+  skillJobsScraper,
   bangladeshBankScraper,
   bdTechFirmsScraper,
   telecomScraper,

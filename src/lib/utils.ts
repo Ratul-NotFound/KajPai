@@ -284,6 +284,10 @@ const LOCAL_BRAND_LOGOS: Record<string, string> = {
   // Govt Circulars & Portals
   'teletalk': '/logos/teletalk.svg',
   'alljobs': '/logos/teletalk.svg',
+  'skill.jobs': '/logos/skilljobs.svg',
+  'skill jobs': '/logos/skilljobs.svg',
+  'daffodil': '/logos/skilljobs.svg',
+  'cdc-diu': '/logos/skilljobs.svg',
   'supreme court': '/logos/govt.svg',
   'police': '/logos/govt.svg',
   'dmp': '/logos/govt.svg',
