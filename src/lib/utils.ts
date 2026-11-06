@@ -98,6 +98,119 @@ export function isFresherJob(title: string, experience?: string): boolean {
   return fresherKeywords.some((keyword) => text.includes(keyword));
 }
 
+const COMMON_TECH_SKILLS = [
+  'Python',
+  'JavaScript',
+  'TypeScript',
+  'React',
+  'Next.js',
+  'Node.js',
+  'FastAPI',
+  'Django',
+  'Spring Boot',
+  'Java',
+  'C++',
+  'Golang',
+  'C#',
+  '.NET',
+  'PHP',
+  'Laravel',
+  'AWS',
+  'GCP',
+  'Azure',
+  'Docker',
+  'Kubernetes',
+  'PostgreSQL',
+  'MongoDB',
+  'MySQL',
+  'Redis',
+  'PyTorch',
+  'TensorFlow',
+  'LLMs',
+  'Machine Learning',
+  'Computer Vision',
+  'TailwindCSS',
+  'Angular',
+  'Vue',
+  'GraphQL',
+  'REST API',
+  'Microservices',
+  'Git',
+  'Linux',
+  'Cybersecurity',
+  'SQL',
+];
+
+/**
+ * Automatically extracts relevant tech and engineering skills from freeform job text.
+ */
+export function extractSkillsFromText(text: string): string[] {
+  if (!text) return [];
+  const found: string[] = [];
+  const lower = text.toLowerCase();
+
+  for (const skill of COMMON_TECH_SKILLS) {
+    const skillLower = skill.toLowerCase();
+    // Word boundary or clean match
+    const regex = new RegExp(`(^|[^a-z0-9])${skillLower.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}([^a-z0-9]|$)`, 'i');
+    if (regex.test(lower)) {
+      found.push(skill);
+    }
+  }
+
+  return found.slice(0, 6);
+}
+
+const BANGLA_DIGITS: Record<string, string> = {
+  '০': '0', '১': '1', '২': '2', '৩': '3', '৪': '4',
+  '৫': '5', '৬': '6', '৭': '7', '৮': '8', '৯': '9',
+};
+
+const BANGLA_MONTHS: Record<string, number> = {
+  'জানুয়ারি': 0, 'জানুয়ারী': 0, 'january': 0,
+  'ফেব্রুয়ারি': 1, 'ফেব্রুয়ারী': 1, 'february': 1,
+  'মার্চ': 2, 'march': 2,
+  'এপ্রিল': 3, 'april': 3,
+  'মে': 4, 'may': 4,
+  'জুন': 5, 'june': 5,
+  'জুলাই': 6, 'july': 6,
+  'আগস্ট': 7, 'আগষ্ট': 7, 'august': 7,
+  'সেপ্টেম্বর': 8, 'september': 8,
+  'অক্টোবর': 9, 'october': 9,
+  'নভেম্বর': 10, 'november': 10,
+  'ডিসেম্বর': 11, 'december': 11,
+};
+
+/**
+ * Extracts and converts Bangla or English deadlines into ISO date format.
+ * E.g., "৩০ নভেম্বর ২০২৬" -> "2026-11-30T17:59:59.000Z"
+ */
+export function parseBanglaDeadline(text: string): string | undefined {
+  if (!text) return undefined;
+
+  // Convert all Bangla digits to English
+  const normalized = text.replace(/[০-৯]/g, (d) => BANGLA_DIGITS[d] || d).toLowerCase();
+
+  // Pattern: (day 1-31) (month) (year 2024-2030)
+  for (const [monthName, monthIndex] of Object.entries(BANGLA_MONTHS)) {
+    if (normalized.includes(monthName)) {
+      const match = normalized.match(new RegExp(`(\\d{1,2})\\s*(?:[\\s\\S]{0,10})?${monthName}\\s*(?:[\\s\\S]{0,10})?(\\d{4})`));
+      if (match) {
+        const day = parseInt(match[1], 10);
+        const year = parseInt(match[2], 10);
+        if (day >= 1 && day <= 31 && year >= 2024 && year <= 2030) {
+          const date = new Date(Date.UTC(year, monthIndex, day, 17, 59, 59));
+          return date.toISOString();
+        }
+      }
+    }
+  }
+
+  // Fallback to standard safeIsoDate
+  return safeIsoDate(text);
+}
+
+
 const LOCAL_BRAND_LOGOS: Record<string, string> = {
   // Top Bangladesh Tech
   'bkash': '/logos/bkash.svg',

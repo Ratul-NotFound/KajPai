@@ -1,66 +1,101 @@
 import * as cheerio from 'cheerio';
 import { BaseScraper, safeFetch } from './base';
 import { Job } from '../lib/types';
-import { generateJobHash, isFresherJob, resolveCompanyLogo } from '../lib/utils';
+import { generateJobHash, isFresherJob, parseBanglaDeadline, extractSkillsFromText, resolveCompanyLogo } from '../lib/utils';
 
 export const bangladeshBankScraper: BaseScraper = {
   name: 'Bangladesh Bank & Financial Institutions',
   category: 'BANK',
   async scrape(): Promise<Omit<Job, 'id' | 'createdAt' | 'updatedAt'>[]> {
     const results: Omit<Job, 'id' | 'createdAt' | 'updatedAt'>[] = [];
-    
-    // Live feed of bank circulars in Bangladesh
-    const html = await safeFetch('https://bdgovtjob.net/category/bank-jobs/', 12000);
+    const seenHashes = new Set<string>();
 
-    if (html) {
+    const parseEntry = (rawTitle: string, link: string, snippet: string = '') => {
+      if (!rawTitle || rawTitle.length < 5 || !link) return;
+
+      let bankName = 'Commercial / State Bank Bangladesh';
+      if (rawTitle.includes('ইসলামী') || rawTitle.includes('Islami')) bankName = 'Al-Arafah Islami Bank PLC';
+      else if (rawTitle.includes('মার্কেন্টাইল') || rawTitle.includes('Mercantile')) bankName = 'Mercantile Bank Limited';
+      else if (rawTitle.includes('এনসিসি') || rawTitle.includes('NCC')) bankName = 'NCC Bank PLC';
+      else if (rawTitle.includes('বেঙ্গল') || rawTitle.includes('Bengal')) bankName = 'Bengal Commercial Bank';
+      else if (rawTitle.includes('সীমান্ত') || rawTitle.includes('Shimanto')) bankName = 'Shimanto Bank PLC';
+      else if (rawTitle.includes('বাংলাদেশ ব্যাংক') || rawTitle.includes('Bangladesh Bank')) bankName = 'Bangladesh Bank (BSC)';
+      else if (rawTitle.includes('সোনালী') || rawTitle.includes('Sonali')) bankName = 'Sonali Bank PLC';
+      else if (rawTitle.includes('ব্র্যাক') || rawTitle.includes('BRAC')) bankName = 'BRAC Bank PLC';
+      else if (rawTitle.includes('সিটি') || rawTitle.includes('City Bank')) bankName = 'The City Bank Limited';
+      else if (rawTitle.includes('ডাচ বাংলা') || rawTitle.includes('Dutch-Bangla')) bankName = 'Dutch-Bangla Bank PLC';
+
+      const extractedDeadline = parseBanglaDeadline(snippet) || parseBanglaDeadline(rawTitle);
+      const deadline = extractedDeadline || new Date(Date.now() + 22 * 24 * 60 * 60 * 1000).toISOString();
+
+      const extractedSkills = extractSkillsFromText(`${rawTitle} ${snippet}`);
+      const defaultSkills = ['Banking Operations', 'Quantitative Analysis', 'Financial Systems', 'Analytical Reasoning'];
+      const skills = extractedSkills.length > 0 ? extractedSkills : defaultSkills;
+
+      const hash = generateJobHash(bankName, rawTitle, link);
+      if (!seenHashes.has(hash)) {
+        seenHashes.add(hash);
+        results.push({
+          hash,
+          title: rawTitle,
+          company: bankName,
+          category: 'BANK',
+          employmentType: 'FULL_TIME',
+          location: 'Dhaka / Across Bangladesh',
+          experience: 'Graduate / Masters / Freshers Welcome',
+          salary: 'Competitive Banking Pay Scale (Grade 9 / Grade 10 / MTO)',
+          deadline,
+          source: 'Bangladesh Bank & Bank Portals',
+          sourceUrl: link,
+          applyUrl: link,
+          skills: skills.slice(0, 5),
+          description: snippet
+            ? `${snippet.slice(0, 250)}... Official bank circular, qualification rules, and application instructions.`
+            : `Bank recruitment circular: ${rawTitle}. Direct notice, eligibility criteria, and application links available at source.`,
+          isActive: true,
+          isFresherFriendly: isFresherJob(rawTitle, 'Graduate'),
+          logoUrl: resolveCompanyLogo(bankName),
+          postedAt: new Date().toISOString(),
+        });
+      }
+    };
+
+    // 1. Primary Strategy: Parse high-reliability XML RSS Feed
+    const rssXml = await safeFetch('https://bdgovtjob.net/category/bank-jobs/feed/', 10000);
+    if (rssXml) {
       try {
-        const $ = cheerio.load(html);
-        $('article, .post-item, .entry-header').each((_, el) => {
-          const headingEl = $(el).find('h2, .entry-title').first();
-          const rawTitle = headingEl.text().trim();
-          const link = headingEl.find('a').attr('href') || $(el).find('a').attr('href') || 'https://erecruitment.bb.org.bd';
-
-          if (rawTitle && rawTitle.length > 5 && link) {
-            let bankName = 'Commercial / State Bank Bangladesh';
-            if (rawTitle.includes('ইসলামী') || rawTitle.includes('Islami')) bankName = 'Al-Arafah Islami Bank PLC';
-            else if (rawTitle.includes('মার্কেন্টাইল') || rawTitle.includes('Mercantile')) bankName = 'Mercantile Bank Limited';
-            else if (rawTitle.includes('এনসিসি') || rawTitle.includes('NCC')) bankName = 'NCC Bank PLC';
-            else if (rawTitle.includes('বেঙ্গল') || rawTitle.includes('Bengal')) bankName = 'Bengal Commercial Bank';
-            else if (rawTitle.includes('সীমান্ত') || rawTitle.includes('Shimanto')) bankName = 'Shimanto Bank PLC';
-            else if (rawTitle.includes('বাংলাদেশ ব্যাংক') || rawTitle.includes('Bangladesh Bank')) bankName = 'Bangladesh Bank (BSC)';
-            else if (rawTitle.includes('সোনালী') || rawTitle.includes('Sonali')) bankName = 'Sonali Bank PLC';
-            else if (rawTitle.includes('ব্র্যাক') || rawTitle.includes('BRAC')) bankName = 'BRAC Bank PLC';
-
-            // Estimated deadline ~20 days from publish date
-            const deadline = new Date(Date.now() + 20 * 24 * 60 * 60 * 1000).toISOString();
-
-            results.push({
-              hash: generateJobHash(bankName, rawTitle, link),
-              title: rawTitle,
-              company: bankName,
-              category: 'BANK',
-              employmentType: 'FULL_TIME',
-              location: 'Dhaka / Across Bangladesh',
-              experience: 'Graduate / Masters / Freshers Welcome',
-              salary: 'Competitive Banking Pay Scale (Grade 9 / Grade 10 / MTO)',
-              deadline,
-              source: 'Bangladesh Bank & Bank Portals',
-              sourceUrl: link,
-              applyUrl: link,
-              skills: ['Banking Operations', 'Quantitative Analysis', 'Financial Systems', 'Analytical Reasoning'],
-              description: `Bank recruitment circular: ${rawTitle}. Direct notice, eligibility criteria, and application links available at source.`,
-              isActive: true,
-              isFresherFriendly: isFresherJob(rawTitle, 'Graduate'),
-              logoUrl: resolveCompanyLogo(bankName),
-              postedAt: new Date().toISOString(),
-            });
-          }
+        const $ = cheerio.load(rssXml, { xmlMode: true });
+        $('item').each((_, el) => {
+          const rawTitle = $(el).find('title').text().trim();
+          const link = $(el).find('link').text().trim() || 'https://erecruitment.bb.org.bd';
+          const description = $(el).find('description').text().trim();
+          parseEntry(rawTitle, link, description);
         });
       } catch (err) {
-        console.warn('Bank scraper parse warning:', err);
+        console.warn('Bank RSS parse warning:', err);
       }
     }
 
+    // 2. Secondary Strategy: HTML Portal Scrape if RSS produced few items
+    if (results.length < 5) {
+      const html = await safeFetch('https://bdgovtjob.net/category/bank-jobs/', 12000);
+      if (html) {
+        try {
+          const $ = cheerio.load(html);
+          $('article, .post-item, .entry-header').each((_, el) => {
+            const headingEl = $(el).find('h2, .entry-title').first();
+            const rawTitle = headingEl.text().trim();
+            const link = headingEl.find('a').attr('href') || $(el).find('a').attr('href') || 'https://erecruitment.bb.org.bd';
+            const snippet = $(el).find('.entry-content, .post-excerpt, p').first().text().trim();
+            parseEntry(rawTitle, link, snippet);
+          });
+        } catch (err) {
+          console.warn('Bank HTML parse warning:', err);
+        }
+      }
+    }
+
+    // 3. Fallback
     if (results.length === 0) {
       results.push({
         hash: generateJobHash('Bangladesh Bank (Central Bank)', 'Assistant Director (General & IT)', 'https://erecruitment.bb.org.bd/ad-2026'),

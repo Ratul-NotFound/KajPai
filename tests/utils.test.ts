@@ -1,5 +1,14 @@
 import { describe, it, expect } from 'vitest';
-import { generateJobHash, isDeadlinePassed, formatDeadline, isFresherJob, safeIsoDate, resolveCompanyLogo } from '../src/lib/utils';
+import {
+  generateJobHash,
+  isDeadlinePassed,
+  formatDeadline,
+  isFresherJob,
+  safeIsoDate,
+  resolveCompanyLogo,
+  extractSkillsFromText,
+  parseBanglaDeadline,
+} from '../src/lib/utils';
 import { getJobs, upsertJobs } from '../src/lib/db';
 import { Job } from '../src/lib/types';
 
@@ -70,6 +79,22 @@ describe('Job Utilities & Hashing', () => {
     expect(resolveCompanyLogo('Grameenphone')).toBe('/logos/grameenphone.svg');
     expect(resolveCompanyLogo('Bangladesh Bank')).toBe('/logos/bangladesh-bank.svg');
     expect(resolveCompanyLogo('Unknown Firm', 'https://example.com/logo.png')).toBe('https://example.com/logo.png');
+  });
+
+  it('extracts technical skills automatically from freeform text', () => {
+    const text = 'Looking for Python and React developer with PostgreSQL and Docker experience.';
+    const skills = extractSkillsFromText(text);
+    expect(skills).toContain('Python');
+    expect(skills).toContain('React');
+    expect(skills).toContain('PostgreSQL');
+    expect(skills).toContain('Docker');
+  });
+
+  it('parses Bangla digits and months into valid ISO deadlines', () => {
+    const banglaText = 'আবেদন করার শেষ তারিখ ৩০ নভেম্বর ২০২৬ বিকাল ৫টা';
+    const iso = parseBanglaDeadline(banglaText);
+    expect(iso).toBeDefined();
+    expect(iso).toContain('2026-11-30');
   });
 });
 
