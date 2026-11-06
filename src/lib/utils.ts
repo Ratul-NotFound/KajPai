@@ -72,7 +72,7 @@ export function isFresherJob(title: string, experience?: string): boolean {
   const text = `${title} ${experience || ''}`.toLowerCase();
 
   // If explicitly senior or director, it's not a fresher role
-  const seniorIndicators = ['senior', 'lead', 'principal', 'director', 'head of', 'manager', '5+ year', '7+ year', '10+ year'];
+  const seniorIndicators = ['senior', 'lead', 'principal', 'director', 'head of', '5+ year', '7+ year', '10+ year'];
   if (seniorIndicators.some((word) => text.includes(word))) {
     return false;
   }
@@ -87,7 +87,13 @@ export function isFresherJob(title: string, experience?: string): boolean {
     'entry-level',
     '0-1',
     '0 to 1',
+    '0-2',
+    '0 to 2',
+    '0 to 3',
     'no experience',
+    'freshers are encouraged',
+    'freshers encouraged',
+    'at least 0',
   ];
 
   // Specific check for 'associate' when not associated with director/vp
@@ -127,8 +133,18 @@ const COMMON_TECH_SKILLS = [
   'PyTorch',
   'TensorFlow',
   'LLMs',
+  'AI',
   'Machine Learning',
+  'Data Science',
   'Computer Vision',
+  'Automation',
+  'DevOps',
+  'CI/CD',
+  'Networking',
+  'Flutter',
+  'React Native',
+  'iOS',
+  'Android',
   'TailwindCSS',
   'Angular',
   'Vue',
@@ -139,6 +155,8 @@ const COMMON_TECH_SKILLS = [
   'Linux',
   'Cybersecurity',
   'SQL',
+  'QA',
+  'System Design',
 ];
 
 /**
