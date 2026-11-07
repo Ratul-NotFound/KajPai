@@ -27,15 +27,15 @@ export const Header: React.FC<HeaderProps> = ({
         {/* Brand Identity */}
         <div className="flex items-center gap-2 sm:gap-3 shrink-0">
           <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-md bg-zinc-950 text-white flex items-center justify-center font-bold text-xs sm:text-sm tracking-tight shadow-xs">
-            JP
+            KP
           </div>
           <div className="min-w-0">
             <div className="flex items-center gap-1.5 sm:gap-2">
               <span className="font-semibold text-zinc-950 text-sm sm:text-base tracking-tight truncate">
-                JobPulse BD
+                KajPai
               </span>
               <span className="hidden md:inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-medium bg-zinc-100 text-zinc-700 border border-zinc-200">
-                12-Hour Auto Radar
+                BD Job Radar
               </span>
             </div>
             <p className="text-[11px] text-zinc-500 hidden sm:block truncate max-w-[280px] lg:max-w-none">

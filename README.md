@@ -1,6 +1,6 @@
-# 🚀 JobPulse BD — Bangladesh Job Aggregator & Automated Scraper
+# 🚀 KajPai (কাজপাই) — Bangladesh Tech, Bank & Govt Job Radar
 
-A clean, professional, minimalistic white-themed job portal built for Computer Science students, software engineers, and job seekers in Bangladesh. Automatically aggregates, categorizes, and normalizes job openings twice daily (every 12 hours) across major Bangladesh portals, software farms, bank recruitment circulars, government notices, telecom giants, and remote developer boards.
+A clean, professional, minimalistic job portal built for Computer Science students, software engineers, and job seekers in Bangladesh. Automatically aggregates, categorizes, and normalizes job openings twice daily (every 12 hours) across major Bangladesh portals (BDJobs, Skill.jobs, AllJobs Teletalk), top software companies, bank recruitment circulars, government notices, telecom giants, and remote developer boards.
 
 ---
 

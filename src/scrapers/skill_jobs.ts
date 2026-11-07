@@ -253,3 +253,4 @@ export const skillJobsScraper: BaseScraper = {
     return results;
   },
 };
+

@@ -4,7 +4,7 @@ import { sendTelegramAlert } from '../src/notifications/telegram';
 
 async function main() {
   console.log('====================================================');
-  console.log('🚀 JobPulse BD: Automated 12-Hour Scraper Run');
+  console.log('🚀 KajPai: Automated 12-Hour Scraper Run');
   console.log(`⏰ Started at: ${new Date().toISOString()}`);
   console.log('====================================================\n');
 

@@ -24,7 +24,7 @@ export default function DashboardPage() {
   // Load saved bookmarks from localStorage
   useEffect(() => {
     try {
-      const stored = localStorage.getItem('jobpulse_saved_jobs');
+      const stored = localStorage.getItem('kajpai_saved_jobs') || localStorage.getItem('jobpulse_saved_jobs');
       if (stored) {
         setSavedJobIds(new Set(JSON.parse(stored)));
       }
@@ -43,7 +43,7 @@ export default function DashboardPage() {
         next.add(jobId);
       }
       try {
-        localStorage.setItem('jobpulse_saved_jobs', JSON.stringify(Array.from(next)));
+        localStorage.setItem('kajpai_saved_jobs', JSON.stringify(Array.from(next)));
       } catch (e) {
         console.warn('Could not persist saved jobs to localStorage:', e);
       }

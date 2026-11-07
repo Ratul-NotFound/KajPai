@@ -24,7 +24,7 @@ async function executeScrapeJob() {
 }
 
 async function startDaemon() {
-  console.log('🚀 JobPulse BD: 12-Hour Background Scheduler Active');
+  console.log('🚀 KajPai: 12-Hour Background Scheduler Active');
   console.log(`🔄 Checking for new jobs every 12 hours (${TWELVE_HOURS_MS / 1000 / 60 / 60} hours)...`);
 
   // Run initial scrape immediately on startup
