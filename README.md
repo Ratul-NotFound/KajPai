@@ -61,7 +61,7 @@ This runs all 6 Bangladesh and global scrapers concurrently, prints a summary ta
 
 1. Push this repository to your GitHub account:
    ```bash
-   git remote add origin https://github.com/<your-username>/<your-repo-name>.git
+   git remote add origin https://github.com/Ratul-NotFound/KajPai.git
    git branch -M main
    git push -u origin main
    ```
