@@ -297,6 +297,7 @@ const LOCAL_BRAND_LOGOS: Record<string, string> = {
   'govt': '/logos/govt.svg',
   'government': '/logos/govt.svg',
   'bdjobs': '/logos/bdjobs.svg',
+  'linkedin': '/logos/linkedin.svg',
 
   // Global & Remote
   'remote': '/logos/remote.svg',

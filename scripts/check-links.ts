@@ -23,16 +23,16 @@ async function checkUrl(url: string): Promise<{ status: number | string; ok: boo
       },
     });
     clearTimeout(timeout);
-    // Some servers return 405 Method Not Allowed on HEAD, retry with GET
-    if (res.status === 405 || res.status === 403) {
+    // Some servers return 405 Method Not Allowed, 403, or 429 on rapid HEAD requests
+    if (res.status === 405 || res.status === 403 || res.status === 429) {
       const getRes = await fetch(url, {
         method: 'GET',
         headers: {
           'User-Agent':
-            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36',
+            'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36',
         },
       });
-      return { status: getRes.status, ok: getRes.ok || getRes.status === 403 };
+      return { status: getRes.status, ok: getRes.ok || getRes.status === 403 || getRes.status === 429 };
     }
     return { status: res.status, ok: res.ok };
   } catch (err: any) {

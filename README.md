@@ -1,6 +1,6 @@
 # 🚀 KajPai (কাজপাই) — Bangladesh Tech, Bank & Govt Job Radar
 
-A clean, professional, minimalistic job portal built for Computer Science students, software engineers, and job seekers in Bangladesh. Automatically aggregates, categorizes, and normalizes job openings twice daily (every 12 hours) across major Bangladesh portals (BDJobs, Skill.jobs, AllJobs Teletalk), top software companies, bank recruitment circulars, government notices, telecom giants, and remote developer boards.
+A clean, professional, minimalistic job portal built for Computer Science students, software engineers, and job seekers in Bangladesh. Automatically aggregates, categorizes, and normalizes job openings twice daily (every 12 hours) across major Bangladesh portals (BDJobs, Skill.jobs, AllJobs Teletalk, LinkedIn Bangladesh), top software companies, bank recruitment circulars, government notices, telecom giants, and remote developer boards.
 
 ---
 
@@ -53,7 +53,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser. The dashboa
 ```bash
 npm run scrape
 ```
-This runs all 6 Bangladesh and global scrapers concurrently, prints a summary table to your terminal, and upserts jobs.
+This runs all 8 Bangladesh and global scrapers concurrently (BDJobs, Skill.jobs, AllJobs, LinkedIn Bangladesh, BD Tech Companies, Banks, Telecom, Remote), prints a summary table to your terminal, and upserts jobs.
 
 ---
 
